@@ -20,17 +20,1115 @@
 <html>
 <head>
 <style type="text/css">
-#studentdetail; {
-	background-color: white;
-	font-family: sans-serif;
-	padding: 0px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
-	-moz-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
-	-webkit-box-shadow: 0 4px 6px -5px rgba(0, 0, 0, 0.8);
-	padding: 10px;
+#studentdetail
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+;
+{
+background-color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+white
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+font-family
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sans-serif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+padding
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+-webkit-border-radius
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+-moz-border-radius
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+border-radius
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+box-shadow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+4
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-4
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rgba
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(
+0
+,
+0
+,
+0
+,
+0
+.7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+);
+-moz-box-shadow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+4
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-4
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rgba
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(
+0
+,
+0
+,
+0
+,
+0
+.7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+);
+-webkit-box-shadow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+4
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-5
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rgba
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(
+0
+,
+0
+,
+0
+,
+0
+.8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+);
+padding
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
 }
 </style>
 <sj:head jqueryui="true" />
@@ -43,61 +1141,83 @@
 	<h2>Welcome to student info page...</h2>
 
 	<s:set name="x" value="student" />
-	<table border="0" width="">
-		<tr>
-			<td colspan="2">
-				<h2>Basic Details Of Student</h2>
-			</td>
+
+	<hr style="padding: 0px; margin: 4px;">
+	<hr style="padding: 0px; margin: 4px;">
+	<table border="0" width="" height="50px">
+		<tr style="height: 10px;">
 			<td width="550"></td>
-			<td><a href="getPDF?emailid=<s:property value="#x.emailId" />"><img
+			<td colspan="1">
+				<h3>Basic Details Of Student</h3>
+			</td>
+
+			<td align="right" width="100"><a
+				href="getPDF?emailid=<s:property value="#x.emailId" />"><img
 					src="images/print.jpg" alt="print"></a></td>
 		</tr>
+	</table>
+	<hr style="padding: 0px; margin: 4px;">
+	<hr style="padding: 0px; margin: 4px;">
+	<table border="0">
 		<tr>
-			<td>Name:-</td>
-			<td><s:property value="#x.name" /></td>
+			<td><b>Name:-</b></td>
+			<td align="right" width="100"><s:property value="#x.name" /></td>
 		</tr>
 
 		<tr>
-			<td>Email:-</td>
-			<td><s:property value="#x.emailId" /></td>
+			<td><b>Email:-</b></td>
+			<td align="right" width="100"><s:property value="#x.emailId" /></td>
 			<s:set var="email" value="#x.emailId" />
 		</tr>
 
 		<tr>
-			<td>Contact:-</td>
-			<td><s:property value="#x.contactNumber" /></td>
+			<td><b>Contact:-</b></td>
+			<td align="right" width="100"><s:property
+					value="#x.contactNumber" /></td>
 		</tr>
 	</table>
 
+	<hr>
+	<hr>
 	<table>
 		<tr>
+			<td width="550"></td>
 			<td colspan="2">
-				<h2>Fee Details Of Student</h2>
+				<h3>Fee Details Of Student</h3>
 			</td>
 		</tr>
+	</table>
+	<hr>
+	<hr>
+	<table border="0">
 		<tr>
-			<td>Course Fee:-</td>
-			<td><s:property value="#x.feeDetails.courseFees" /></td>
+			<td><b>Course Fee:-</b></td>
+			<td align="right" width="100"><s:property
+					value="#x.feeDetails.courseFees" /></td>
 		</tr>
 
 		<tr>
-			<td>Service Tax:-</td>
-			<td><s:property value="#x.feeDetails.serviceTax" /></td>
+			<td><b>Service Tax:-</b></td>
+			<td align="right" width="100"><s:property
+					value="#x.feeDetails.serviceTax" /></td>
 		</tr>
 
 		<tr>
-			<td>Fine:-</td>
-			<td><s:property value="#x.feeDetails.fine" /></td>
+			<td><b>Fine:-</b></td>
+			<td align="right" width="100"><s:property
+					value="#x.feeDetails.fine" /></td>
 		</tr>
 
 		<tr>
-			<td>Discount Available:-</td>
-			<td><s:property value="#x.feeDetails.discountAvailable" /></td>
+			<td><b>Discount Available:-</b></td>
+			<td align="right" width="100"><s:property
+					value="#x.feeDetails.discountAvailable" /></td>
 		</tr>
 
 		<tr>
-			<td>Total Fee:-</td>
-			<td><s:property value="#x.feeDetails.totalFee" /></td>
+			<td><b>Total Fee:-</b></td>
+			<td align="right" width="100"><s:property
+					value="#x.feeDetails.totalFee" /></td>
 		</tr>
 
 	</table>
@@ -111,7 +1231,7 @@
 
 	</table>
 
-	<hr>
+
 
 	<%
 		Student stu = (Student) request.getAttribute("student");
@@ -121,23 +1241,23 @@
 		for (Payment p : stu.getPaymentsList()) {
 
 			if (p instanceof RegistrationPayment) {
-				out.println(" <table border='0' id='studentdetail' ><tr><td> <h3> Payment   :  Registration</h3></td></tr>");
+				out.println("<hr><hr><table border='0' id='studentdetail' ><tr><td width='550'></td><td> <h3> Payment   :  Registration</h3></td></tr></table><hr><hr><table>");
 
 				RegistrationPayment rp = (RegistrationPayment) p;
 
-				out.println("<tr><td> Payment ID   :  </td><td>"
+				out.println("<tr><td><b>Payment ID   :</b>  </td><td>"
 						+ rp.getPaymentID() + "</td></tr>");
-				out.println("<tr><td> Payment Status    :  </td><td>"
+				out.println("<tr><td><b> Payment Status    :</b>  </td><td>"
 						+ rp.getPaymentStatus() + "</td></tr></table>");
 
 			} else if (p instanceof FullFeePayment) {
 				FullFeePayment ffp = (FullFeePayment) p;
 
-				out.println("<table border='0' id='studentdetail'><tr><td> <h3>  Fullfee Payment </h3></td></tr> ");
+				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550'></td><td> <h3>  Fullfee Payment </h3></td></tr></table><hr><hr><table> ");
 
-				out.println("<tr><td> Payment ID    :  </td><td>"
+				out.println("<tr><td><b> Payment ID  :</b> </td><td>"
 						+ ffp.getPaymentID() + "</td></tr>");
-				out.println("<tr><td> Payment Status    :  </td><td>"
+				out.println("<tr><td><b> Payment Status  : </b> </td><td>"
 						+ ffp.getPaymentStatus() + "</td><td>"
 						+ " <a href='perpareDuePayment?paymentId="
 						+ ffp.getPaymentID()
@@ -147,15 +1267,15 @@
 
 				InstallmentPayment ip = (InstallmentPayment) p;
 
-				out.println("<table border='0' id='studentdetail'><tr><td> <h3>"
+				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550' ></td><td> <h3>"
 						+ ip.getInstallmentType()
-						+ " Intsallment </h3> </td></tr>");
-				out.println("<tr><td><font '> Payment Status     : </td><td>"
+						+ " Intsallment </h3> </td></tr></table><hr><hr><table>");
+				out.println("<tr><td><font><b> Payment Status     : </b></td><td>"
 						+ ip.getPaymentStatus()
 						+ "</font> <a href='perpareDuePayment?paymentId="
 						+ ip.getPaymentID() + "'>PAY NOW </a></td></tr>");
 
-				out.println("<br><tr><td> Payment ID    :  </td><td>"
+				out.println("<tr><td><b>Payment ID    : </b> </td><td>"
 						+ ip.getPaymentID());
 				out.println("</td></tr></table>");
 
@@ -164,21 +1284,21 @@
 			}
 
 			///General Payment Details
-			out.println("<table border='0' id='studentdetail'><tr><td> Prposed Amount   :  </td><td>"
+			out.println("<table border='0' id='studentdetail'><tr><td><b> Prposed Amount   :  </b></td><td>"
 					+ p.getPaymentDetails().getProposedAmount()
 					+ "</td></tr>");
-			out.println("<tr><td> Deposited Amount   :  </td><td>"
+			out.println("<tr><td><b> Deposited Amount   :  </b></td><td>"
 					+ p.getPaymentDetails().getDepositedAmount()
 					+ "</td></tr>");
-			out.println(" <tr><td> Prposed Date   :  </td><td>"
+			out.println(" <tr><td><b> Prposed Date   :  </b></td><td>"
 					+ p.getPaymentDetails().getProposedDate()
 					+ "</td></tr>");
 			if (p.getPaymentDetails().getPaymentDate() != null) {
-				out.println("<tr><td> Payment Date   :  </td><td>"
+				out.println("<tr><td><b> Payment Date   :  </b></td><td>"
 						+ p.getPaymentDetails().getPaymentDate()
 						+ "</td></tr>");
 			} else {
-				out.println(" <tr><td> Payment Date   :  </td><td>N/A </td></tr>");
+				out.println(" <tr><td><b> Payment Date   :  </b></td><td>N/A </td></tr>");
 			}
 
 			out.println(" </table>");
@@ -188,7 +1308,7 @@
 
 			if (pm instanceof CashMode) {
 
-				out.println("<table border='0' id='studentdetail'><tr><td><b> Payment Mode </b></td>: <td>Cash Mode</td></tr>");
+				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550'></td><td><b><h3> Payment Mode </h3></b></td>: <td><b><h3>Cash Mode</h3><b></td></tr></table><hr><hr><table>");
 
 				CashMode cm = (CashMode) pm;
 				out.println("<tr><td><b> Cash Amount </b></td><td>"
@@ -202,7 +1322,7 @@
 				}
 
 			} else if (pm instanceof DDMode) {
-				out.println("<table border='0' id='studentdetail'><tr><td><b> Payment Mode </b></td>:<td> DD Mode </td></tr>");
+				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550'></td><td><b></h3> Payment Mode </h3></b></td>:<td><b><h3> DD Mode </h3><b></td></tr></table><hr><hr><table>");
 
 				DDMode ddm = (DDMode) pm;
 				out.println("<tr><td><b> Bank Name </b></td><td>"
@@ -215,7 +1335,7 @@
 						+ ddm.getIssueDate() + "</td></tr></table>");
 
 			} else if (pm instanceof ChequeMode) {
-				out.println("<table border='0' id='studentdetail'><tr><td><b> Payment Mode </b></td>:<td> Cheque Mode</td></tr>");
+				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550'></td><td><b><h3> Payment Mode </h3></b></td>:<td><b><h3> Cheque Mode </h3><b></td></tr></table><hr><hr><table>");
 
 				ChequeMode chqm = (ChequeMode) pm;
 				out.println("<tr><td><b> Bank Name </b></td><td>"
@@ -230,7 +1350,7 @@
 						+ chqm.getIssueDate() + "</td></tr></table>");
 
 			} else if (pm instanceof CardMode) {
-				out.println("<table border='0' id='studentdetail'><tr><td><b> Payment Mode </b></td>:<td> Card  Mode </td></tr>");
+				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550'></td><td><b><h3> Payment Mode </h3></b></td>:<td><b><h3> Card  Mode </h3><b></td></tr></table><hr><hr><table>");
 
 				CardMode crdm = (CardMode) pm;
 				out.println("<tr><td><b> Card Number  </b></td><td>"
@@ -241,7 +1361,7 @@
 						+ crdm.getCardExpiryDate() + "</td></tr></table>");
 
 			} else if (pm instanceof OnlineMode) {
-				out.println("<table border='0' id='studentdetail'><tr><td><b> Payment Mode </b></td>:<td> Online Mode </td></tr>");
+				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550'></td><td><b></h3> Payment Mode </h3></b></td>:<td><b><h3> Online Mode </h3><b></td></tr></table><hr><hr><table>");
 
 				OnlineMode om = (OnlineMode) pm;
 				out.println("<tr><td><b> Reiciept Number  </b></td><td>"
@@ -253,11 +1373,6 @@
 
 			}
 
-			out.println("<hr>");
-
-			out.println("<br>");
-
-			out.println("<hr>");
 
 		}
 	%>

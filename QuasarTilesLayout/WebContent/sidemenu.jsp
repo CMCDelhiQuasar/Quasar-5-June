@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
@@ -6,6 +7,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript">
+	function datevalue() {
+		var x = document.getElementById("dat");
+		var d = new Date();
+		x.href = x + (d.getDay() + 1) + "/" + (d.getMonth() + 1) + "/"
+				+ d.getFullYear();
+		//alert(x);
+	}
+	//setTimeout('datevalue()', 100);
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <sj:head jqueryui="true" />
 </head>
@@ -28,7 +39,8 @@
 			<ul type="none">
 				<li><a href="registration.jsp"><img src="images/002.png"></img></a></li>
 
-				<li><a href="globalsearch?queryString=28/06/2014"><img src="images/calendar.png" /></a></li>
+				<li><a id="dat" onclick="datevalue()"
+					href="globalsearch?queryString="><img src="images/calendar.png" /></a></li>
 			</ul>
 		</sj:accordionItem>
 
