@@ -43,9 +43,8 @@ radial-gradient(#1568b4 1%, transparent 20%);
 background-size:10px 10px;
 background-position: 0 0, 30px 30px;
 	*/
-	
 	padding: 20px;
-	margin-top: 20px;
+	margin-top: 10px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -64,8 +63,8 @@ background-position: 0 0, 30px 30px;
 #content {
 	background-color: white;
 	border: 1px solid #DDD;
-	margin: 20px 0;
-	padding: 20px;
+	margin: 5px;
+	padding: 10px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -92,9 +91,8 @@ background-position: 0 0, 30px 30px;
 		</tr>
 
 		<tr>
-			<td width="10%" id="sidemenu" valign="top"><tiles:insertAttribute
-					name="sideMenu" /></td>
-			<td width="90%" id="content"><tiles:insertAttribute name="body" /></td>
+
+			<td id="content"><tiles:insertAttribute name="body" /></td>
 		</tr>
 		<tr>
 			<td colspan="2" height="1"><tiles:insertAttribute name="footer" />
