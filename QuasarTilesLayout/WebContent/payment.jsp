@@ -104,7 +104,7 @@
 
 
 
-		<table border="1" id="studentdetail">
+		<table border="0" id="studentdetail">
 			<tr>
 				<td colspan="4"><h2>Payment Configuration For</h2></td>
 				<td width="130"></td>
