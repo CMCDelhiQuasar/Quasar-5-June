@@ -20,57 +20,12 @@
 <html>
 <head>
 <style type="text/css">
-#studentdetail
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
+#studentdetails
 
 
 ;
 {
 background-color
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 :
@@ -98,7 +53,11 @@ background-color
 
 
 
+
+
 white
+
+
 
 
 
@@ -147,6 +106,8 @@ font-family
 
 
 
+
+
 :
 
 
@@ -172,7 +133,11 @@ font-family
 
 
 
+
+
 sans-serif
+
+
 
 
 
@@ -221,7 +186,11 @@ padding
 
 
 
+
+
 :
+
+
 
 
 
@@ -248,6 +217,8 @@ padding
 
 0
 px
+
+
 
 
 
@@ -296,7 +267,11 @@ px
 
 
 
+
+
 :
+
+
 
 
 
@@ -323,6 +298,8 @@ px
 
 4
 px
+
+
 
 
 
@@ -371,7 +348,11 @@ px
 
 
 
+
+
 :
+
+
 
 
 
@@ -398,6 +379,8 @@ px
 
 4
 px
+
+
 
 
 
@@ -446,7 +429,11 @@ border-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -495,6 +482,8 @@ px
 
 
 
+
+
 ;
 box-shadow
 
@@ -521,7 +510,11 @@ box-shadow
 
 
 
+
+
 :
+
+
 
 
 
@@ -573,8 +566,12 @@ px
 
 
 
+
+
 4
 px
+
+
 
 
 
@@ -625,7 +622,11 @@ px
 
 
 
+
+
 rgba
+
+
 
 
 
@@ -657,6 +658,8 @@ rgba
 ,
 0
 .7
+
+
 
 
 
@@ -707,7 +710,11 @@ rgba
 
 
 
+
+
 :
+
+
 
 
 
@@ -759,8 +766,12 @@ px
 
 
 
+
+
 4
 px
+
+
 
 
 
@@ -811,7 +822,11 @@ px
 
 
 
+
+
 rgba
+
+
 
 
 
@@ -867,6 +882,8 @@ rgba
 
 
 
+
+
 );
 -webkit-box-shadow
 
@@ -893,7 +910,11 @@ rgba
 
 
 
+
+
 :
+
+
 
 
 
@@ -945,8 +966,12 @@ px
 
 
 
+
+
 6
 px
+
+
 
 
 
@@ -997,7 +1022,11 @@ px
 
 
 
+
+
 rgba
+
+
 
 
 
@@ -1053,8 +1082,12 @@ rgba
 
 
 
+
+
 );
 padding
+
+
 
 
 
@@ -1104,6 +1137,8 @@ padding
 
 
 
+
+
 10
 px
 
@@ -1128,7 +1163,41 @@ px
 
 
 
+
+
 ;
+}
+h3 {
+	font-family: "Lucida Sans";
+	font-variant: small-caps;
+	font-size: large;
+	color: ;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 0px;
+	margin: 0;
+	padding: 0;
+}
+
+b {
+  color: #aaa;
+  text-align: right;
+  padding: .4em .2em .4em .4em;
+  font-size: medium;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 2px;
+}
+td
+{
+color: #aaa;
+	font-size: medium;
+	text-align: center;
+	margin-bottom: 0px;
+	margin: 0;
+	padding: 0;
 }
 </style>
 <sj:head jqueryui="true" />
@@ -1144,7 +1213,7 @@ px
 
 	<hr style="padding: 0px; margin: 4px;">
 	<hr style="padding: 0px; margin: 4px;">
-	<table border="0" width="" height="50px">
+	<table id="test" border="0" width="" height="50px">
 		<tr style="height: 10px;">
 			<td width="550"></td>
 			<td colspan="1">
@@ -1308,12 +1377,12 @@ px
 
 			if (pm instanceof CashMode) {
 
-				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550'></td><td><b><h3> Payment Mode </h3></b></td>: <td><b><h3>Cash Mode</h3><b></td></tr></table><hr><hr><table>");
+				out.println("<table border='0' id='studentdetail'><tr><td><b> Payment Mode :</b></td> <td><b>Cash Mode<b></td></tr>");
 
 				CashMode cm = (CashMode) pm;
-				out.println("<tr><td><b> Cash Amount </b></td><td>"
+				out.println("<tr><td><b> Cash Amount :</b></td><td>"
 						+ cm.getCashAmount() + "</td></tr>");
-				out.println("<tr><td> <b>Cash Details</b> </td></tr>");
+				out.println("<tr><td> <b>Cash Details :</b> </td></tr>");
 
 				for (Note n : cm.getCashDetail().keySet()) {
 					out.println("<tr><td><b> " + n + " </b></td><td> : "
@@ -1322,64 +1391,60 @@ px
 				}
 
 			} else if (pm instanceof DDMode) {
-				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550'></td><td><b></h3> Payment Mode </h3></b></td>:<td><b><h3> DD Mode </h3><b></td></tr></table><hr><hr><table>");
+				out.println("<table border='0' id='studentdetail'><tr><td><b> Payment Mode :</b></td><td><b> DD Mode <b></td></tr>");
 
 				DDMode ddm = (DDMode) pm;
-				out.println("<tr><td><b> Bank Name </b></td><td>"
+				out.println("<tr><td><b> Bank Name :</b></td><td>"
 						+ ddm.getBankName() + "</td></tr>");
-				out.println("<tr><td><b>  DD Number </b></td><td>"
+				out.println("<tr><td><b>  DD Number :</b></td><td>"
 						+ ddm.getDDNumber() + "</td></tr>");
-				out.println("<tr><td><b> DD Expiry Date </b></td><td>"
+				out.println("<tr><td><b> DD Expiry Date :</b></td><td>"
 						+ ddm.getDdExpiryDate() + "</td></tr>");
-				out.println("<tr><td><b> DD Issue Date </b></td><td>"
+				out.println("<tr><td><b> DD Issue Date :</b></td><td>"
 						+ ddm.getIssueDate() + "</td></tr></table>");
 
 			} else if (pm instanceof ChequeMode) {
-				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550'></td><td><b><h3> Payment Mode </h3></b></td>:<td><b><h3> Cheque Mode </h3><b></td></tr></table><hr><hr><table>");
+				out.println("<table border='0' id='studentdetail'><tr><td><b> Payment Mode :</b></td><td> Cheque Mode </td></tr>");
 
 				ChequeMode chqm = (ChequeMode) pm;
-				out.println("<tr><td><b> Bank Name </b></td><td>"
+				out.println("<tr><td><b> Bank Name :</b></td><td>"
 						+ chqm.getBankName() + "</td></tr>");
-				out.println("<tr><td><b> Cheque Number </b></td><td>"
+				out.println("<tr><td><b> Cheque Number :</b></td><td>"
 						+ chqm.getChequeNumber() + "</td></tr>");
-				out.println("<tr><td><b> Cheque Status </b></td><td>"
+				out.println("<tr><td><b> Cheque Status :</b></td><td>"
 						+ chqm.getChequeStatus() + "</td></tr>");
-				out.println("<tr><td><b> Cheque Expiry Date </b></td><td>"
+				out.println("<tr><td><b> Cheque Expiry Date :</b></td><td>"
 						+ chqm.getExpriyDate() + "</td></tr>");
-				out.println("<tr><td><b>Cheque Issue Date </b></td><td>"
+				out.println("<tr><td><b>Cheque Issue Date :</b></td><td>"
 						+ chqm.getIssueDate() + "</td></tr></table>");
 
 			} else if (pm instanceof CardMode) {
-				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550'></td><td><b><h3> Payment Mode </h3></b></td>:<td><b><h3> Card  Mode </h3><b></td></tr></table><hr><hr><table>");
+				out.println("<table border='0' id='studentdetail'><tr><td><b> Payment Mode :</b></td><td> Card  Mode </td></tr>");
 
 				CardMode crdm = (CardMode) pm;
-				out.println("<tr><td><b> Card Number  </b></td><td>"
+				out.println("<tr><td><b> Card Number :</b></td><td>"
 						+ crdm.getCardNumber() + "</td></tr>");
-				out.println("<tr><td><b> Transaction ID </b></td><td>"
+				out.println("<tr><td><b> Transaction ID :</b></td><td>"
 						+ crdm.getTransactionID() + "</td></tr>");
-				out.println("<tr><td><b> Card Expiry Date  </b></td><td>"
+				out.println("<tr><td><b> Card Expiry Date :</b></td><td>"
 						+ crdm.getCardExpiryDate() + "</td></tr></table>");
 
 			} else if (pm instanceof OnlineMode) {
-				out.println("<hr><hr><table border='0' id='studentdetail'><tr><td width='550'></td><td><b></h3> Payment Mode </h3></b></td>:<td><b><h3> Online Mode </h3><b></td></tr></table><hr><hr><table>");
+				out.println("<table border='0' id='studentdetail'><tr><td><b> Payment Mode :</b></td><td><b> Online Mode <b></td></tr>");
 
 				OnlineMode om = (OnlineMode) pm;
-				out.println("<tr><td><b> Reiciept Number  </b></td><td>"
+				out.println("<tr><td><b> Reiciept Number :</b></td><td>"
 						+ om.getRecieptNumber() + "</td></tr>");
-				out.println("<tr><td><b> Transaction ID </b></td><td>"
+				out.println("<tr><td><b> Transaction ID :</b></td><td>"
 						+ om.getTrasactionID() + "</td></tr>");
 
 			} else {
 
 			}
 
-
 		}
 	%>
 
 	<hr>
-
-
-
 </body>
 </html>
