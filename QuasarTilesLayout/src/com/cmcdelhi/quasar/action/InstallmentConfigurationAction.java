@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.cmcdelhi.quasar.exceptions.DateException;
 import com.cmcdelhi.quasar.student.Student;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -335,9 +334,6 @@ public class InstallmentConfigurationAction extends ActionSupport implements
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();
-		} catch (DateException de) {
-			de.printStackTrace();
-			return ERROR;
 		}
 		return "success";
 	}

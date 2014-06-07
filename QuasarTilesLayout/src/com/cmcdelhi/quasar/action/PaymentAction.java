@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.cmcdelhi.quasar.exceptions.DateException;
 import com.cmcdelhi.quasar.paymentDetails.Payment;
 import com.cmcdelhi.quasar.paymentDetails.PaymentStatus;
 import com.cmcdelhi.quasar.student.Student;
@@ -113,8 +112,6 @@ public class PaymentAction extends ActionSupport implements
 					break;
 				}
 
-			} catch (DateException e) {
-				System.out.println("Date Exception " + e.getMessage());
 			} catch (Exception e) {
 				System.out.println("Exception " + e.getMessage());
 			}

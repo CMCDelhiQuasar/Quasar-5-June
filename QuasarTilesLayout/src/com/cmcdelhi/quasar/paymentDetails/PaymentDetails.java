@@ -6,8 +6,6 @@ import javax.persistence.Embeddable;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.cmcdelhi.quasar.exceptions.DateException;
-
 @Embeddable
 public class PaymentDetails {
 
@@ -24,13 +22,9 @@ public class PaymentDetails {
 		return proposedDate;
 	}
 
-	public void setProposedDate(Date proposedDate) throws DateException {
-		if (proposedDate.after(new Date())) {
-			this.proposedDate = proposedDate;
-		} else {
-			throw new DateException(
-					"Proposed Date cannot be before todays date .");
-		}
+	public void setProposedDate(Date proposedDate) {
+
+		this.proposedDate = proposedDate;
 
 	}
 
@@ -38,15 +32,8 @@ public class PaymentDetails {
 		return paymentDate;
 	}
 
-	public void setPaymentDate(Date paymentDate) throws DateException {
-
-		if (paymentDate.after(new Date())) {
-			this.paymentDate = paymentDate;
-		} else {
-			throw new DateException(
-					"Payment Date cannot be before todays date .");
-		}
-
+	public void setPaymentDate(Date paymentDate) {
+		this.paymentDate = paymentDate;
 	}
 
 	public double getProposedAmount() {

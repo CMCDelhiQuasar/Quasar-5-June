@@ -1,7 +1,5 @@
 package com.cmcdelhi.quasar.action;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.Map;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.cmcdelhi.quasar.exceptions.DateException;
 import com.cmcdelhi.quasar.paymentDetails.PaymentStatus;
 import com.cmcdelhi.quasar.student.Student;
 import com.opensymphony.xwork2.ActionSupport;
@@ -46,39 +43,34 @@ public class FullFeeConfigurationAction extends ActionSupport implements
 			// back
 			return "nosession";
 		} else {
-			try {
-				// if available then fetch the student object
-				Student loadedStudent = (Student) registrationSessionMap
-						.get("shagird");
 
-				loadedStudent.getPaymentsList().get(1).getPaymentDetails()
-						.setDepositedAmount(0);
-				loadedStudent.getPaymentsList().get(1).getPaymentDetails()
-						.setProposedAmount(proposedAmount);
-				loadedStudent.getPaymentsList().get(1).getPaymentDetails()
-						.setProposedDate(proposedDate);
-				loadedStudent.getPaymentsList().get(1)
-						.setPaymentComment(comment);
-				loadedStudent.setPaymentStatus(PaymentStatus.FULLPAID);
+			// if available then fetch the student object
+			Student loadedStudent = (Student) registrationSessionMap
+					.get("shagird");
 
-				Enumeration enm = request.getParameterNames();
+			loadedStudent.getPaymentsList().get(1).getPaymentDetails()
+					.setDepositedAmount(0);
+			loadedStudent.getPaymentsList().get(1).getPaymentDetails()
+					.setProposedAmount(proposedAmount);
+			loadedStudent.getPaymentsList().get(1).getPaymentDetails()
+					.setProposedDate(proposedDate);
+			loadedStudent.getPaymentsList().get(1).setPaymentComment(comment);
+			loadedStudent.setPaymentStatus(PaymentStatus.FULLPAID);
 
-				while (enm.hasMoreElements()) {
-					String paramName = (String) enm.nextElement();
+			Enumeration enm = request.getParameterNames();
 
-					String paramValue = request.getParameter(paramName);
+			while (enm.hasMoreElements()) {
+				String paramName = (String) enm.nextElement();
 
-					System.out.println(paramName + "  :  " + paramValue);
-				}
+				String paramValue = request.getParameter(paramName);
 
-				return "success";
-
-			} catch (DateException e) {
-				e.printStackTrace();
+				System.out.println(paramName + "  :  " + paramValue);
 			}
+
+			return "success";
+
 		}
 
-		return ERROR;
 	}
 
 	@Override
