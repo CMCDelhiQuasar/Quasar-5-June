@@ -137,12 +137,11 @@
 				<table>
 					<tr>
 						<td width="250"></td>
-						<td><s:submit type="image" value="Back" src="images/back.png"
-								align="left" /></td>
+						<td><s:submit value="Back" cssClass="css_button" align="left" /></td>
 						<td width="30"></td>
 
-						<td><s:submit type="image" value="Proceed"
-								src="images/forward.png" align="right" /></td>
+						<td><s:submit cssClass="css_button" value="Proceed"
+								align="right" /></td>
 					</tr>
 				</table>
 			</s:div>

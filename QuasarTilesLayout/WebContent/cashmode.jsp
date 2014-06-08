@@ -113,9 +113,9 @@
 	function checkoutamount() {
 		var cashamount = document.forms["regcash"]["cashAmount"].value;
 		var totalvar = document.getElementById("total");
-		var total=totalvar.innerHTML;
+		var total = totalvar.innerHTML;
 		if (parseFloat(total) != parseFloat(cashamount)) {
-			alert("Please enter "+cashamount+" Rs")
+			alert("Please enter " + cashamount + " Rs")
 			return false;
 		} else {
 			return true;
@@ -323,9 +323,8 @@
 								align="left" /></td>
 						<td width="30"></td>
 
-						<td><s:submit type="image" value="Proceed"
-								onfocus="countCourseFee()" onmouseout="countCourseFee()"
-								src="images/forward.png" /></td>
+						<td><s:submit value="Proceed" cssClass="css_button"
+								onfocus="countCourseFee()" onmouseout="countCourseFee()" /></td>
 					</s:div>
 				</tr>
 			</table>

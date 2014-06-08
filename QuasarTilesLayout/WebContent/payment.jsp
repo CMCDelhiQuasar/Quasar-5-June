@@ -215,8 +215,8 @@
 						align="left" /></td>
 				<td width="60"></td>
 
-				<td><s:submit type="image" value="Proceed"
-						src="images/forward.png" align="right" /></td>
+				<td><s:submit cssClass="css_button" value="Proceed"
+						 align="right" /></td>
 			</tr>
 		</table>
 	</s:form>

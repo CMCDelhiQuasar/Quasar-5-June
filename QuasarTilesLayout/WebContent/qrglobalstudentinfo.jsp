@@ -126,7 +126,7 @@
 		<table>
 
 			<tr>
-				<td><s:submit value="Back" /></td>
+				<td><s:submit value="Back" cssClass="css_button" /></td>
 			</tr>
 
 		</table>

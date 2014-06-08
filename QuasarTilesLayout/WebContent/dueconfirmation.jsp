@@ -71,7 +71,7 @@
 
 	<s:form action="payDuePayment" theme="simple" method="post">
 		<s:label label="Press Submit to Confirm" />
-		<sj:submit value="Submit" />
+		<sj:submit value="Submit" cssClass="css_button" />
 	</s:form>
 
 	<!-- 

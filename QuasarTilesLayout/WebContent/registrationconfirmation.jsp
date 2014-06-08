@@ -133,9 +133,9 @@
 
 	<s:form action="confirmregistration" theme="simple" method="post">
 		<s:label label="Press Submit to Confirm" />
-		<sj:submit value="Submit" />
-		<s:submit value="Cancel" action="cancelregistration" />
-		<s:submit value="Back" />
+		<sj:submit value="Submit" cssClass="css_button" />
+		<s:submit value="Cancel" action="cancelregistration" cssClass="css_button" />
+		<s:submit value="Back" cssClass="css_button" />
 	</s:form>
 
 </body>

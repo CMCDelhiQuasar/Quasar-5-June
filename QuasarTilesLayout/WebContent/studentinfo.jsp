@@ -23,9 +23,13 @@
 #studentdetails
 
 
+
+
 ;
 {
 background-color
+
+
 
 
 :
@@ -55,7 +59,11 @@ background-color
 
 
 
+
+
 white
+
+
 
 
 
@@ -108,6 +116,8 @@ font-family
 
 
 
+
+
 :
 
 
@@ -135,7 +145,11 @@ font-family
 
 
 
+
+
 sans-serif
+
+
 
 
 
@@ -188,7 +202,11 @@ padding
 
 
 
+
+
 :
+
+
 
 
 
@@ -217,6 +235,8 @@ padding
 
 0
 px
+
+
 
 
 
@@ -269,7 +289,11 @@ px
 
 
 
+
+
 :
+
+
 
 
 
@@ -298,6 +322,8 @@ px
 
 4
 px
+
+
 
 
 
@@ -350,7 +376,11 @@ px
 
 
 
+
+
 :
+
+
 
 
 
@@ -379,6 +409,8 @@ px
 
 4
 px
+
+
 
 
 
@@ -431,7 +463,11 @@ border-radius
 
 
 
+
+
 :
+
+
 
 
 
@@ -484,6 +520,8 @@ px
 
 
 
+
+
 ;
 box-shadow
 
@@ -512,7 +550,11 @@ box-shadow
 
 
 
+
+
 :
+
+
 
 
 
@@ -568,8 +610,12 @@ px
 
 
 
+
+
 4
 px
+
+
 
 
 
@@ -624,7 +670,11 @@ px
 
 
 
+
+
 rgba
+
+
 
 
 
@@ -658,6 +708,8 @@ rgba
 ,
 0
 .7
+
+
 
 
 
@@ -712,7 +764,11 @@ rgba
 
 
 
+
+
 :
+
+
 
 
 
@@ -768,8 +824,12 @@ px
 
 
 
+
+
 4
 px
+
+
 
 
 
@@ -824,7 +884,11 @@ px
 
 
 
+
+
 rgba
+
+
 
 
 
@@ -884,6 +948,8 @@ rgba
 
 
 
+
+
 );
 -webkit-box-shadow
 
@@ -912,7 +978,11 @@ rgba
 
 
 
+
+
 :
+
+
 
 
 
@@ -968,8 +1038,12 @@ px
 
 
 
+
+
 6
 px
+
+
 
 
 
@@ -1024,7 +1098,11 @@ px
 
 
 
+
+
 rgba
+
+
 
 
 
@@ -1084,8 +1162,12 @@ rgba
 
 
 
+
+
 );
 padding
+
+
 
 
 
@@ -1139,6 +1221,8 @@ padding
 
 
 
+
+
 10
 px
 
@@ -1165,39 +1249,9 @@ px
 
 
 
-;
-}
-h3 {
-	font-family: "Lucida Sans";
-	font-variant: small-caps;
-	font-size: large;
-	color: ;
-	font-weight: bold;
-	text-align: center;
-	margin-bottom: 0px;
-	margin: 0;
-	padding: 0;
-}
 
-b {
-  color: #aaa;
-  text-align: right;
-  padding: .4em .2em .4em .4em;
-  font-size: medium;
-}
-hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 2px;
-}
-td
-{
-color: #aaa;
-	font-size: medium;
-	text-align: center;
-	margin-bottom: 0px;
-	margin: 0;
-	padding: 0;
+
+;
 }
 </style>
 <sj:head jqueryui="true" />

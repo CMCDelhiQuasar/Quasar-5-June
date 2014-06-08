@@ -123,7 +123,7 @@
 		<table>
 			<s:form action="studentdeletion">
 				<s:hidden name="demail" value="%{email}" />
-				<s:submit value="Delete Student" />
+				<s:submit value="Delete Student" cssClass="css_button" />
 
 			</s:form>
 		</table>

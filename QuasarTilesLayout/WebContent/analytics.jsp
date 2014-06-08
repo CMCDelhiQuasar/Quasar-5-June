@@ -140,7 +140,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td><s:submit value="Analyse" /></td>
+				<td><s:submit  cssClass="css_button" value="Analyse" /></td>
 			</tr>
 
 		</s:form>

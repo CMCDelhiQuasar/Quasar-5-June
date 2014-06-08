@@ -123,8 +123,8 @@
 								align="left" /></td>
 						<td width="30"></td>
 
-						<td><s:submit type="image" value="Proceed"
-								src="images/forward.png" /></td>
+						<td><s:submit value="Proceed"
+								cssClass="css_button" /></td>
 
 					</s:div>
 				</tr>

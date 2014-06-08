@@ -305,11 +305,11 @@
 			<tr>
 				<s:div>
 					<td width="250"></td>
-					<td><s:reset value="Reset" src="images/back.png" align="left" /></td>
+					<td><s:reset value="Reset" cssClass="css_button" align="left" /></td>
 					<td width="30"></td>
 
-					<td><s:submit onfocus="return calculatefee()" type="image"
-							value="Proceed" src="images/forward.png" /></td>
+					<td><s:submit onfocus="return calculatefee()" value="Proceed"
+							cssClass="css_button" /></td>
 
 				</s:div>
 			</tr>

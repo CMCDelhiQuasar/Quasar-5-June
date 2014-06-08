@@ -80,8 +80,7 @@
 									src="images/back.png" align="left" /></td>
 							<td width="30"></td>
 
-							<td><s:submit type="image" value="Proceed"
-									src="images/forward.png" /></td>
+							<td><s:submit cssClass="css_button" value="Proceed" /></td>
 
 						</s:div>
 					</tr>
