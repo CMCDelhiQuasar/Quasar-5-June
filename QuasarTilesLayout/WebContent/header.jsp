@@ -58,6 +58,16 @@ input[type=search]:focus {
 	height: 70px;
 }
 </style>
+<script type="text/javascript">
+	function datevalue() {
+		var x = document.getElementById("dat");
+		var d = new Date();
+		x.href = x + (d.getDay() + 1) + "/" + (d.getMonth() + 1) + "/"
+				+ d.getFullYear();
+		//alert(x);
+	}
+	//setTimeout('datevalue()', 100);
+</script>
 
 <table width="100%" height="100%">
 
@@ -100,7 +110,9 @@ input[type=search]:focus {
 						<div>
 							<ul>
 								<li><a href="console.jsp"><span>Console</span></a></li>
-								<li><a href="#"><span>ABCD</span></a></li>
+								<li><a id="dat" onclick="datevalue()"
+									href="globalsearch?queryString="><span>Todays
+											Notification</span></a></li>
 							</ul>
 						</div></li>
 

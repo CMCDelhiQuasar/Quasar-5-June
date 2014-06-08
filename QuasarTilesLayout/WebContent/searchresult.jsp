@@ -12,15 +12,16 @@
 <style type="text/css">
 #box {
 	/*background-color: #F7F7F9; */
-	background-color: #FFFFE0;
-	background-image: linear-gradient(#eee .1em, transparent .1em);
-	background-size: 85% 1.2em;
+	background: linear-gradient(0deg, #FFFFFF 8%, #EBF3FA 75%);
+	background: -moz-linear-gradient(0deg, #FFFFFF 8%, #EBF3FA 75%);
+	background: -webkit-linear-gradient(0deg, #FFFFFF 8%, #EBF3FA 75%);
+	background: -o-linear-gradient(0deg, #FFFFFF 8%, #EBF3FA 75%);
 	padding: 20px;
 	margin: 20px 0px;
+	width: 500px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	width: 300px;
 	padding: 4px;
 	margin: 4px;
 	overflow: hidden;
