@@ -28,6 +28,25 @@
 	margin: 4px;
 	border: 1.5px solid #ccc;
 }
+
+#pendingpaymentcontactbox {
+	/*	background-color: #F7F7F9;  */
+	background-color: #fff;
+	background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px,
+		transparent 81px), linear-gradient(#eee .1em, transparent .1em);
+	background-size: 85% 1.2em;
+	padding: 20px;
+	margin: 20px 0px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	width: 300px;
+	padding: 4px;
+	margin: 4px;
+	overflow: hidden;
+	margin: 4px;
+	border: 1.5px solid #ccc;
+}
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -45,16 +64,24 @@
 		<hr>
 		<s:iterator var="s" value="queryResultStudentList">
 			<div id="box">
-				<div style="font-weight: bold; font-size: 150%; padding-top: 8px">
-					<img src="images/student.png" /><a
-						style="color: #000000; text-decoration: none;"><s:property
-							value="#s.name" /></a>
-				</div>
-				<s:property value="#s.emailId" />
+
 				<a
 					href="searchstudent?emailId=<s:property
-							value="#s.emailId" />"><img
-					src="images/forward.png" align="right" /></a> <br>
+							value="#s.emailId"/>">
+					<button class="css_button">S</button>
+				</a>
+
+
+				<div style="font-weight: bold; font-size: 150%; padding-top: 8px"
+					align="right">
+					&nbsp <a style="color: #000000; text-decoration: none;"><s:property
+							value="#s.name" /></a>
+					<s:property value="#s.emailId" />
+				</div>
+
+
+
+
 			</div>
 		</s:iterator>
 	</s:if>
@@ -74,17 +101,63 @@
 
 		<s:iterator var="p" value="queryResultPaymentList">
 			<div id="box">
-				<img src="images/payment.png" /> Payment of Rs
+				<a
+					href="searchstudent?emailId=<s:property
+							value="#p.student.emailId" />">
+					<button class="css_button">P</button>
+				</a> Payment of Rs
 				<s:property value="#p.paymentDetails.proposedAmount" />
 				<br> Desposited Rs .
 				<s:property value="#p.paymentDetails.depositedAmount" />
 				<br> for <a style="color: #000000; text-decoration: none;"><s:property
-						value="#p.student.name" /></a> <a
-					href="searchstudent?emailId=<s:property
-							value="#p.student.emailId" />"><img
-					src="images/forward.png" align="right" /></a> <br>
+						value="#p.student.name" /></a>
 			</div>
 		</s:iterator>
+
+
+		<br>
+
+		<div id="pendingpaymentcontactbox">
+			<input type="checkbox" name="nothing" /> <span
+				style="color: #76797c; font-size: 95%; float: right;"> <s:property
+					value="#p.paymentStatus" />
+			</span> <br> <img src="images/student.png" alt="Student" title="{Name}"
+				alt="{Name}" style="float: left;"> <span
+				style="color: #76797c; font-size: 95%; float: right;">
+				Payment ID : <s:property value="#p.paymentID" />
+			</span><br> <br> <br>
+			<div style="font-weight: bold; font-size: 150%; padding-top: 8px">
+				<a style="color: #000000; text-decoration: none;" target="_blank"
+					href="{Website}"><s:property value="#p.student.name" /></a>
+			</div>
+			<div>
+				<s:property value="#p.student.emailId" />
+			</div>
+			<div style="padding-bottom: 12px">
+				<span style="color: #76797c; font-size: 95%;">Due :</span> Rs.
+				<s:property value="#p.paymentDetails.proposedAmount" />
+				for Payment Type <br> <span
+					style="color: #76797c; font-size: 95%;">Proposed Date :</span>
+				<s:property value="#p.paymentDetails.proposedDate" />
+				<br> <span style="color: #76797c; font-size: 95%;">Course
+					:</span>
+				<s:property value="#p.student.courseName" />
+			</div>
+			<div>
+
+				<span style="color: #76797c; font-size: 150%; float: right;">
+					<s:property value="#p.student.contactNumber" />
+				</span> <span style="color: #76797c; float: left;"><a href="ap">
+						<img src="images/mail.png" style="bottom: 1px;" height="30"
+						width="30" alt="Send Mail Remainder">
+				</a> </span>
+
+
+			</div>
+		</div>
+
+
+
 	</s:if>
 
 	<s:if
