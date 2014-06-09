@@ -73,23 +73,27 @@
 
 		<action name="cheque" class="com.cmcdelhi.quasar.action.ChequeAction">
 			<result name="success">/registrationconfirmationwrapper.jsp</result>
+			<result name="success_due">/dueconfirmationwrapper.jsp</result>
 			<result name="input">/chequemodewrapper.jsp</result>
 		</action>
 		<action name="ddmode" class="com.cmcdelhi.quasar.action.DDModeAction">
 			<result name="success">/registrationconfirmationwrapper.jsp</result>
+			<result name="success_due">/dueconfirmationwrapper.jsp</result>
 			<result name="input">/ddmodewrapper.jsp</result>
 		</action>
 		<action name="cardmode" class="com.cmcdelhi.quasar.action.CardModeAction">
 			<result name="success_reg">/registrationconfirmationwrapper.jsp</result>
-			<result name="success_due">/dueconfirmation.jsp</result>
+			<result name="success_due">/dueconfirmationwrapper.jsp</result>
 			<result name="input">/cardmodewrapper.jsp</result>
 		</action>
 		<action name="onlinemode" class="com.cmcdelhi.quasar.action.OnlineModeAction">
 			<result name="success">/registrationconfirmationwrapper.jsp</result>
+			<result name="success_due">/dueconfirmationwrapper.jsp</result>
 			<result name="input">/onlinemodewrapper.jsp</result>
 		</action>
 		<action name="cashmode" class="com.cmcdelhi.quasar.action.CashModeAction">
 			<result name="success">/registrationconfirmationwrapper.jsp</result>
+			<result name="success_due">/dueconfirmationwrapper.jsp</result>
 			<result name="input">/cashmodewrapper.jsp</result>
 		</action>
 
@@ -150,7 +154,7 @@
 		</action>
 
 		<action name="payDuePayment" class="com.cmcdelhi.quasar.action.DuePaymentAction">
-			<result name="success">/duepaymentsuccess.jsp</result>
+			<result name="success">/duepaymentsuccesswrapper.jsp</result>
 			<result name="failure">/failure.jsp</result>
 			<result name="nosession">/registration.jsp</result>
 		</action>

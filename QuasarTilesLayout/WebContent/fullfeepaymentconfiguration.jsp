@@ -25,7 +25,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Insert title here</title>
 <script type="text/javascript">
-	
+	function validatefullfee() {
+
+		//alert("come to javascript");
+		var strpamount1 = document.forms["fullfeeform"]["proposedAmount"].value;
+		var pamount1 = parseInt(strpamount1, 10);
+
+		//alert("come to javascript");
+		var proposeddate1 = document.forms["fullfeeform"]["proposedDate"].value;
+
+		if (strpamount1 == "" || pamount1 <= 0 || isNaN(pamount1)) {
+			alert("Please check proposed amount");
+			return false;
+		}
+
+		if (proposeddate1 == "") {
+			alert("Please check proposed date");
+			return false;
+		}
+
+		return true;
+
+	}
 </script>
 </head>
 <body>
@@ -37,25 +58,26 @@
 	<s:else>
 
 
-		<s:div id="studentdetail">
-			<h2>Full Fee Configuration For</h2>
-			Name:- <s:property value="#session.shagird.name" />
-			<br />
-			Email:- <s:property value="#session.shagird.emailId" />
-			<br />
-			Contact:- <s:property value="#session.shagird.contactNumber" />
-			<br />
-		</s:div>
+		<div id="localHeader">
+			<div id="localTitle">
+				<h2 align="center"></h2>
+			</div>
+			<div id="breadCrumbs">
+				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
+					Student > Student Registration > Full Fee Payment Configuration</a>
+				</h4>
+			</div>
+		</div>
 
 
 		<s:form name="fullfeeform" action="fullfeeconfiguration"
-			onsubmit="return true" method="post" theme="simple">
+			onsubmit="return validatefullfee()" method="post" theme="simple">
 
 			<table>
 				<tr>
 					<td><s:label value="Proposed Amount" /></td>
-					<td><s:textfield label="Proposed Amount" value="0"
-							labelSeparator="" labelposition="left" name="proposedAmount" /></td>
+					<td><s:textfield label="Proposed Amount" labelSeparator=""
+							labelposition="left" name="proposedAmount" /></td>
 				</tr>
 
 				<tr>
@@ -87,6 +109,32 @@
 				</table>
 			</s:div>
 		</s:form>
+
+		<table border="0" id="studentdetail">
+			<tr>
+				<td colspan="4"><h2>Full Fee Configuration For</h2></td>
+				<td width="130"></td>
+				<td width="110"></td>
+				<td colspan="3" width="40"><a href="cancelregistration"><img
+						src="images/cancel.png" alt="" /></a></td>
+			</tr>
+			<tr>
+				<td>Name:-</td>
+				<td><s:property value="#session.shagird.name" /></td>
+			</tr>
+
+			<tr>
+				<td>Email:-</td>
+				<td><s:property value="#session.shagird.emailId" /></td>
+			</tr>
+
+			<tr>
+				<td>Contact:-</td>
+				<td><s:property value="#session.shagird.contactNumber" /></td>
+			</tr>
+
+		</table>
+
 	</s:else>
 
 

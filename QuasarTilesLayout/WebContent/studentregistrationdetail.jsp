@@ -148,12 +148,18 @@
 </head>
 <body>
 
-	<div>
-		<h3 align="center">
-			<img src="images/student.png" alt="Student" /> Student Registration
-			Details
-		</h3>
+	<div id="localHeader">
+		<div id="localTitle">
+			<h2 align="center">Student RegistrationDetails</h2>
+		</div>
+		<div id="breadCrumbs">
+			<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
+				Student > Student Registration</a>
+			</h4>
+		</div>
 	</div>
+
+
 	<h2>Basic Details</h2>
 	<s:form name="regform" theme="simple" action="registration"
 		onsubmit="return validateclient()" method="post">

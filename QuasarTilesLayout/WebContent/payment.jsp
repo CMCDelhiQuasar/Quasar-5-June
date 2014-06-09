@@ -26,7 +26,7 @@
 <script type="text/javascript">
 	function paymentvalidate() {
 
-		//alert("come to validate method");
+		alert("come to validate method");
 		var strproposedAmount = document.forms["regpayment"]["proposedAmount"].value;
 		var proposedAmount = parseInt(strproposedAmount, 10);
 
@@ -39,12 +39,14 @@
 		var comments = document.forms["regpayment"]["comments"].value;
 		var paymentMode = document.getElementsByName("paymentMode");
 
-		if (proposedAmount < 0 || strproposedAmount == "") {
+		if (proposedAmount < 0 || strproposedAmount == ""
+				|| isNaN(proposedAmount)) {
 			alert("Proposed Amount can not be less then 0 !!!");
 			return false;
 		}
 
-		if (depositedAmount<0  ||strdepositedAmount=="" || depositedAmount>proposedAmount) {
+		if (depositedAmount<0  ||strdepositedAmount=="" || depositedAmount>proposedAmount
+				|| isNaN(depositedAmount)) {
 			alert("Please check deposited amount");
 			return false;
 		}
@@ -78,6 +80,17 @@
 	</s:if>
 	<s:else>
 
+		<div id="localHeader">
+			<div id="localTitle">
+				<h2 align="center"></h2>
+			</div>
+			<div id="breadCrumbs">
+				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
+					Student > Student Registration > Student Installment Configuration
+					> Payment Configuration</a>
+				</h4>
+			</div>
+		</div>
 		<!-- Check if Payment is of Due Payment of Registration Payment -->
 
 		<s:if test="#session.DUE_TAG==null">
@@ -104,56 +117,7 @@
 
 
 
-		<table border="0" id="studentdetail">
-			<tr>
-				<td colspan="4"><h2>Payment Configuration For</h2></td>
-				<td width="130"></td>
-				<td width="110"></td>
-				<td colspan="3" width="40"><a href="cancelregistration"><img
-						src="images/cancel.png" alt="" /></a></td>
-			</tr>
-			<tr>
-				<td>Name:-</td>
-				<td><s:property value="#session.shagird.name" /></td>
-			</tr>
-			<tr>
-				<td>Email:-</td>
-				<td><s:property value="#session.shagird.emailId" /></td>
-			</tr>
-			<tr>
-				<td>Contact:-</td>
-				<td><s:property value="#session.shagird.contactNumber" /></td>
-			</tr>
-			<tr>
-				<td>Payment Objects:-</td>
-				<td><s:property value="#session.shagird.paymentsList.size" /></td>
-			</tr>
-			<tr>
-				<td>Payment Objects:-</td>
-				<td><s:property value="#session.shagird.paymentsList.size" /></td>
-			</tr>
-			<s:iterator var="p" status="i" value="#session.shagird.paymentsList">
-				<tr>
-					<td>Installment Payment / REgistartion</td>
-					<td><s:property value="#i.index" /></td>
-				</tr>
 
-				<tr>
-					<td>Proposed Amount:-</td>
-					<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
-				</tr>
-				<tr>
-					<td>Proposed Date:-</td>
-					<td><s:property value="#p.paymentDetails.proposedDate" /></td>
-				</tr>
-				<tr>
-					<td>Payment Comment:-</td>
-					<td><s:property value="#p.paymentComment" /></td>
-				</tr>
-
-
-			</s:iterator>
-		</table>
 
 	</s:else>
 
@@ -183,7 +147,7 @@
 				<td><sj:datepicker name="proposedDate" displayFormat="dd/mm/yy"
 						changeMonth="true" changeYear="true" label="Proposed Date"
 						labelposition="left" minDate="d"
-						value="%{#pa.paymentDetails.proposedDate}"  /></td>
+						value="%{#pa.paymentDetails.proposedDate}" /></td>
 				<td><s:fielderror fieldName="proposedDate" /></td>
 			</tr>
 			<tr>
@@ -216,10 +180,60 @@
 				<td width="60"></td>
 
 				<td><s:submit cssClass="css_button" value="Proceed"
-						 align="right" /></td>
+						align="right" /></td>
 			</tr>
 		</table>
 	</s:form>
+	<table border="0" id="studentdetail">
+		<tr>
+			<td colspan="4"><h2>Payment Configuration For</h2></td>
+			<td width="130"></td>
+			<td width="110"></td>
+			<td colspan="3" width="40"><a href="cancelregistration"><img
+					src="images/cancel.png" alt="" /></a></td>
+		</tr>
+		<tr>
+			<td>Name:-</td>
+			<td><s:property value="#session.shagird.name" /></td>
+		</tr>
+		<tr>
+			<td>Email:-</td>
+			<td><s:property value="#session.shagird.emailId" /></td>
+		</tr>
+		<tr>
+			<td>Contact:-</td>
+			<td><s:property value="#session.shagird.contactNumber" /></td>
+		</tr>
+		<tr>
+			<td>Payment Objects:-</td>
+			<td><s:property value="#session.shagird.paymentsList.size" /></td>
+		</tr>
+		<tr>
+			<td>Payment Objects:-</td>
+			<td><s:property value="#session.shagird.paymentsList.size" /></td>
+		</tr>
+		<s:iterator var="p" status="i" value="#session.shagird.paymentsList">
+			<tr>
+				<td>Installment Payment / REgistartion</td>
+				<td><s:property value="#i.index" /></td>
+			</tr>
+
+			<tr>
+				<td>Proposed Amount:-</td>
+				<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
+			</tr>
+			<tr>
+				<td>Proposed Date:-</td>
+				<td><s:property value="#p.paymentDetails.proposedDate" /></td>
+			</tr>
+			<tr>
+				<td>Payment Comment:-</td>
+				<td><s:property value="#p.paymentComment" /></td>
+			</tr>
+
+
+		</s:iterator>
+	</table>
 
 </body>
 </html>

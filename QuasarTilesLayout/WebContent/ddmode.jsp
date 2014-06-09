@@ -19,7 +19,8 @@
 		// window.confirm(strDDNumber);
 		var bankName = document.forms["draftdetails"]["bankName"].value;
 		var issueDate = document.forms["draftdetails"]["issueDate"].value;
-		if (DDNumber <= 0 || strDDNumber == "") {
+
+		if (DDNumber <= 0 || strDDNumber == "" || isNaN(DDNumber)) {
 			alert("Please enter valid draft number");
 			return false;
 		}
@@ -44,6 +45,60 @@
 		<jsp:forward page="registration.jsp" />
 	</s:if>
 	<s:else>
+
+		<div id="localHeader">
+			<div id="localTitle">
+				<h2 align="center"></h2>
+			</div>
+			<div id="breadCrumbs">
+				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
+					Student > Student Registration > Student Installment Configuration
+					> Payment Configuration > Draft Mode</a>
+				</h4>
+			</div>
+		</div>
+
+		<h1>Demand Draft Details</h1>
+		<s:form name="draftdetails" theme="simple" action="ddmode"
+			method="post" onsubmit="return true">
+			<table>
+				<tr>
+					<td><s:label value="DD Number" /></td>
+					<td><s:textfield label="DD Number" labelSeparator=""
+							labelposition="left" name="DDNumber" /></td>
+					<td><s:fielderror fieldName="DDNumber" /></td>
+				</tr>
+
+				<tr>
+					<td><s:label value="Drawn on/Bank Name" /></td>
+					<td><s:textfield label="Drawn on/Bank Name" labelSeparator=""
+							labelposition="left" name="bankName" /></td>
+					<td><s:fielderror fieldName="bankName" /></td>
+				</tr>
+
+				<tr>
+					<td><s:label value="Issue Date" /></td>
+					<td><sj:datepicker name="issueDate" changeYear="true"
+							changeMonth="true" label="Issue Date" labelSeparator=""
+							labelposition="left" /></td>
+					<td><s:fielderror fieldName="issueDate" /></td>
+				</tr>
+
+
+			</table>
+			<table>
+				<tr>
+					<td width="200"></td>
+					<td><s:submit type="image" value="Back" src="images/back.png"
+							align="left" /></td>
+					<td width="60"></td>
+
+					<td><s:submit value="Proceed" cssClass="css_button"
+							align="right" /></td>
+				</tr>
+			</table>
+
+		</s:form>
 		<table border="0" id="studentdetail">
 			<tr>
 				<td colspan="4"><h2>Installment Configuration For</h2></td>
@@ -103,47 +158,6 @@
 		<br />
 		<hr />
 
-		<h1>Demand Draft Details</h1>
-		<s:form name="draftdetails" theme="simple" action="ddmode"
-			method="post" onsubmit="return true">
-			<table>
-				<tr>
-					<td><s:label value="DD Number" /></td>
-					<td><s:textfield label="DD Number" labelSeparator=""
-							labelposition="left" name="DDNumber" /></td>
-					<td><s:fielderror fieldName="DDNumber" /></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Drawn on/Bank Name" /></td>
-					<td><s:textfield label="Drawn on/Bank Name" labelSeparator=""
-							labelposition="left" name="bankName" /></td>
-					<td><s:fielderror fieldName="bankName" /></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Issue Date" /></td>
-					<td><sj:datepicker name="issueDate" changeYear="true"
-							changeMonth="true" label="Issue Date" labelSeparator=""
-							labelposition="left" /></td>
-					<td><s:fielderror fieldName="issueDate" /></td>
-				</tr>
-
-
-			</table>
-			<table>
-				<tr>
-					<td width="200"></td>
-					<td><s:submit type="image" value="Back" src="images/back.png"
-							align="left" /></td>
-					<td width="60"></td>
-
-					<td><s:submit  value="Proceed"
-							cssClass="css_button" align="right" /></td>
-				</tr>
-			</table>
-
-		</s:form>
 	</s:else>
 
 

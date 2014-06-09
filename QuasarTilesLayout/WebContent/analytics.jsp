@@ -12,6 +12,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<div id="localHeader">
+		<div id="localTitle">
+			<h2 align="center">Data Analysis</h2>
+		</div>
+		<div id="breadCrumbs">
+			<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
+				Analytics</h4>
+		</div>
+	</div>
+
 	<div align="right">
 		<h3>
 			Number of Registration
@@ -140,7 +151,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td><s:submit  cssClass="css_button" value="Analyse" /></td>
+				<td><s:submit cssClass="css_button" value="Analyse" /></td>
 			</tr>
 
 		</s:form>

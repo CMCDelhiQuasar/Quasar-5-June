@@ -23,12 +23,12 @@
 
 		var cardExpiryDate = document.forms["regmode"]["cardExpiryDate"].value;
 
-		if (cardNumber < 0 || strcardNumber == "") {
+		if (cardNumber < 0 || strcardNumber == "" || isNaN(cardNumber)) {
 			alert("Please enter valid card number!!");
 			return false;
 		}
 
-		if (transactionId < 0 || strtransactionId == "") {
+		if (transactionId < 0 || strtransactionId == "" || isNaN(transactionId)) {
 			alert("Please enter valid transaction id!!");
 			return false;
 		}
@@ -63,6 +63,64 @@
 		<jsp:forward page="registration.jsp" />
 	</s:if>
 	<s:else>
+
+		<div id="localHeader">
+			<div id="localTitle">
+				<h2 align="center"></h2>
+			</div>
+			<div id="breadCrumbs">
+				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
+					Student > Student Registration > Student Installment Configuration
+					> Payment Configuration > Card Mode</a>
+				</h4>
+			</div>
+		</div>
+
+		<s:form name="regmode" theme="simple" action="cardmode" method="post"
+			onsubmit="return true">
+			<table>
+				<tr>
+					<td><s:label value="Card Type" /></td>
+					<td><s:radio label="Card Type" labelSeparator=""
+							labelposition="left" name="cardType"
+							list="{'Debit Card','Credit Card'}" value="%{'Debit Card'}" /></td>
+					<td><s:fielderror fieldName="cardType" /></td>
+				</tr>
+
+				<tr>
+					<td><s:label value="Card Number" /></td>
+					<td><s:textfield label="Card Number" labelSeparator=""
+							labelposition="left" name="cardNumber" /></td>
+					<td><s:fielderror fieldName="cardNumber" /></td>
+				</tr>
+
+				<tr>
+					<td><s:label value="Transaction ID" /></td>
+					<td><s:textfield label="Transaction ID" labelSeparator=""
+							labelposition="left" name="transactionId" /></td>
+					<td><s:fielderror fieldName="transactionId" /></td>
+				</tr>
+
+				<tr>
+					<td><s:label value="Expiry Date" /></td>
+					<td><sj:datepicker label="Expiry Date" changeMonth="true"
+							changeYear="true" labelSeparator="" labelposition="left"
+							name="cardExpiryDate" displayFormat="dd/mm/yy" /></td>
+					<td><s:fielderror fieldName="cardExpiryDate" /></td>
+				</tr>
+
+
+			</table>
+			<table>
+				<tr>
+					<td width="200"></td>
+					<td><s:submit value="Back" cssClass="css_button" align="left" /></td>
+					<td width="30"></td>
+
+					<td><s:submit cssClass="css_button" value="Proceed"
+							align="right" /></td>
+			</table>
+		</s:form>
 		<table border="0" id="studentdetail">
 			<tr>
 				<td colspan="4"><h2>Installment Configuration For</h2></td>
@@ -120,51 +178,7 @@
 			value="#session.shagird.paymentsList.get(0).paymentComment" />
 		<br />
 		<hr />
-		<s:form name="regmode" theme="simple" action="cardmode" method="post"
-			onsubmit="return true">
-			<table>
-				<tr>
-					<td><s:label value="Card Type" /></td>
-					<td><s:radio label="Card Type" labelSeparator=""
-							labelposition="left" name="cardType"
-							list="{'Debit Card','Credit Card'}" /></td>
-					<td><s:fielderror fieldName="cardType" /></td>
-				</tr>
 
-				<tr>
-					<td><s:label value="Card Number" /></td>
-					<td><s:textfield label="Card Number" labelSeparator=""
-							labelposition="left" name="cardNumber" /></td>
-					<td><s:fielderror fieldName="cardNumber" /></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Transaction ID" /></td>
-					<td><s:textfield label="Transaction ID" labelSeparator=""
-							labelposition="left" name="transactionId" /></td>
-					<td><s:fielderror fieldName="transactionId" /></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Expiry Date" /></td>
-					<td><sj:datepicker label="Expiry Date" changeMonth="true"
-							changeYear="true" labelSeparator="" labelposition="left"
-							name="cardExpiryDate" displayFormat="dd/mm/yy" /></td>
-					<td><s:fielderror fieldName="cardExpiryDate" /></td>
-				</tr>
-
-
-			</table>
-			<table>
-				<tr>
-					<td width="200"></td>
-					<td><s:submit value="Back" cssClass="css_button" align="left" /></td>
-					<td width="30"></td>
-
-					<td><s:submit cssClass="css_button" value="Proceed"
-							align="right" /></td>
-			</table>
-		</s:form>
 	</s:else>
 
 </body>

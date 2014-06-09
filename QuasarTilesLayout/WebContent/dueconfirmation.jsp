@@ -10,9 +10,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Due Confirmation page</h1>
 
-
+	<div id="localHeader">
+		<div id="localTitle">
+			<h2 align="center">Due Confirmation page</h2>
+		</div>
+		<div id="breadCrumbs">
+			<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
+				Student > Pending Payment > Due Payment Confirmation</h4>
+		</div>
+	</div>
 	<table>
 		<tr id="name">
 			<td width="40px"></td>

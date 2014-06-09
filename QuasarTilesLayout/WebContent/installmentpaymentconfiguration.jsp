@@ -27,7 +27,7 @@
 <script type="text/javascript">
 	function validateinstallment() {
 
-		alert("come to javascript");
+		//alert("come to javascript");
 		var strpamount1 = document.forms["installmentform"]["proposedAmount1"].value;
 		var pamount1 = parseInt(strpamount1, 10);
 
@@ -39,12 +39,12 @@
 		var proposeddate1 = document.forms["installmentform"]["proposedDate1"].value;
 		var proposeddate2 = document.forms["installmentform"]["proposedDate2"].value;
 
-		if (strpamount1 == "" || pamount1 <= 0) {
+		if (strpamount1 == "" || pamount1 <= 0 || isNaN(pamount1)) {
 			alert("Please check first proposed amount");
 			return false;
 		}
 
-		if (strpamount2 == "" || pamount2 <= 0) {
+		if (strpamount2 == "" || pamount2 <= 0 ||isNaN(pamount2)) {
 			alert("Please check second proposed amount");
 			return false;
 		}
@@ -73,33 +73,17 @@
 	<s:else>
 
 
-
-		<table border="0" id="studentdetail">
-			<tr>
-				<td colspan="4"><h2>Installment Configuration For</h2></td>
-				<td width="130"></td>
-				<td width="110"></td>
-				<td colspan="3" width="40"><a href="cancelregistration"><img
-						src="images/cancel.png" alt="" /></a></td>
-			</tr>
-			<tr>
-				<td>Name:-</td>
-				<td><s:property value="#session.shagird.name" /></td>
-			</tr>
-
-			<tr>
-				<td>Email:-</td>
-				<td><s:property value="#session.shagird.emailId" /></td>
-			</tr>
-
-			<tr>
-				<td>Contact:-</td>
-				<td><s:property value="#session.shagird.contactNumber" /></td>
-			</tr>
-
-		</table>
-
-
+		<div id="localHeader">
+			<div id="localTitle">
+				<h2 align="center">Student Installments Details</h2>
+			</div>
+			<div id="breadCrumbs">
+				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
+					Student > Student Registration > Student Installment Configuration
+					</a>
+				</h4>
+			</div>
+		</div>
 		<!-- Fetch the number of Installment Student has opted  -->
 
 		<s:set var="ins" value="#session.NUMBER_OF_INSTALLMENTS" />
@@ -107,7 +91,7 @@
 		<br />Number of Installments : <s:property value="#ins" />
 		<br />
 		<s:form name="installmentform" action="installmentconfiguration"
-			onsubmit="return true" method="post" theme="simple">
+			onsubmit="return validateinstallment()" method="post" theme="simple">
 			<s:iterator var="n" begin="1" end="#ins" step="1">
 
 
@@ -115,8 +99,8 @@
 				<table>
 					<tr>
 						<td><s:label value="Proposed Amount" labelposition="left" /></td>
-						<td><s:textfield value="0" labelSeparator=""
-								labelposition="left" name="proposedAmount%{#n}" /></td>
+						<td><s:textfield labelSeparator="" labelposition="left"
+								name="proposedAmount%{#n}" /></td>
 					</tr>
 					<tr>
 						<td><s:label value="Proposed Date" labelposition="left" /></td>
@@ -146,6 +130,30 @@
 				</table>
 			</s:div>
 		</s:form>
+		<table border="0" id="studentdetail">
+			<tr>
+				<td colspan="4"><h2>Installment Configuration For</h2></td>
+				<td width="130"></td>
+				<td width="110"></td>
+				<td colspan="3" width="40"><a href="cancelregistration"><img
+						src="images/cancel.png" alt="" /></a></td>
+			</tr>
+			<tr>
+				<td>Name:-</td>
+				<td><s:property value="#session.shagird.name" /></td>
+			</tr>
+
+			<tr>
+				<td>Email:-</td>
+				<td><s:property value="#session.shagird.emailId" /></td>
+			</tr>
+
+			<tr>
+				<td>Contact:-</td>
+				<td><s:property value="#session.shagird.contactNumber" /></td>
+			</tr>
+
+		</table>
 	</s:else>
 
 </body>

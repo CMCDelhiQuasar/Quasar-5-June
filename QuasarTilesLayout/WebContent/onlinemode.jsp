@@ -17,12 +17,13 @@
 		var strreicptNumber = document.forms["onlineform"]["reicptNumber"].value;
 		var reicptNumber = parseInt(strreicptNumber, 10);
 
-		if (strtransactionId == "" || transactionId <= 0) {
+		if (strtransactionId == "" || transactionId <= 0
+				|| isNaN(transactionId)) {
 			alert("Please check transaction ID!!!");
 			return false;
 		}
 
-		if (strreicptNumber == "" || reicptNumber <= 0) {
+		if (strreicptNumber == "" || reicptNumber <= 0 || isNaN(reicptNumber)) {
 			alert("Please check Reciept Number!!!");
 			return false;
 		}
@@ -39,6 +40,50 @@
 		<jsp:forward page="registration.jsp" />
 	</s:if>
 	<s:else>
+
+		<div id="localHeader">
+			<div id="localTitle">
+				<h2 align="center"></h2>
+			</div>
+			<div id="breadCrumbs">
+				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
+					Student > Student Registration > Student Installment Configuration
+					> Payment Configuration > Online Payment</a>
+				</h4>
+			</div>
+		</div>
+
+		<h1>Online Transaction Details</h1>
+		<s:form name="onlineform" theme="simple" onsubmit="return true"
+			method="post" action="onlinemode">
+			<table>
+				<tr>
+					<td><s:label value="Transaction Id" /></td>
+					<td><s:textfield labelSeparator="" labelposition="left"
+							name="transactionId" /></td>
+					<td><s:fielderror fieldName="transactionId" /></td>
+				</tr>
+				<tr>
+					<td><s:label value="Reicpt Number" /></td>
+					<td><s:textfield value="0" labelSeparator=""
+							labelposition="left" name="reicptNumber" /></td>
+					<td><s:fielderror fieldName="transactionId" /></td>
+				</tr>
+			</table>
+			<table border="0">
+				<tr>
+					<s:div>
+						<td width="250"></td>
+						<td><s:submit type="image" value="Back" src="images/back.png"
+								align="left" /></td>
+						<td width="30"></td>
+
+						<td><s:submit value="Proceed" cssClass="css_button" /></td>
+
+					</s:div>
+				</tr>
+			</table>
+		</s:form>
 		<table border="0" id="studentdetail">
 			<tr>
 				<td colspan="4"><h2>Welcome</h2></td>
@@ -97,39 +142,6 @@
 			value="#session.shagird.paymentsList.get(0).paymentComment" />
 		<br />
 		<hr />
-
-		<h1>Online Transaction Details</h1>
-		<s:form name="onlineform" theme="simple"
-			onsubmit="return true" method="post" action="onlinemode">
-			<table>
-				<tr>
-					<td><s:label value="Transaction Id" /></td>
-					<td><s:textfield labelSeparator="" labelposition="left"
-							name="transactionId" /></td>
-					<td><s:fielderror fieldName="transactionId" /></td>
-				</tr>
-				<tr>
-					<td><s:label value="Reicpt Number" /></td>
-					<td><s:textfield value="0" labelSeparator=""
-							labelposition="left" name="reicptNumber" /></td>
-					<td><s:fielderror fieldName="transactionId" /></td>
-				</tr>
-			</table>
-			<table border="0">
-				<tr>
-					<s:div>
-						<td width="250"></td>
-						<td><s:submit type="image" value="Back" src="images/back.png"
-								align="left" /></td>
-						<td width="30"></td>
-
-						<td><s:submit value="Proceed"
-								cssClass="css_button" /></td>
-
-					</s:div>
-				</tr>
-			</table>
-		</s:form>
 	</s:else>
 
 

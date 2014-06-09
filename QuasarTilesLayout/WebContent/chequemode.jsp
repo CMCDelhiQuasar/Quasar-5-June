@@ -18,7 +18,7 @@
 		var bankName = document.forms["chequedetails"]["bankName"].value;
 		var issueDate = document.forms["chequedetails"]["issueDate"].value;
 
-		if (chequeNumber <= 0 || strchequeNumber == "") {
+		if (chequeNumber <= 0 || strchequeNumber == "" ||isNaN(chequeNumber)) {
 			alert("Please check Cheque Number !!");
 			return false;
 		}
@@ -43,6 +43,57 @@
 		<jsp:forward page="registration.jsp" />
 	</s:if>
 	<s:else>
+
+        <div id="localHeader">
+			<div id="localTitle">
+				<h2 align="center"></h2>
+			</div>
+			<div id="breadCrumbs">
+				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
+					Student > Student Registration > Student Installment Configuration
+					> Payment Configuration > Cheque Mode</a>
+				</h4>
+			</div>
+		</div>
+		<h1>Cheque Details</h1>
+		<s:form name="chequedetails" theme="simple" action="cheque"
+			method="post" onsubmit="return true">
+
+			<table>
+				<tr>
+					<td><s:label value="Cheque Number" /></td>
+					<td><s:textfield label="Cheque Number" labelSeparator=""
+							labelposition="left" name="chequeNumber" /></td>
+					<td><s:fielderror fieldName="chequeNumber" /></td>
+				</tr>
+
+				<tr>
+					<td><s:label value="Drawn on/Bank Name" /></td>
+					<td><s:textfield label="Drawn on/Bank Name" labelSeparator=""
+							labelposition="left" name="bankName" /></td>
+					<td><s:fielderror fieldName="bankName" /></td>
+				</tr>
+
+				<tr>
+					<td><s:label value="Issue Date" /></td>
+					<td><sj:datepicker changeMonth="true" changeYear="true"
+							name="issueDate" label="Issue Date" labelSeparator=""
+							labelposition="left" /></td>
+					<td><s:fielderror fieldName="issueDate" /></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td width="200"></td>
+					<td><s:submit type="image" value="Back" src="images/back.png"
+							align="left" /></td>
+					<td width="60"></td>
+
+					<td><s:submit value="Proceed" cssClass="css_button"
+							align="right" /></td>
+				</tr>
+			</table>
+		</s:form>
 		<table border="0" id="studentdetail">
 			<tr>
 				<td colspan="4"><h2>Installment Configuration For</h2></td>
@@ -102,45 +153,6 @@
 		<br />
 		<hr />
 
-		<h1>Cheque Details</h1>
-		<s:form name="chequedetails" theme="simple" action="cheque"
-			method="post" onsubmit="return true">
-
-			<table>
-				<tr>
-					<td><s:label value="Cheque Number" /></td>
-					<td><s:textfield label="Cheque Number" labelSeparator=""
-							labelposition="left" name="chequeNumber" /></td>
-					<td><s:fielderror fieldName="chequeNumber" /></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Drawn on/Bank Name" /></td>
-					<td><s:textfield label="Drawn on/Bank Name" labelSeparator=""
-							labelposition="left" name="bankName" /></td>
-					<td><s:fielderror fieldName="bankName" /></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Issue Date" /></td>
-					<td><sj:datepicker changeMonth="true" changeYear="true"
-							name="issueDate" label="Issue Date" labelSeparator=""
-							labelposition="left" /></td>
-					<td><s:fielderror fieldName="issueDate" /></td>
-				</tr>
-			</table>
-			<table>
-				<tr>
-					<td width="200"></td>
-					<td><s:submit type="image" value="Back" src="images/back.png"
-							align="left" /></td>
-					<td width="60"></td>
-
-					<td><s:submit value="Proceed" cssClass="css_button"
-							align="right" /></td>
-				</tr>
-			</table>
-		</s:form>
 	</s:else>
 
 </body>
