@@ -65,7 +65,7 @@
 
 		<div id="localHeader">
 			<div id="localTitle">
-				<h2 align="center"></h2>
+				<h2 align="center">Full Fee Payment Configuration</h2>
 			</div>
 			<div id="breadCrumbs">
 				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">

@@ -277,12 +277,16 @@
 						<td width="40">x</td>
 						<td><div id="1">0</div></td>
 					</tr>
-
+				</table>
+				<hr />
+				<table>
 					<tr>
-						<td><s:label value="Total" /></td>
+						<td style="font-weight: bold; font-size: medium;"><s:label
+								value="Total" /></td>
 						<td></td>
 						<td width="40"></td>
-						<td><div id="total"></div></td>
+						<td style="font-weight: bold; font-size: medium;"><div
+								id="total"></div></td>
 					</tr>
 				</table>
 				<table border="0">

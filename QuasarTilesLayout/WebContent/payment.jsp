@@ -87,7 +87,7 @@
 
 		<div id="localHeader">
 			<div id="localTitle">
-				<h2 align="center"></h2>
+				<h2 align="center">Payment Page</h2>
 			</div>
 			<div id="breadCrumbs">
 				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
@@ -126,7 +126,7 @@
 
 	</s:else>
 	<div id="paymentlayout">
-		<h1>Payment Page</h1>
+		<h1></h1>
 		<s:form name="regpayment" theme="simple" method="post"
 			action="payment" onsubmit="return true">
 
