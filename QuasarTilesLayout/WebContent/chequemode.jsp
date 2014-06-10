@@ -18,7 +18,7 @@
 		var bankName = document.forms["chequedetails"]["bankName"].value;
 		var issueDate = document.forms["chequedetails"]["issueDate"].value;
 
-		if (chequeNumber <= 0 || strchequeNumber == "" ||isNaN(chequeNumber)) {
+		if (chequeNumber <= 0 || strchequeNumber == "" || isNaN(chequeNumber)) {
 			alert("Please check Cheque Number !!");
 			return false;
 		}
@@ -34,6 +34,11 @@
 		return true;
 	}
 </script>
+<style>
+#chequelayout {
+	margin-left: 300px;
+}
+</style>
 </head>
 
 <body>
@@ -44,7 +49,7 @@
 	</s:if>
 	<s:else>
 
-        <div id="localHeader">
+		<div id="localHeader">
 			<div id="localTitle">
 				<h2 align="center"></h2>
 			</div>
@@ -55,104 +60,111 @@
 				</h4>
 			</div>
 		</div>
-		<h1>Cheque Details</h1>
-		<s:form name="chequedetails" theme="simple" action="cheque"
-			method="post" onsubmit="return true">
 
-			<table>
+		<div id="chequelayout">
+			<h1>Cheque Details</h1>
+			<s:form name="chequedetails" theme="simple" action="cheque"
+				method="post" onsubmit="return true">
+
+				<table>
+					<tr>
+						<td><s:label value="Cheque Number" /></td>
+						<td><s:textfield label="Cheque Number" labelSeparator=""
+								labelposition="left" name="chequeNumber" /></td>
+						<td><s:fielderror fieldName="chequeNumber" /></td>
+					</tr>
+
+					<tr>
+						<td><s:label value="Drawn on/Bank Name" /></td>
+						<td><s:textfield label="Drawn on/Bank Name" labelSeparator=""
+								labelposition="left" name="bankName" /></td>
+						<td><s:fielderror fieldName="bankName" /></td>
+					</tr>
+
+					<tr>
+						<td><s:label value="Issue Date" /></td>
+						<td><sj:datepicker changeMonth="true" changeYear="true"
+								name="issueDate" label="Issue Date" labelSeparator=""
+								labelposition="left" /></td>
+						<td><s:fielderror fieldName="issueDate" /></td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<td width="200"></td>
+						<td><s:submit type="image" value="Back" src="images/back.png"
+								align="left" /></td>
+						<td width="60"></td>
+
+						<td><s:submit value="Proceed" cssClass="css_button"
+								align="right" /></td>
+					</tr>
+				</table>
+			</s:form>
+			<table border="0" id="studentdetail">
 				<tr>
-					<td><s:label value="Cheque Number" /></td>
-					<td><s:textfield label="Cheque Number" labelSeparator=""
-							labelposition="left" name="chequeNumber" /></td>
-					<td><s:fielderror fieldName="chequeNumber" /></td>
+					<td colspan="4"><h2>Installment Configuration For</h2></td>
+					<td width="130"></td>
+					<td width="110"></td>
+					<td colspan="3" width="40"><a href="cancelregistration"><img
+							src="images/cancel.png" alt="" /></a></td>
+				</tr>
+				<tr>
+					<td>Name:-</td>
+					<td><s:property value="#session.shagird.name" /></td>
 				</tr>
 
 				<tr>
-					<td><s:label value="Drawn on/Bank Name" /></td>
-					<td><s:textfield label="Drawn on/Bank Name" labelSeparator=""
-							labelposition="left" name="bankName" /></td>
-					<td><s:fielderror fieldName="bankName" /></td>
+					<td>Email:-</td>
+					<td><s:property value="#session.shagird.emailId" /></td>
 				</tr>
 
 				<tr>
-					<td><s:label value="Issue Date" /></td>
-					<td><sj:datepicker changeMonth="true" changeYear="true"
-							name="issueDate" label="Issue Date" labelSeparator=""
-							labelposition="left" /></td>
-					<td><s:fielderror fieldName="issueDate" /></td>
+					<td>Contact:-</td>
+					<td><s:property value="#session.shagird.contactNumber" /></td>
 				</tr>
+
+				<tr>
+					<td>Payment Objects:-</td>
+					<td><s:property value="#session.shagird.paymentsList.size" /></td>
+				</tr>
+				<s:iterator var="p" value="#session.shagird.paymentsList">
+					<tr>
+						<td>Proposed Amount:-</td>
+						<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
+					</tr>
+					<tr>
+						<td>Proposed Date:-</td>
+						<td><s:property value="#p.paymentDetails.proposedDate" /></td>
+					</tr>
+
+					<tr>
+						<td>Payment Comment:-</td>
+						<td><s:property value="#p.paymentComment" /></td>
+					</tr>
+				</s:iterator>
 			</table>
-			<table>
-				<tr>
-					<td width="200"></td>
-					<td><s:submit type="image" value="Back" src="images/back.png"
-							align="left" /></td>
-					<td width="60"></td>
 
-					<td><s:submit value="Proceed" cssClass="css_button"
-							align="right" /></td>
-				</tr>
-			</table>
-		</s:form>
-		<table border="0" id="studentdetail">
-			<tr>
-				<td colspan="4"><h2>Installment Configuration For</h2></td>
-				<td width="130"></td>
-				<td width="110"></td>
-				<td colspan="3" width="40"><a href="cancelregistration"><img
-						src="images/cancel.png" alt="" /></a></td>
-			</tr>
-			<tr>
-				<td>Name:-</td>
-				<td><s:property value="#session.shagird.name" /></td>
-			</tr>
-
-			<tr>
-				<td>Email:-</td>
-				<td><s:property value="#session.shagird.emailId" /></td>
-			</tr>
-
-			<tr>
-				<td>Contact:-</td>
-				<td><s:property value="#session.shagird.contactNumber" /></td>
-			</tr>
-
-			<tr>
-				<td>Payment Objects:-</td>
-				<td><s:property value="#session.shagird.paymentsList.size" /></td>
-			</tr>
-			<s:iterator var="p" value="#session.shagird.paymentsList">
-				<tr>
-					<td>Proposed Amount:-</td>
-					<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
-				</tr>
-				<tr>
-					<td>Proposed Date:-</td>
-					<td><s:property value="#p.paymentDetails.proposedDate" /></td>
-				</tr>
-
-				<tr>
-					<td>Payment Comment:-</td>
-					<td><s:property value="#p.paymentComment" /></td>
-				</tr>
-			</s:iterator>
-		</table>
-
-		<hr />
-		<h1>Registration Object Details</h1>
-			Registration Proposed Amount:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" />
-		<br />Registration Deposited Amount:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.depositedAmount" />
-		<br /> Registration Proposed Date : <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.proposedDate" />
-		<br />Registration Payment Date:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.paymentDate" />
-		<br />Registration Payment Comment:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentComment" />
-		<br />
-		<hr />
-
+			<hr />
+			<h1>Registration Object Details</h1>
+			Registration Proposed Amount:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" />
+			<br />Registration Deposited Amount:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.depositedAmount" />
+			<br /> Registration Proposed Date :
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.proposedDate" />
+			<br />Registration Payment Date:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.paymentDate" />
+			<br />Registration Payment Comment:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentComment" />
+			<br />
+			<hr />
+		</div>
 	</s:else>
 
 </body>

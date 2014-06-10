@@ -8,6 +8,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+#duelayout {
+	margin-left: 300px;
+}
+</style>
 </head>
 <body>
 
@@ -20,66 +25,72 @@
 				Student > Pending Payment > Due Payment Confirmation</h4>
 		</div>
 	</div>
-	<table>
-		<tr id="name">
-			<td width="40px"></td>
-			<td><h2>
-					<s:property value="#session.shagird.name" />
-				</h2></td>
-			<td width="30px"></td>
-			<td><h4>
-					<s:property value="#session.shagird.contactNumber" />
-				</h4></td>
 
-		</tr>
-		<tr>
-			<td width="40px"></td>
-			<td>
-				<h2>
-					<s:property value="#session.shagird.emailId" />
-				</h2>
-			</td>
-		</tr>
-	</table>
+	<div id="duelayout">
+		<table border="0">
+			<tr id="name">
+				<td width="70px"><b>Name:</b></td>
+				<td><h2>
+						<s:property value="#session.shagird.name" />
+					</h2></td>
+			</tr>
+			<tr>
+				<td width="70px"><b>Contact Number:</b></td>
+				<td><h4>
+						<s:property value="#session.shagird.contactNumber" />
+					</h4></td>
 
-	<s:set var="pa" value="#session.payment" />
+			</tr>
+			<tr>
+				<td width="70px"><b>Email Id:</b></td>
+				<td>
+					<h2>
+						<s:property value="#session.shagird.emailId" />
+					</h2>
+				</td>
+			</tr>
+		</table>
 
-	<table>
-		<tr>
-			<td colspan="2">
-				<h1>Payment Details Of Student</h1>
-			</td>
-		</tr>
-		<tr>
-			<td>Proposed Amount:-</td>
-			<td><s:property value="%{#pa.paymentDetails.proposedAmount}" /></td>
-		</tr>
+		<s:set var="pa" value="#session.payment" />
 
-		<tr>
-			<td>Deposited Amount:-</td>
-			<td><s:property value="%{#pa.paymentDetails.depositedAmount}" /></td>
-		</tr>
+		<table>
+			<tr>
+				<td colspan="2">
+					<h1>Payment Details Of Student</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>Proposed Amount:-</td>
+				<td><s:property value="%{#pa.paymentDetails.proposedAmount}" /></td>
+			</tr>
 
-		<tr>
-			<td>Proposed Date :</td>
-			<td><s:property value="%{#pa.paymentDetails.proposedDate}" /></td>
-		</tr>
+			<tr>
+				<td>Deposited Amount:-</td>
+				<td><s:property value="%{#pa.paymentDetails.depositedAmount}" /></td>
+			</tr>
 
-		<tr>
-			<td>Payment Date :</td>
-			<td><s:property value="%{#pa.paymentDetails.paymentDate}" /></td>
-		</tr>
-		<tr>
-			<td>Payment Comment :</td>
-			<td><s:property value="%{#pa.paymentComment}" /></td>
-		</tr>
+			<tr>
+				<td>Proposed Date :</td>
+				<td><s:property value="%{#pa.paymentDetails.proposedDate}" /></td>
+			</tr>
 
-	</table>
+			<tr>
+				<td>Payment Date :</td>
+				<td><s:property value="%{#pa.paymentDetails.paymentDate}" /></td>
+			</tr>
+			<tr>
+				<td>Payment Comment :</td>
+				<td><s:property value="%{#pa.paymentComment}" /></td>
+			</tr>
 
-	<s:form action="payDuePayment" theme="simple" method="post">
-		<s:label label="Press Submit to Confirm" />
-		<sj:submit value="Submit" cssClass="css_button" />
-	</s:form>
+		</table>
+
+		<s:form action="payDuePayment" theme="simple" method="post">
+			<s:label label="Press Submit to Confirm" />
+			<sj:submit value="Submit" cssClass="css_button" />
+		</s:form>
+
+	</div>
 
 	<!-- 
 	<s:form action="confirmregistration" theme="simple" method="post">

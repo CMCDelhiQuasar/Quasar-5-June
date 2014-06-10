@@ -48,6 +48,11 @@
 
 	}
 </script>
+<style>
+#feelayout {
+	margin-left: 300px;
+}
+</style>
 </head>
 <body>
 
@@ -69,7 +74,7 @@
 			</div>
 		</div>
 
-
+        <div id="feelayout" > 
 		<s:form name="fullfeeform" action="fullfeeconfiguration"
 			onsubmit="return validatefullfee()" method="post" theme="simple">
 
@@ -134,7 +139,7 @@
 			</tr>
 
 		</table>
-
+      </div>
 	</s:else>
 
 

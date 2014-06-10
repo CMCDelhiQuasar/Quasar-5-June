@@ -63,6 +63,11 @@
 
 	}
 </script>
+<style>
+#inlayout {
+	margin-left: 300px;
+}
+</style>
 </head>
 <body>
 
@@ -90,6 +95,7 @@
 
 		<br />Number of Installments : <s:property value="#ins" />
 		<br />
+		<div id="inlayout">
 		<s:form name="installmentform" action="installmentconfiguration"
 			onsubmit="return validateinstallment()" method="post" theme="simple">
 			<s:iterator var="n" begin="1" end="#ins" step="1">
@@ -154,6 +160,7 @@
 			</tr>
 
 		</table>
+		</div>
 	</s:else>
 
 </body>

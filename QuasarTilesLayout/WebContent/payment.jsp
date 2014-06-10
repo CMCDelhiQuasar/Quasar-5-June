@@ -70,6 +70,11 @@
 		return true;
 	}
 </script>
+<style>
+#paymentlayout {
+	margin-left: 300px;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
@@ -120,120 +125,121 @@
 
 
 	</s:else>
+	<div id="paymentlayout">
+		<h1>Payment Page</h1>
+		<s:form name="regpayment" theme="simple" method="post"
+			action="payment" onsubmit="return true">
 
-	<h1>Payment Page</h1>
-	<s:form name="regpayment" theme="simple" method="post" action="payment"
-		onsubmit="return true">
+
+			<br />
+			<table border="0">
+				<tr>
+					<td width="100"><s:label value="Proposed Amount" /></td>
+					<td><s:textfield label="Proposed Amount" labelSeparator=""
+							labelposition="left" name="proposedAmount"
+							value="%{#pa.paymentDetails.proposedAmount}" disabled="true" /></td>
+					<td><s:fielderror fieldName="proposedAmount" /></td>
+				</tr>
+
+				<tr>
+					<td><s:label value="Deposited Amount" /></td>
+					<td><s:textfield label="Deposited Amount" labelSeparator=""
+							labelposition="left" name="depositedAmount" /></td>
+					<td><s:fielderror fieldName="depositedAmount" /></td>
+				</tr>
+				<tr>
+					<td><s:label value="ProposedDate" /></td>
+					<td><sj:datepicker name="proposedDate"
+							displayFormat="dd/mm/yy" changeMonth="true" changeYear="true"
+							label="Proposed Date" labelposition="left" minDate="d"
+							value="%{#pa.paymentDetails.proposedDate}" /></td>
+					<td><s:fielderror fieldName="proposedDate" /></td>
+				</tr>
+				<tr>
+					<td><s:label value="PaymentDate" /></td>
+					<td><sj:datepicker name="paymentDate" changeMonth="true"
+							changeYear="true" label="Payment Date" labelposition="left"
+							displayFormat="dd/mm/yy" minDate="d" /></td>
+					<td><s:fielderror fieldName="paymentDate" /></td>
+				</tr>
+				<tr>
+					<td><s:label value="Comments" /></td>
+					<td><s:textarea name="comments" label="Comments"
+							labelSeparator="" labelposition="left" /></td>
+					<td><s:fielderror fieldName="comments" /></td>
+				</tr>
+				<tr>
+					<td><s:label value="Mode of Payment" /></td>
+					<td><s:radio
+							list="#{'cash':'Cash','online':'Online','cheque':'Cheque','dd':'DD','card':'Card'}"
+							name="paymentMode" label="Mode of Payment" labelSeparator=""
+							labelposition="left" value="{'cash'}" /></td>
+					<td><s:fielderror fieldName="paymentMode" /></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td width="200"></td>
+					<td><s:submit type="image" value="Back" src="images/back.png"
+							align="left" /></td>
+					<td width="60"></td>
+
+					<td><s:submit cssClass="css_button" value="Proceed"
+							align="right" /></td>
+				</tr>
+			</table>
+		</s:form>
+		<table border="0" id="studentdetail">
+			<tr>
+				<td colspan="4"><h2>Payment Configuration For</h2></td>
+				<td width="130"></td>
+				<td width="110"></td>
+				<td colspan="3" width="40"><a href="cancelregistration"><img
+						src="images/cancel.png" alt="" /></a></td>
+			</tr>
+			<tr>
+				<td>Name:-</td>
+				<td><s:property value="#session.shagird.name" /></td>
+			</tr>
+			<tr>
+				<td>Email:-</td>
+				<td><s:property value="#session.shagird.emailId" /></td>
+			</tr>
+			<tr>
+				<td>Contact:-</td>
+				<td><s:property value="#session.shagird.contactNumber" /></td>
+			</tr>
+			<tr>
+				<td>Payment Objects:-</td>
+				<td><s:property value="#session.shagird.paymentsList.size" /></td>
+			</tr>
+			<tr>
+				<td>Payment Objects:-</td>
+				<td><s:property value="#session.shagird.paymentsList.size" /></td>
+			</tr>
+			<s:iterator var="p" status="i" value="#session.shagird.paymentsList">
+				<tr>
+					<td>Installment Payment / REgistartion</td>
+					<td><s:property value="#i.index" /></td>
+				</tr>
+
+				<tr>
+					<td>Proposed Amount:-</td>
+					<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
+				</tr>
+				<tr>
+					<td>Proposed Date:-</td>
+					<td><s:property value="#p.paymentDetails.proposedDate" /></td>
+				</tr>
+				<tr>
+					<td>Payment Comment:-</td>
+					<td><s:property value="#p.paymentComment" /></td>
+				</tr>
 
 
-		<br />
-		<table border="0">
-			<tr>
-				<td width="100"><s:label value="Proposed Amount" /></td>
-				<td><s:textfield label="Proposed Amount" labelSeparator=""
-						labelposition="left" name="proposedAmount"
-						value="%{#pa.paymentDetails.proposedAmount}" disabled="true" /></td>
-				<td><s:fielderror fieldName="proposedAmount" /></td>
-			</tr>
+			</s:iterator>
 
-			<tr>
-				<td><s:label value="Deposited Amount" /></td>
-				<td><s:textfield label="Deposited Amount" labelSeparator=""
-						labelposition="left" name="depositedAmount" /></td>
-				<td><s:fielderror fieldName="depositedAmount" /></td>
-			</tr>
-			<tr>
-				<td><s:label value="ProposedDate" /></td>
-				<td><sj:datepicker name="proposedDate" displayFormat="dd/mm/yy"
-						changeMonth="true" changeYear="true" label="Proposed Date"
-						labelposition="left" minDate="d"
-						value="%{#pa.paymentDetails.proposedDate}" /></td>
-				<td><s:fielderror fieldName="proposedDate" /></td>
-			</tr>
-			<tr>
-				<td><s:label value="PaymentDate" /></td>
-				<td><sj:datepicker name="paymentDate" changeMonth="true"
-						changeYear="true" label="Payment Date" labelposition="left"
-						displayFormat="dd/mm/yy" minDate="d" /></td>
-				<td><s:fielderror fieldName="paymentDate" /></td>
-			</tr>
-			<tr>
-				<td><s:label value="Comments" /></td>
-				<td><s:textarea name="comments" label="Comments"
-						labelSeparator="" labelposition="left" /></td>
-				<td><s:fielderror fieldName="comments" /></td>
-			</tr>
-			<tr>
-				<td><s:label value="Mode of Payment" /></td>
-				<td><s:radio
-						list="#{'cash':'Cash','online':'Online','cheque':'Cheque','dd':'DD','card':'Card'}"
-						name="paymentMode" label="Mode of Payment" labelSeparator=""
-						labelposition="left" value="{'cash'}" /></td>
-				<td><s:fielderror fieldName="paymentMode" /></td>
-			</tr>
 		</table>
-		<table>
-			<tr>
-				<td width="200"></td>
-				<td><s:submit type="image" value="Back" src="images/back.png"
-						align="left" /></td>
-				<td width="60"></td>
-
-				<td><s:submit cssClass="css_button" value="Proceed"
-						align="right" /></td>
-			</tr>
-		</table>
-	</s:form>
-	<table border="0" id="studentdetail">
-		<tr>
-			<td colspan="4"><h2>Payment Configuration For</h2></td>
-			<td width="130"></td>
-			<td width="110"></td>
-			<td colspan="3" width="40"><a href="cancelregistration"><img
-					src="images/cancel.png" alt="" /></a></td>
-		</tr>
-		<tr>
-			<td>Name:-</td>
-			<td><s:property value="#session.shagird.name" /></td>
-		</tr>
-		<tr>
-			<td>Email:-</td>
-			<td><s:property value="#session.shagird.emailId" /></td>
-		</tr>
-		<tr>
-			<td>Contact:-</td>
-			<td><s:property value="#session.shagird.contactNumber" /></td>
-		</tr>
-		<tr>
-			<td>Payment Objects:-</td>
-			<td><s:property value="#session.shagird.paymentsList.size" /></td>
-		</tr>
-		<tr>
-			<td>Payment Objects:-</td>
-			<td><s:property value="#session.shagird.paymentsList.size" /></td>
-		</tr>
-		<s:iterator var="p" status="i" value="#session.shagird.paymentsList">
-			<tr>
-				<td>Installment Payment / REgistartion</td>
-				<td><s:property value="#i.index" /></td>
-			</tr>
-
-			<tr>
-				<td>Proposed Amount:-</td>
-				<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
-			</tr>
-			<tr>
-				<td>Proposed Date:-</td>
-				<td><s:property value="#p.paymentDetails.proposedDate" /></td>
-			</tr>
-			<tr>
-				<td>Payment Comment:-</td>
-				<td><s:property value="#p.paymentComment" /></td>
-			</tr>
-
-
-		</s:iterator>
-	</table>
-
+	</div>
 </body>
 </html>

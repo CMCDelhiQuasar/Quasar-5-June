@@ -123,6 +123,11 @@
 
 	}
 </script>
+<style>
+#cashlayout {
+	margin-left: 300px;
+}
+</style>
 </head>
 <body>
 
@@ -131,8 +136,8 @@
 		<jsp:forward page="registration.jsp" />
 	</s:if>
 	<s:else>
-  
-        		<div id="localHeader">
+
+		<div id="localHeader">
 			<div id="localTitle">
 				<h2 align="center"></h2>
 			</div>
@@ -143,205 +148,222 @@
 				</h4>
 			</div>
 		</div>
+		<div id="cashlayout">
+			<h1>Cash Mode Details</h1>
+			<s:form name="regcash" action="cashmode"
+				onsubmit="return checkoutamount()" theme="simple">
+				<table border="0">
+					<tr>
+						<td><s:label name="simple" value="Payment Mode for"
+								labelposition="left" labelSeparator=":" /></td>
+					</tr>
+					<tr>
+						<td><s:label name="studentName" value="Student Name" /></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><s:label name="studentEmail" value="Student Email" /></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><s:label name="regAmt" value="for the payment of Rs. "
+								labelSeparator="" labelposition="left" /></td>
+						<td width="40"></td>
+						<td><s:label name="cashAmount" label="Cash Amount"
+								labelSeparator="" labelposition="left" /></td>
+						<td><s:hidden name="cashAmount"
+								value="%{#session.shagird.feeDetails.courseFees}" /> <s:property
+								value="#session.shagird.feeDetails.courseFees" /></td>
 
-		<h1>Cash Mode Details</h1>
-		<s:form name="regcash" action="cashmode"
-			onsubmit="return checkoutamount()" theme="simple">
-			<table border="0">
+					</tr>
+
+					<tr>
+						<td><s:label value="Enter 1000 Notes" /></td>
+						<td><s:select id="thousandnotes" name="thousandnotes"
+								label="1000 x" labelSeparator="" labelposition="left"
+								onclick="thousand(this.id)" onkeypress="thousand(this.id)"
+								onfocus="countCourseFee()" onmouseout="countCourseFee()"
+								list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
+						<td width="40">x</td>
+						<td><div id="1000">0</div></td>
+					</tr>
+
+					<tr>
+						<td><s:label value="Enter 500 Notes" /></td>
+						<td><s:select id="fivehundred" name="fivehundred"
+								label="500 x" labelSeparator="" labelposition="left"
+								onclick="fivehundered(this.id)" onfocus="countCourseFee()"
+								onmouseout="countCourseFee()"
+								list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
+						<td width="40">x</td>
+						<td><div id="500">0</div></td>
+					</tr>
+
+
+					<tr>
+						<td><s:label value="Enter 100 Notes" /></td>
+						<td><s:select id="hundred" name="hundred" label="100 x"
+								labelSeparator="" labelposition="left"
+								onclick="hundered(this.id)" onfocus="countCourseFee()"
+								onmouseout="countCourseFee()"
+								list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
+						<td width="40">x</td>
+						<td><div id="100">0</div></td>
+					</tr>
+
+					<tr>
+						<td><s:label value="Enter 50 Notes" /></td>
+						<td><s:select id="fifty" name="fifty" label="50 x"
+								labelSeparator="" labelposition="left"
+								onclick="countfifty(this.id)" onfocus="countCourseFee()"
+								onmouseout="countCourseFee()"
+								list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
+						<td width="40">x</td>
+						<td><div id="50">0</div></td>
+					</tr>
+
+					<tr>
+						<td><s:label value="Enter 20 Notes" /></td>
+						<td><s:select id="twenty" name="twenty" label="20 x"
+								labelSeparator="" labelposition="left"
+								onclick="counttwenty(this.id)" onfocus="countCourseFee()"
+								onmouseout="countCourseFee()"
+								list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
+						<td width="40">x</td>
+						<td><div id="20">0</div></td>
+					</tr>
+
+					<tr>
+						<td><s:label value="Enter 10 Notes" /></td>
+						<td><s:select id="ten" name="ten" label="10 x"
+								labelSeparator="" labelposition="left"
+								onclick="countten(this.id)" onfocus="countCourseFee()"
+								onmouseout="countCourseFee()"
+								list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
+						<td width="40">x</td>
+						<td><div id="10">0</div></td>
+					</tr>
+
+					<tr>
+						<td><s:label value="Enter 5 Notes" /></td>
+						<td><s:select id="five" name="five" label="5 x"
+								labelSeparator="" labelposition="left"
+								onclick="countfive(this.id)" onfocus="countCourseFee()"
+								onmouseout="countCourseFee()"
+								list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
+						<td width="40">x</td>
+						<td><div id="5">0</div></td>
+					</tr>
+
+					<tr>
+						<td><s:label value="Enter 2 Notes" /></td>
+						<td><s:select id="two" name="two" label="2 x"
+								labelSeparator="" labelposition="left"
+								onclick="counttwo(this.id)" onfocus="countCourseFee()"
+								onmouseout="countCourseFee()"
+								list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
+						<td width="40">x</td>
+						<td><div id="2">0</div></td>
+					</tr>
+
+					<tr>
+						<td><s:label value="Enter 1 Notes" /></td>
+						<td><s:select id="one" name="one" label="1 x"
+								labelSeparator="" labelposition="left"
+								onclick="countone(this.id)" onfocus="countCourseFee()"
+								onmouseout="countCourseFee()"
+								list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" />
+						</td>
+						<td width="40">x</td>
+						<td><div id="1">0</div></td>
+					</tr>
+
+					<tr>
+						<td><s:label value="Total" /></td>
+						<td></td>
+						<td width="40"></td>
+						<td><div id="total"></div></td>
+					</tr>
+				</table>
+				<table border="0">
+					<tr>
+						<s:div>
+							<td width="250"></td>
+							<td><s:submit type="image" value="Back"
+									src="images/back.png" align="left" /></td>
+							<td width="30"></td>
+
+							<td><s:submit value="Proceed" cssClass="css_button"
+									onfocus="countCourseFee()" onmouseout="countCourseFee()" /></td>
+						</s:div>
+					</tr>
+				</table>
+			</s:form>
+			<table border="0" id="studentdetail">
 				<tr>
-					<td><s:label name="simple" value="Payment Mode for"
-							labelposition="left" labelSeparator=":" /></td>
+					<td colspan="4"><h2>Installment Configuration For</h2></td>
+					<td width="130"></td>
+					<td width="110"></td>
+					<td colspan="3" width="40"><a href="cancelregistration"><img
+							src="images/cancel.png" alt="" /></a></td>
 				</tr>
 				<tr>
-					<td><s:label name="studentName" value="Student Name" /></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><s:label name="studentEmail" value="Student Email" /></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><s:label name="regAmt" value="for the payment of Rs. "
-							labelSeparator="" labelposition="left" /></td>
-
-					<td><s:label name="cashAmount" label="Cash Amount"
-							labelSeparator="" labelposition="left" /></td>
-					<td><s:hidden name="cashAmount"
-							value="%{#session.shagird.feeDetails.courseFees}" /> <s:property
-							value="#session.shagird.feeDetails.courseFees" /></td>
-
+					<td>Name:-</td>
+					<td><s:property value="#session.shagird.name" /></td>
 				</tr>
 
 				<tr>
-					<td><s:label value="Enter 1000 Notes" /></td>
-					<td><s:select id="thousandnotes" name="thousandnotes"
-							label="1000 x" labelSeparator="" labelposition="left"
-							onclick="thousand(this.id)" onkeypress="thousand(this.id)"
-							onfocus="countCourseFee()" onmouseout="countCourseFee()"
-							list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
-					<td><div id="1000">0</div></td>
+					<td>Email:-</td>
+					<td><s:property value="#session.shagird.emailId" /></td>
 				</tr>
 
 				<tr>
-					<td><s:label value="Enter 500 Notes" /></td>
-					<td><s:select id="fivehundred" name="fivehundred"
-							label="500 x" labelSeparator="" labelposition="left"
-							onclick="fivehundered(this.id)" onfocus="countCourseFee()"
-							onmouseout="countCourseFee()"
-							list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
-					<td><div id="500">0</div></td>
-				</tr>
-
-
-				<tr>
-					<td><s:label value="Enter 100 Notes" /></td>
-					<td><s:select id="hundred" name="hundred" label="100 x"
-							labelSeparator="" labelposition="left"
-							onclick="hundered(this.id)" onfocus="countCourseFee()"
-							onmouseout="countCourseFee()"
-							list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
-					<td><div id="100">0</div></td>
+					<td>Contact:-</td>
+					<td><s:property value="#session.shagird.contactNumber" /></td>
 				</tr>
 
 				<tr>
-					<td><s:label value="Enter 50 Notes" /></td>
-					<td><s:select id="fifty" name="fifty" label="50 x"
-							labelSeparator="" labelposition="left"
-							onclick="countfifty(this.id)" onfocus="countCourseFee()"
-							onmouseout="countCourseFee()"
-							list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
-					<td><div id="50">0</div></td>
+					<td>Payment Objects:-</td>
+					<td><s:property value="#session.shagird.paymentsList.size" /></td>
 				</tr>
+				<s:iterator var="p" value="#session.shagird.paymentsList">
+					<tr>
+						<td>Proposed Amount:-</td>
+						<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
+					</tr>
+					<tr>
+						<td>Proposed Date:-</td>
+						<td><s:property value="#p.paymentDetails.proposedDate" /></td>
+					</tr>
 
-				<tr>
-					<td><s:label value="Enter 20 Notes" /></td>
-					<td><s:select id="twenty" name="twenty" label="20 x"
-							labelSeparator="" labelposition="left"
-							onclick="counttwenty(this.id)" onfocus="countCourseFee()"
-							onmouseout="countCourseFee()"
-							list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
-					<td><div id="20">0</div></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Enter 10 Notes" /></td>
-					<td><s:select id="ten" name="ten" label="10 x"
-							labelSeparator="" labelposition="left"
-							onclick="countten(this.id)" onfocus="countCourseFee()"
-							onmouseout="countCourseFee()"
-							list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
-					<td><div id="10">0</div></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Enter 5 Notes" /></td>
-					<td><s:select id="five" name="five" label="5 x"
-							labelSeparator="" labelposition="left"
-							onclick="countfive(this.id)" onfocus="countCourseFee()"
-							onmouseout="countCourseFee()"
-							list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
-					<td><div id="5">0</div></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Enter 2 Notes" /></td>
-					<td><s:select id="two" name="two" label="2 x"
-							labelSeparator="" labelposition="left"
-							onclick="counttwo(this.id)" onfocus="countCourseFee()"
-							onmouseout="countCourseFee()"
-							list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
-					<td><div id="2">0</div></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Enter 1 Notes" /></td>
-					<td><s:select id="one" name="one" label="1 x"
-							labelSeparator="" labelposition="left"
-							onclick="countone(this.id)" onfocus="countCourseFee()"
-							onmouseout="countCourseFee()"
-							list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" />
-					</td>
-					<td><div id="1">0</div></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Total" /></td>
-					<td></td>
-					<td><div id="total"></div></td>
-				</tr>
+					<tr>
+						<td>Payment Comment:-</td>
+						<td><s:property value="#p.paymentComment" /></td>
+					</tr>
+				</s:iterator>
 			</table>
-			<table border="0">
-				<tr>
-					<s:div>
-						<td width="250"></td>
-						<td><s:submit type="image" value="Back" src="images/back.png"
-								align="left" /></td>
-						<td width="30"></td>
-
-						<td><s:submit value="Proceed" cssClass="css_button"
-								onfocus="countCourseFee()" onmouseout="countCourseFee()" /></td>
-					</s:div>
-				</tr>
-			</table>
-		</s:form>
-		<table border="0" id="studentdetail">
-			<tr>
-				<td colspan="4"><h2>Installment Configuration For</h2></td>
-				<td width="130"></td>
-				<td width="110"></td>
-				<td colspan="3" width="40"><a href="cancelregistration"><img
-						src="images/cancel.png" alt="" /></a></td>
-			</tr>
-			<tr>
-				<td>Name:-</td>
-				<td><s:property value="#session.shagird.name" /></td>
-			</tr>
-
-			<tr>
-				<td>Email:-</td>
-				<td><s:property value="#session.shagird.emailId" /></td>
-			</tr>
-
-			<tr>
-				<td>Contact:-</td>
-				<td><s:property value="#session.shagird.contactNumber" /></td>
-			</tr>
-
-			<tr>
-				<td>Payment Objects:-</td>
-				<td><s:property value="#session.shagird.paymentsList.size" /></td>
-			</tr>
-			<s:iterator var="p" value="#session.shagird.paymentsList">
-				<tr>
-					<td>Proposed Amount:-</td>
-					<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
-				</tr>
-				<tr>
-					<td>Proposed Date:-</td>
-					<td><s:property value="#p.paymentDetails.proposedDate" /></td>
-				</tr>
-
-				<tr>
-					<td>Payment Comment:-</td>
-					<td><s:property value="#p.paymentComment" /></td>
-				</tr>
-			</s:iterator>
-		</table>
-				<hr />
-		<h1>Registration Object Details</h1>
-			Registration Proposed Amount:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" />
-		<br />Registration Deposited Amount:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.depositedAmount" />
-		<br /> Registration Proposed Date : <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.proposedDate" />
-		<br />Registration Payment Date:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.paymentDate" />
-		<br />Registration Payment Comment:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentComment" />
-		<br />
-		<hr />
+			<hr />
+			<h1>Registration Object Details</h1>
+			Registration Proposed Amount:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" />
+			<br />Registration Deposited Amount:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.depositedAmount" />
+			<br /> Registration Proposed Date :
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.proposedDate" />
+			<br />Registration Payment Date:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.paymentDate" />
+			<br />Registration Payment Comment:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentComment" />
+			<br />
+			<hr />
+		</div>
 	</s:else>
+
 
 </body>
 </html>

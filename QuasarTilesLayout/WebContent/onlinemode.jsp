@@ -31,6 +31,11 @@
 		return true;
 	}
 </script>
+<style>
+#onlinelayout {
+	margin-left: 300px;
+}
+</style>
 </head>
 <body>
 
@@ -53,95 +58,102 @@
 			</div>
 		</div>
 
-		<h1>Online Transaction Details</h1>
-		<s:form name="onlineform" theme="simple" onsubmit="return true"
-			method="post" action="onlinemode">
-			<table>
+		<div id="onlinelayout">
+			<h1>Online Transaction Details</h1>
+			<s:form name="onlineform" theme="simple" onsubmit="return true"
+				method="post" action="onlinemode">
+				<table>
+					<tr>
+						<td><s:label value="Transaction Id" /></td>
+						<td><s:textfield labelSeparator="" labelposition="left"
+								name="transactionId" /></td>
+						<td><s:fielderror fieldName="transactionId" /></td>
+					</tr>
+					<tr>
+						<td><s:label value="Reicpt Number" /></td>
+						<td><s:textfield value="0" labelSeparator=""
+								labelposition="left" name="reicptNumber" /></td>
+						<td><s:fielderror fieldName="transactionId" /></td>
+					</tr>
+				</table>
+				<table border="0">
+					<tr>
+						<s:div>
+							<td width="250"></td>
+							<td><s:submit type="image" value="Back"
+									src="images/back.png" align="left" /></td>
+							<td width="30"></td>
+
+							<td><s:submit value="Proceed" cssClass="css_button" /></td>
+
+						</s:div>
+					</tr>
+				</table>
+			</s:form>
+			<table border="0" id="studentdetail">
 				<tr>
-					<td><s:label value="Transaction Id" /></td>
-					<td><s:textfield labelSeparator="" labelposition="left"
-							name="transactionId" /></td>
-					<td><s:fielderror fieldName="transactionId" /></td>
+					<td colspan="4"><h2>Welcome</h2></td>
+					<td width="130"></td>
+					<td width="110"></td>
+					<td colspan="3" width="40"><a href="cancelregistration"><img
+							src="images/cancel.png" alt="" /></a></td>
 				</tr>
 				<tr>
-					<td><s:label value="Reicpt Number" /></td>
-					<td><s:textfield value="0" labelSeparator=""
-							labelposition="left" name="reicptNumber" /></td>
-					<td><s:fielderror fieldName="transactionId" /></td>
+					<td>Name:-</td>
+					<td><s:property value="#session.shagird.name" /></td>
 				</tr>
+
+				<tr>
+					<td>Email:-</td>
+					<td><s:property value="#session.shagird.emailId" /></td>
+				</tr>
+
+				<tr>
+					<td>Contact:-</td>
+					<td><s:property value="#session.shagird.contactNumber" /></td>
+				</tr>
+
+				<tr>
+					<td>Payment Objects:-</td>
+					<td><s:property value="#session.shagird.paymentsList.size" /></td>
+				</tr>
+				<s:iterator var="p" value="#session.shagird.paymentsList">
+					<tr>
+						<td>Proposed Amount:-</td>
+						<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
+					</tr>
+					<tr>
+						<td>Proposed Date:-</td>
+						<td><s:property value="#p.paymentDetails.proposedDate" /></td>
+					</tr>
+
+					<tr>
+						<td>Payment Comment:-</td>
+						<td><s:property value="#p.paymentComment" /></td>
+					</tr>
+				</s:iterator>
 			</table>
-			<table border="0">
-				<tr>
-					<s:div>
-						<td width="250"></td>
-						<td><s:submit type="image" value="Back" src="images/back.png"
-								align="left" /></td>
-						<td width="30"></td>
 
-						<td><s:submit value="Proceed" cssClass="css_button" /></td>
-
-					</s:div>
-				</tr>
-			</table>
-		</s:form>
-		<table border="0" id="studentdetail">
-			<tr>
-				<td colspan="4"><h2>Welcome</h2></td>
-				<td width="130"></td>
-				<td width="110"></td>
-				<td colspan="3" width="40"><a href="cancelregistration"><img
-						src="images/cancel.png" alt="" /></a></td>
-			</tr>
-			<tr>
-				<td>Name:-</td>
-				<td><s:property value="#session.shagird.name" /></td>
-			</tr>
-
-			<tr>
-				<td>Email:-</td>
-				<td><s:property value="#session.shagird.emailId" /></td>
-			</tr>
-
-			<tr>
-				<td>Contact:-</td>
-				<td><s:property value="#session.shagird.contactNumber" /></td>
-			</tr>
-
-			<tr>
-				<td>Payment Objects:-</td>
-				<td><s:property value="#session.shagird.paymentsList.size" /></td>
-			</tr>
-			<s:iterator var="p" value="#session.shagird.paymentsList">
-				<tr>
-					<td>Proposed Amount:-</td>
-					<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
-				</tr>
-				<tr>
-					<td>Proposed Date:-</td>
-					<td><s:property value="#p.paymentDetails.proposedDate" /></td>
-				</tr>
-
-				<tr>
-					<td>Payment Comment:-</td>
-					<td><s:property value="#p.paymentComment" /></td>
-				</tr>
-			</s:iterator>
-		</table>
-
-		<hr />
-		<h1>Registration Object Details</h1>
-			Registration Proposed Amount:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" />
-		<br />Registration Deposited Amount:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.depositedAmount" />
-		<br /> Registration Proposed Date : <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.proposedDate" />
-		<br />Registration Payment Date:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentDetails.paymentDate" />
-		<br />Registration Payment Comment:- <s:property
-			value="#session.shagird.paymentsList.get(0).paymentComment" />
-		<br />
-		<hr />
+			<hr />
+			<h1>Registration Object Details</h1>
+			Registration Proposed Amount:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" />
+			<br />Registration Deposited Amount:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.depositedAmount" />
+			<br /> Registration Proposed Date :
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.proposedDate" />
+			<br />Registration Payment Date:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentDetails.paymentDate" />
+			<br />Registration Payment Comment:-
+			<s:property
+				value="#session.shagird.paymentsList.get(0).paymentComment" />
+			<br />
+			<hr />
+		</div>
 	</s:else>
 
 
