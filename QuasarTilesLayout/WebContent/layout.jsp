@@ -36,7 +36,7 @@ hr {
 }
 
 .css_button {
-	padding: 5.5px 11px;
+	padding: 5.5px 8px;
 	border: 1px solid #1568B4;
 	background: -webkit-gradient(linear, left top, left bottom, from(#1568B4),
 		to(#1568B4));

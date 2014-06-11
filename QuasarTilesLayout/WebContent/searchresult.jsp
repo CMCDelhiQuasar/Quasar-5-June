@@ -54,6 +54,12 @@
 </head>
 <body>
 
+
+
+
+
+
+
 	<s:if test="queryResultStudentList.size()!=0">
 
 		<div align="right">
@@ -63,26 +69,58 @@
 		</div>
 		<hr>
 		<s:iterator var="s" value="queryResultStudentList">
+
+
 			<div id="box">
 
-				<a
-					href="searchstudent?emailId=<s:property
+				<!--Creating up the dialog  -->
+
+
+				<div align="left">
+					<div align="top">
+						<sj:a openDialog="myclickdialog">
+							<s:property value="#s.emailId" />
+						</sj:a>
+					</div>
+
+
+					<sj:dialog id="myclickdialog" autoOpen="false" modal="true"
+						title="Modal Dialog" cssStyle="background-color: #abba12;">
+						Name <s:property value="#s.name" />
+						<br>
+						Age <s:property value="#s.contactNumber" />
+					</sj:dialog>
+
+				</div>
+
+
+				<div align="right">
+					<div align="top">
+						<a
+							href="searchstudent?emailId=<s:property
 							value="#s.emailId"/>">
-					<button class="css_button">S</button>
-				</a>
+							<button class="css_button">S</button>
+						</a>
+					</div>
+					<div style="font-weight: bold; font-size: 150%; padding-top: 8px"
+						align="bottom">
+						&nbsp <a style="color: #000000; text-decoration: none;"><s:property
+								value="#s.name" /></a>
+					</div>
+					<div style="font-weight: bold; font-size: 110%;" align="top">
+						<s:property value="#s.courseName" />
+					</div>
 
 
-				<div style="font-weight: bold; font-size: 150%; padding-top: 8px"
-					align="right">
-					&nbsp <a style="color: #000000; text-decoration: none;"><s:property
-							value="#s.name" /></a>
-					<s:property value="#s.emailId" />
 				</div>
 
 
 
 
+
 			</div>
+
+
 		</s:iterator>
 	</s:if>
 
