@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function validatecard() {
-		alert("come to validate method");
+		//alert("come to validate method");
 		var cardtype = document.getElementsByName("cardType");
 
 		var strcardNumber = document.forms["regmode"]["cardNumber"].value;
@@ -53,6 +53,9 @@
 
 		return true;
 	}
+	function gotoregistration() {
+		history.back();
+	}
 </script>
 <style>
 #cardlayout {
@@ -71,7 +74,7 @@
 
 		<div id="localHeader">
 			<div id="localTitle">
-				<h2 align="center"></h2>
+				<h2 align="center">Debit/Credit Card Details</h2>
 			</div>
 			<div id="breadCrumbs">
 				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
@@ -81,8 +84,25 @@
 			</div>
 		</div>
 
+		<div>
+			<center>
+				<table border="0" width="50%">
+					<tr>
+						<td align="left"><button onclick="gotoregistration()"
+								class="css_button"><</button></td>
+
+						<td align="center"><button
+								onclick="location.href='cancelregistration'"
+								value="cancelregistration" class="css_button">x</button></td>
+
+						<td></td>
+					</tr>
+				</table>
+			</center>
+		</div>
+
 		<div id="cardlayout">
-			<h1>Debit/Credit Card Details</h1>
+			<h1></h1>
 			<s:form name="regmode" theme="simple" action="cardmode" method="post"
 				onsubmit="return true">
 				<table>
@@ -121,11 +141,10 @@
 				<table>
 					<tr>
 						<td width="200"></td>
-						<td><s:submit value="Back" cssClass="css_button" align="left" /></td>
 						<td width="30"></td>
 
 						<td><s:submit cssClass="css_button" value="Proceed"
-								align="right" /></td>
+								align="left" /></td>
 					</tr>
 				</table>
 			</s:form>
@@ -134,8 +153,6 @@
 					<td colspan="4"><h2>Installment Configuration For</h2></td>
 					<td width="130"></td>
 					<td width="110"></td>
-					<td colspan="3" width="40"><a href="cancelregistration"><img
-							src="images/cancel.png" alt="" /></a></td>
 				</tr>
 				<tr>
 					<td>Name:-</td>

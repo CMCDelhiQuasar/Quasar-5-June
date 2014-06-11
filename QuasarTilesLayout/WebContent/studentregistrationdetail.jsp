@@ -290,7 +290,7 @@ td {
 								labelposition="left" /></td>
 						<td><s:radio list="{'Full Fees','Installment'}"
 								onclick="display()" name="paymenttype" label="Payment Type"
-								value="%{'Full Fees'}" labelSeparator="" labelposition="left" /></td>
+								value="%{'Installment'}" labelSeparator="" labelposition="left" /></td>
 						<td><s:fielderror fieldName="paymenttype" /></td>
 					</tr>
 				</s:div>
@@ -325,7 +325,8 @@ td {
 						<td width="30"></td>
 
 						<td align="right"><s:submit onfocus="return calculatefee()"
-								value="Proceed" cssClass="css_button" /></td>
+								onmouseover="return calculatefee()" value="Proceed"
+								cssClass="css_button" /></td>
 
 					</s:div>
 				</tr>

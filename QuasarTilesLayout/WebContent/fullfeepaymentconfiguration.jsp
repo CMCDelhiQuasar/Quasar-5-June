@@ -47,6 +47,9 @@
 		return true;
 
 	}
+	function gotoregistration() {
+		history.back();
+	}
 </script>
 <style>
 #feelayout {
@@ -74,72 +77,87 @@
 			</div>
 		</div>
 
-        <div id="feelayout" > 
-		<s:form name="fullfeeform" action="fullfeeconfiguration"
-			onsubmit="return validatefullfee()" method="post" theme="simple">
-
-			<table>
-				<tr>
-					<td><s:label value="Proposed Amount" /></td>
-					<td><s:textfield label="Proposed Amount" labelSeparator=""
-							labelposition="left" name="proposedAmount" /></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Proposed Date" /></td>
-					<td><sj:datepicker name="proposedDate" changeMonth="true"
-							changeYear="true" label="Proposed Date" labelSeparator=""
-							labelposition="left" displayFormat="dd/mm/yy" /></td>
-				</tr>
-
-				<tr>
-					<td><s:label value="Comments" /></td>
-					<td><s:textarea label="Comments" labelSeparator=""
-							labelposition="left" name="comment" /></td>
-				</tr>
-			</table>
-			<s:div>
-				<table border="0">
+		<div>
+			<center>
+				<table border="0" width="50%">
 					<tr>
-						<s:div>
-							<td width="250"></td>
-							<td><s:submit type="image" value="Back"
-									src="images/back.png" align="left" /></td>
-							<td width="30"></td>
+						<td align="left"><button onclick="gotoregistration()"
+								class="css_button"><</button></td>
 
-							<td><s:submit cssClass="css_button" value="Proceed" /></td>
+						<td align="center"><button
+								onclick="location.href='cancelregistration'"
+								value="cancelregistration" class="css_button">x</button></td>
 
-						</s:div>
+						<td></td>
 					</tr>
 				</table>
-			</s:div>
-		</s:form>
+			</center>
+		</div>
 
-		<table border="0" id="studentdetail">
-			<tr>
-				<td colspan="4"><h2>Full Fee Configuration For</h2></td>
-				<td width="130"></td>
-				<td width="110"></td>
-				<td colspan="3" width="40"><a href="cancelregistration"><img
-						src="images/cancel.png" alt="" /></a></td>
-			</tr>
-			<tr>
-				<td>Name:-</td>
-				<td><s:property value="#session.shagird.name" /></td>
-			</tr>
+		<div id="feelayout">
+			<s:form name="fullfeeform" action="fullfeeconfiguration"
+				onsubmit="return validatefullfee()" method="post" theme="simple">
 
-			<tr>
-				<td>Email:-</td>
-				<td><s:property value="#session.shagird.emailId" /></td>
-			</tr>
+				<table>
+					<tr>
+						<td><s:label value="Proposed Amount" /></td>
+						<td><s:textfield label="Proposed Amount" labelSeparator=""
+								labelposition="left" name="proposedAmount" /></td>
+					</tr>
 
-			<tr>
-				<td>Contact:-</td>
-				<td><s:property value="#session.shagird.contactNumber" /></td>
-			</tr>
+					<tr>
+						<td><s:label value="Proposed Date" /></td>
+						<td><sj:datepicker name="proposedDate" changeMonth="true"
+								changeYear="true" label="Proposed Date" labelSeparator=""
+								labelposition="left" displayFormat="dd/mm/yy" /></td>
+					</tr>
 
-		</table>
-      </div>
+					<tr>
+						<td><s:label value="Comments" /></td>
+						<td><s:textarea label="Comments" labelSeparator=""
+								labelposition="left" name="comment" /></td>
+					</tr>
+				</table>
+				<s:div>
+					<table border="0">
+						<tr>
+							<s:div>
+								<td width="250"></td>
+								<td><s:submit type="image" value="Back"
+										src="images/back.png" align="left" /></td>
+								<td width="30"></td>
+
+								<td><s:submit cssClass="css_button" value="Proceed" /></td>
+
+							</s:div>
+						</tr>
+					</table>
+				</s:div>
+			</s:form>
+
+			<table border="0" id="studentdetail">
+				<tr>
+					<td colspan="4"><h2>Full Fee Configuration For</h2></td>
+					<td width="130"></td>
+					<td width="110"></td>
+				</tr>
+				<tr>
+					<td>Name:-</td>
+					<td><s:property value="#session.shagird.name" /></td>
+				</tr>
+
+				<tr>
+					<td>Email:-</td>
+					<td><s:property value="#session.shagird.emailId" /></td>
+				</tr>
+
+				<tr>
+					<td>Contact:-</td>
+					<td><s:property value="#session.shagird.contactNumber" /></td>
+				</tr>
+
+			</table>
+		</div>
 	</s:else>
 
 

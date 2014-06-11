@@ -44,7 +44,7 @@
 			return false;
 		}
 
-		if (strpamount2 == "" || pamount2 <= 0 ||isNaN(pamount2)) {
+		if (strpamount2 == "" || pamount2 <= 0 || isNaN(pamount2)) {
 			alert("Please check second proposed amount");
 			return false;
 		}
@@ -61,6 +61,10 @@
 
 		return true;
 
+	}
+
+	function gotoregistration() {
+		history.back();
 	}
 </script>
 <style>
@@ -85,10 +89,25 @@
 			<div id="breadCrumbs">
 				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
 					Student > Student Registration > Student Installment Configuration
-					</a>
+
 				</h4>
 			</div>
 		</div>
+		<div>
+			<center>
+				<table border="0" width="50%">
+					<tr>
+						<td align="left"><button onclick="gotoregistration()"
+								class="css_button"><</button></td>
+
+						<td align="center"><button
+								onclick="location.href='cancelregistration'"
+								value="cancelregistration" class="css_button">x</button></td>
+					</tr>
+				</table>
+			</center>
+		</div>
+
 		<!-- Fetch the number of Installment Student has opted  -->
 
 		<s:set var="ins" value="#session.NUMBER_OF_INSTALLMENTS" />
@@ -96,70 +115,70 @@
 		<br />Number of Installments : <s:property value="#ins" />
 		<br />
 		<div id="inlayout">
-		<s:form name="installmentform" action="installmentconfiguration"
-			onsubmit="return validateinstallment()" method="post" theme="simple">
-			<s:iterator var="n" begin="1" end="#ins" step="1">
+			<s:form name="installmentform" action="installmentconfiguration"
+				onsubmit="return validateinstallment()" method="post" theme="simple">
+				<s:iterator var="n" begin="1" end="#ins" step="1">
 
 
-				<h1>Installment ${n}</h1>
-				<table>
-					<tr>
-						<td><s:label value="Proposed Amount" labelposition="left" /></td>
-						<td><s:textfield labelSeparator="" labelposition="left"
-								name="proposedAmount%{#n}" /></td>
-					</tr>
-					<tr>
-						<td><s:label value="Proposed Date" labelposition="left" /></td>
-						<td><sj:datepicker name="proposedDate%{#n}" minDate="1d"
-								changeMonth="true" changeYear="true" labelSeparator=""
-								labelposition="left" displayFormat="dd/mm/yy" /></td>
-					</tr>
-					<tr>
-						<td><s:label value="Comments" labelposition="left" /></td>
-						<td><s:textarea label="Comments" labelSeparator=""
-								labelposition="left" name="comment%{#n}" /></td>
-					</tr>
-				</table>
-				<hr />
-			</s:iterator>
+					<h1>Installment ${n}</h1>
+					<table>
+						<tr>
+							<td><s:label value="Proposed Amount" labelposition="left" /></td>
+							<td><s:textfield labelSeparator="" labelposition="left"
+									name="proposedAmount%{#n}" /></td>
+						</tr>
+						<tr>
+							<td><s:label value="Proposed Date" labelposition="left" /></td>
+							<td><sj:datepicker name="proposedDate%{#n}" minDate="1d"
+									changeMonth="true" changeYear="true" labelSeparator=""
+									labelposition="left" displayFormat="dd/mm/yy" /></td>
+						</tr>
+						<tr>
+							<td><s:label value="Comments" labelposition="left" /></td>
+							<td><s:textarea label="Comments" labelSeparator=""
+									labelposition="left" name="comment%{#n}" /></td>
+						</tr>
+					</table>
+					<hr />
+				</s:iterator>
 
-			<s:div id="submit">
-				<table>
-					<tr>
-						<td width="250"></td>
-						<td><s:submit value="Back" cssClass="css_button" align="left" /></td>
-						<td width="30"></td>
+				<s:div id="submit">
+					<table>
+						<tr>
+							<td width="250"></td>
+							<td></td>
+							<td width="30"></td>
 
-						<td><s:submit cssClass="css_button" value="Proceed"
-								align="right" /></td>
-					</tr>
-				</table>
-			</s:div>
-		</s:form>
-		<table border="0" id="studentdetail">
-			<tr>
-				<td colspan="4"><h2>Installment Configuration For</h2></td>
-				<td width="130"></td>
-				<td width="110"></td>
-				<td colspan="3" width="40"><a href="cancelregistration"><img
-						src="images/cancel.png" alt="" /></a></td>
-			</tr>
-			<tr>
-				<td>Name:-</td>
-				<td><s:property value="#session.shagird.name" /></td>
-			</tr>
+							<td><s:submit cssClass="css_button" value="Proceed"
+									align="left" /></td>
+						</tr>
+					</table>
+				</s:div>
+			</s:form>
 
-			<tr>
-				<td>Email:-</td>
-				<td><s:property value="#session.shagird.emailId" /></td>
-			</tr>
 
-			<tr>
-				<td>Contact:-</td>
-				<td><s:property value="#session.shagird.contactNumber" /></td>
-			</tr>
+			<table border="0" id="studentdetail">
+				<tr>
+					<td colspan="4"><h2>Installment Configuration For</h2></td>
+					<td width="130"></td>
+					<td width="110"></td>
+				</tr>
+				<tr>
+					<td>Name:-</td>
+					<td><s:property value="#session.shagird.name" /></td>
+				</tr>
 
-		</table>
+				<tr>
+					<td>Email:-</td>
+					<td><s:property value="#session.shagird.emailId" /></td>
+				</tr>
+
+				<tr>
+					<td>Contact:-</td>
+					<td><s:property value="#session.shagird.contactNumber" /></td>
+				</tr>
+
+			</table>
 		</div>
 	</s:else>
 

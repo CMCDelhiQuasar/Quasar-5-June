@@ -13,6 +13,11 @@
 	margin-left: 300px;
 }
 </style>
+<script type="text/javascript">
+	function gotoregistration() {
+		history.back();
+	}
+</script>
 </head>
 <body>
 
@@ -24,6 +29,21 @@
 			<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
 				Student > Pending Payment > Due Payment Confirmation</h4>
 		</div>
+	</div>
+
+	<div>
+		<center>
+			<table border="0" width="50%">
+				<tr>
+					<td align="left"><button onclick="gotoregistration()"
+							class="css_button"><</button></td>
+
+					<td align="center"><button
+							onclick="location.href='cancelregistration'"
+							value="cancelregistration" class="css_button">x</button></td>
+				</tr>
+			</table>
+		</center>
 	</div>
 
 	<div id="duelayout">

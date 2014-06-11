@@ -17,6 +17,11 @@
 	}
 	//setTimeout('datevalue()', 100);
 </script>
+<style>
+#reglayout {
+	margin-left: 300px;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <sj:head jqueryui="true" />
 </head>

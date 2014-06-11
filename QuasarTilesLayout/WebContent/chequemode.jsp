@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function validatecheque() {
-		alert("come to validate method");
+		//alert("come to validate method");
 		var strchequeNumber = document.forms["chequedetails"]["chequeNumber"].value;
 		var chequeNumber = parseInt(strchequeNumber, 10);
 
@@ -33,7 +33,11 @@
 
 		return true;
 	}
+	function gotoregistration() {
+		history.back();
+	}
 </script>
+
 <style>
 #chequelayout {
 	margin-left: 300px;
@@ -51,7 +55,7 @@
 
 		<div id="localHeader">
 			<div id="localTitle">
-				<h2 align="center"></h2>
+				<h2 align="center">Cheque Details</h2>
 			</div>
 			<div id="breadCrumbs">
 				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
@@ -61,8 +65,27 @@
 			</div>
 		</div>
 
+		<div>
+			<center>
+				<table border="0" width="50%">
+					<tr>
+						<td align="left"><button onclick="gotoregistration()"
+								class="css_button"><</button></td>
+
+						<td align="center"><button
+								onclick="location.href='cancelregistration'"
+								value="cancelregistration" class="css_button">x</button></td>
+
+						<td></td>
+					</tr>
+				</table>
+			</center>
+		</div>
+
+
+
 		<div id="chequelayout">
-			<h1>Cheque Details</h1>
+			<h1></h1>
 			<s:form name="chequedetails" theme="simple" action="cheque"
 				method="post" onsubmit="return true">
 
@@ -92,12 +115,10 @@
 				<table>
 					<tr>
 						<td width="200"></td>
-						<td><s:submit type="image" value="Back" src="images/back.png"
-								align="left" /></td>
 						<td width="60"></td>
 
 						<td><s:submit value="Proceed" cssClass="css_button"
-								align="right" /></td>
+								align="left" /></td>
 					</tr>
 				</table>
 			</s:form>
@@ -106,8 +127,6 @@
 					<td colspan="4"><h2>Installment Configuration For</h2></td>
 					<td width="130"></td>
 					<td width="110"></td>
-					<td colspan="3" width="40"><a href="cancelregistration"><img
-							src="images/cancel.png" alt="" /></a></td>
 				</tr>
 				<tr>
 					<td>Name:-</td>

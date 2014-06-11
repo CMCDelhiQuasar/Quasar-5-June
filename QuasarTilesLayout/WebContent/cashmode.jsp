@@ -122,6 +122,9 @@
 		}
 
 	}
+	function gotoregistration() {
+		history.back();
+	}
 </script>
 <style>
 #cashlayout {
@@ -139,7 +142,7 @@
 
 		<div id="localHeader">
 			<div id="localTitle">
-				<h2 align="center"></h2>
+				<h2 align="center">Cash Mode Details</h2>
 			</div>
 			<div id="breadCrumbs">
 				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
@@ -148,8 +151,26 @@
 				</h4>
 			</div>
 		</div>
+		<div>
+			<center>
+				<table border="0" width="50%">
+					<tr>
+						<td align="left"><button onclick="gotoregistration()"
+								class="css_button"><</button></td>
+
+						<td align="center"><button
+								onclick="location.href='cancelregistration'"
+								value="cancelregistration" class="css_button">x</button></td>
+
+						<td></td>
+					</tr>
+				</table>
+			</center>
+		</div>
+
+
 		<div id="cashlayout">
-			<h1>Cash Mode Details</h1>
+			<h1></h1>
 			<s:form name="regcash" action="cashmode"
 				onsubmit="return checkoutamount()" theme="simple">
 				<table border="0">
@@ -192,8 +213,10 @@
 						<td><s:label value="Enter 500 Notes" /></td>
 						<td><s:select id="fivehundred" name="fivehundred"
 								label="500 x" labelSeparator="" labelposition="left"
-								onclick="fivehundered(this.id)" onfocus="countCourseFee()"
-								onmouseout="countCourseFee()"
+								onclick="fivehundered(this.id)"
+								onkeydown="fivehundered(this.id)"
+								onkeypress="fivehundered(this.id)" onfocus="countCourseFee()"
+								onmouseout="countCourseFee()" onkeyup="countCourseFee()"
 								list="{'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" /></td>
 						<td width="40">x</td>
 						<td><div id="500">0</div></td>
@@ -292,13 +315,12 @@
 				<table border="0">
 					<tr>
 						<s:div>
-							<td width="250"></td>
-							<td><s:submit type="image" value="Back"
-									src="images/back.png" align="left" /></td>
+							<td width="200"></td>
 							<td width="30"></td>
 
 							<td><s:submit value="Proceed" cssClass="css_button"
-									onfocus="countCourseFee()" onmouseout="countCourseFee()" /></td>
+									onmouseover="countCourseFee()" onfocus="countCourseFee()"
+									onmouseout="countCourseFee()" /></td>
 						</s:div>
 					</tr>
 				</table>
@@ -308,9 +330,7 @@
 					<td colspan="4"><h2>Installment Configuration For</h2></td>
 					<td width="130"></td>
 					<td width="110"></td>
-					<td colspan="3" width="40"><a href="cancelregistration"><img
-							src="images/cancel.png" alt="" /></a></td>
-				</tr>
+					</tr>
 				<tr>
 					<td>Name:-</td>
 					<td><s:property value="#session.shagird.name" /></td>

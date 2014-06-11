@@ -69,6 +69,9 @@
 		//	window.confirm(paymentMode1[2].checked);
 		return true;
 	}
+	function gotoregistration() {
+		history.back();
+	}
 </script>
 <style>
 #paymentlayout {
@@ -96,6 +99,23 @@
 				</h4>
 			</div>
 		</div>
+
+		<div>
+			<center>
+				<table border="0" width="50%">
+					<tr>
+						<td align="left"><button onclick="gotoregistration()"
+								class="css_button"><</button></td>
+
+						<td align="center"><button
+								onclick="location.href='cancelregistration'"
+								value="cancelregistration" class="css_button">x</button></td>
+
+						<td></td>
+					</tr>
+				</table>
+			</center>
+		</div>
 		<!-- Check if Payment is of Due Payment of Registration Payment -->
 
 		<s:if test="#session.DUE_TAG==null">
@@ -104,7 +124,6 @@
 
 				<s:set var="pa"
 					value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" />
-
 			</div>
 
 		</s:if>
@@ -119,10 +138,6 @@
 
 			</div>
 		</s:else>
-
-
-
-
 
 	</s:else>
 	<div id="paymentlayout">
@@ -180,8 +195,6 @@
 			<table>
 				<tr>
 					<td width="200"></td>
-					<td><s:submit type="image" value="Back" src="images/back.png"
-							align="left" /></td>
 					<td width="60"></td>
 
 					<td><s:submit cssClass="css_button" value="Proceed"
@@ -194,8 +207,6 @@
 				<td colspan="4"><h2>Payment Configuration For</h2></td>
 				<td width="130"></td>
 				<td width="110"></td>
-				<td colspan="3" width="40"><a href="cancelregistration"><img
-						src="images/cancel.png" alt="" /></a></td>
 			</tr>
 			<tr>
 				<td>Name:-</td>

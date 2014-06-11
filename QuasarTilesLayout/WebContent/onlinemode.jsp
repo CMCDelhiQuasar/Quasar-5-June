@@ -30,6 +30,9 @@
 
 		return true;
 	}
+	function gotoregistration() {
+		history.back();
+	}
 </script>
 <style>
 #onlinelayout {
@@ -48,7 +51,7 @@
 
 		<div id="localHeader">
 			<div id="localTitle">
-				<h2 align="center"></h2>
+				<h2 align="center">Online Transaction Details</h2>
 			</div>
 			<div id="breadCrumbs">
 				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
@@ -58,8 +61,25 @@
 			</div>
 		</div>
 
+		<div>
+			<center>
+				<table border="0" width="50%">
+					<tr>
+						<td align="left"><button onclick="gotoregistration()"
+								class="css_button"><</button></td>
+
+						<td align="center"><button
+								onclick="location.href='cancelregistration'"
+								value="cancelregistration" class="css_button">x</button></td>
+
+						<td></td>
+					</tr>
+				</table>
+			</center>
+		</div>
+
 		<div id="onlinelayout">
-			<h1>Online Transaction Details</h1>
+			<h1></h1>
 			<s:form name="onlineform" theme="simple" onsubmit="return true"
 				method="post" action="onlinemode">
 				<table>
@@ -79,12 +99,11 @@
 				<table border="0">
 					<tr>
 						<s:div>
-							<td width="250"></td>
-							<td><s:submit type="image" value="Back"
-									src="images/back.png" align="left" /></td>
+							<td width="200"></td>
 							<td width="30"></td>
 
-							<td><s:submit value="Proceed" cssClass="css_button" /></td>
+							<td><s:submit value="Proceed" align="left"
+									cssClass="css_button" /></td>
 
 						</s:div>
 					</tr>
@@ -95,8 +114,6 @@
 					<td colspan="4"><h2>Welcome</h2></td>
 					<td width="130"></td>
 					<td width="110"></td>
-					<td colspan="3" width="40"><a href="cancelregistration"><img
-							src="images/cancel.png" alt="" /></a></td>
 				</tr>
 				<tr>
 					<td>Name:-</td>
