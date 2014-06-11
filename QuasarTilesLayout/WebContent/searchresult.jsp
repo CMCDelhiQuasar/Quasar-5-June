@@ -71,55 +71,36 @@
 		<s:iterator var="s" value="queryResultStudentList">
 
 
-			<div id="box">
 
-				<!--Creating up the dialog  -->
-
-
-				<div align="left">
-					<div align="top">
-						<sj:a openDialog="myclickdialog">
-							<s:property value="#s.emailId" />
-						</sj:a>
-					</div>
-
-
-					<sj:dialog id="myclickdialog" autoOpen="false" modal="true"
-						title="Modal Dialog" cssStyle="background-color: #abba12;">
-						Name <s:property value="#s.name" />
-						<br>
-						Age <s:property value="#s.contactNumber" />
-					</sj:dialog>
-
-				</div>
-
-
-				<div align="right">
-					<div align="top">
-						<a
+			<div id="box" align="center">
+				<table width="100%">
+					<tr height="35px">
+						<td align="left" width="10%"><a
 							href="searchstudent?emailId=<s:property
 							value="#s.emailId"/>">
-							<button class="css_button">S</button>
-						</a>
-					</div>
-					<div style="font-weight: bold; font-size: 150%; padding-top: 8px"
-						align="bottom">
-						&nbsp <a style="color: #000000; text-decoration: none;"><s:property
-								value="#s.name" /></a>
-					</div>
-					<div style="font-weight: bold; font-size: 110%;" align="top">
-						<s:property value="#s.courseName" />
-					</div>
-
-
-				</div>
-
-
-
-
-
+								<button class="css_button">S</button>
+						</a></td>
+						<td width="50%" align="left"><a
+							style="color: #000000; text-decoration: none; font-weight: bold; font-size: 150%; padding-top: 8px"><s:property
+									value="#s.name" /></a></td>
+						<td width="40%" align="center">
+							<div
+								style="background-color: #FFFFEB; font-weight: bold; font-size: 110%;">
+								<s:property value="#s.paymentStatus" />
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="left"></td>
+						<td>
+							<div style="text-decoration: none; font-size: 110%;">
+								<s:property value="#s.courseName" />
+							</div>
+						<td align="right"><s:property value="#s.emailId" />&nbsp <s:property
+								value="#s.contactNumber" /></td>
+					</tr>
+				</table>
 			</div>
-
 
 		</s:iterator>
 	</s:if>
@@ -137,62 +118,125 @@
 
 		<hr>
 
+
 		<s:iterator var="p" value="queryResultPaymentList">
-			<div id="box">
-				<a
-					href="searchstudent?emailId=<s:property
+
+
+
+
+
+
+
+
+			<div id="box" align="center">
+				<table width="100%">
+					<tr>
+						<td align="left" width="10%"><a
+							href="searchstudent?emailId=<s:property
 							value="#p.student.emailId" />">
-					<button class="css_button">P</button>
-				</a> Payment of Rs
-				<s:property value="#p.paymentDetails.proposedAmount" />
-				<br> Desposited Rs .
-				<s:property value="#p.paymentDetails.depositedAmount" />
-				<br> for <a style="color: #000000; text-decoration: none;"><s:property
-						value="#p.student.name" /></a>
+								<button class="css_button">P</button>
+						</a></td>
+						<td width="50%" align="left">Proposed<br>
+							<div
+								style="background-color: #ffffff; text-decoration: none; font-size: 120%;">
+
+								Rs
+								<s:property value="#p.paymentDetails.proposedAmount" />
+								&nbsp &nbsp on &nbsp &nbsp
+								<s:property value="#p.paymentDetails.proposedDate" />
+							</div>
+						</td>
+						<td width="40%" align="center">
+							<div
+								style="background-color: #FFFFEB; font-weight: bold; font-size: 110%;">
+
+
+								<s:property value="#s.paymentStatus" />
+
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="left"></td>
+						<td>Desposited <br>
+							<div
+								style="background-color: #ffffff; text-decoration: none; font-weight: bold; font-size: 140%;">
+								Rs .
+								<s:property value="#p.paymentDetails.depositedAmount" />
+								&nbsp &nbsp on &nbsp &nbsp
+								<s:property value="#p.paymentDetails.paymentDate" />
+							</div>
+						<td align="right">for <a
+							style="color: #000000; text-decoration: none;"><s:property
+									value="#p.student.name" /> <br> <s:property
+									value="#p.student.emailId" />&nbsp <br> <span
+								style="color: #76797c; font-size: 150%; float: right;"> <s:property
+										value="#p.student.contactNumber" />
+							</span> </a> <sj:a openDialog="myclickdialog" button="true"
+								buttonIcon="ui-icon-newwin">
+    	Open modal dialog
+    </sj:a>
+						</td>
+					</tr>
+				</table>
 			</div>
+
+
+			<sj:dialog id="myclickdialog" autoOpen="false" modal="true" >
+
+				<div id="pendingpaymentcontactbox">
+					<input type="checkbox" name="nothing" /> <span
+						style="color: #76797c; font-size: 95%; float: right;"> <s:property
+							value="#p.paymentStatus" />
+					</span> <br> <img src="images/student.png" alt="Student"
+						title="{Name}" alt="{Name}" style="float: left;"> <span
+						style="color: #76797c; font-size: 95%; float: right;">
+						Payment ID : <s:property value="#p.paymentID" />
+					</span><br> <br> <br>
+					<div style="font-weight: bold; font-size: 150%; padding-top: 8px">
+						<a style="color: #000000; text-decoration: none;" target="_blank"
+							href="{Website}"><s:property value="#p.student.name" /></a>
+					</div>
+					<div>
+						<s:property value="#p.student.emailId" />
+					</div>
+					<div style="padding-bottom: 12px">
+						<span style="color: #76797c; font-size: 95%;">Due :</span> Rs.
+						<s:property value="#p.paymentDetails.proposedAmount" />
+						for Payment Type <br> <span
+							style="color: #76797c; font-size: 95%;">Proposed Date :</span>
+						<s:property value="#p.paymentDetails.proposedDate" />
+						<br> <span style="color: #76797c; font-size: 95%;">Course
+							:</span>
+						<s:property value="#p.student.courseName" />
+					</div>
+					<div>
+
+						<span style="color: #76797c; font-size: 150%; float: right;">
+							<s:property value="#p.student.contactNumber" />
+						</span> <span style="color: #76797c; float: left;"><a href="ap">
+								<img src="images/mail.png" style="bottom: 1px;" height="30"
+								width="30" alt="Send Mail Remainder">
+						</a> </span>
+
+
+					</div>
+				</div>
+
+
+
+			</sj:dialog>
+
+
+
+
+
+
+
+
+
+
 		</s:iterator>
-
-
-		<br>
-
-		<div id="pendingpaymentcontactbox">
-			<input type="checkbox" name="nothing" /> <span
-				style="color: #76797c; font-size: 95%; float: right;"> <s:property
-					value="#p.paymentStatus" />
-			</span> <br> <img src="images/student.png" alt="Student" title="{Name}"
-				alt="{Name}" style="float: left;"> <span
-				style="color: #76797c; font-size: 95%; float: right;">
-				Payment ID : <s:property value="#p.paymentID" />
-			</span><br> <br> <br>
-			<div style="font-weight: bold; font-size: 150%; padding-top: 8px">
-				<a style="color: #000000; text-decoration: none;" target="_blank"
-					href="{Website}"><s:property value="#p.student.name" /></a>
-			</div>
-			<div>
-				<s:property value="#p.student.emailId" />
-			</div>
-			<div style="padding-bottom: 12px">
-				<span style="color: #76797c; font-size: 95%;">Due :</span> Rs.
-				<s:property value="#p.paymentDetails.proposedAmount" />
-				for Payment Type <br> <span
-					style="color: #76797c; font-size: 95%;">Proposed Date :</span>
-				<s:property value="#p.paymentDetails.proposedDate" />
-				<br> <span style="color: #76797c; font-size: 95%;">Course
-					:</span>
-				<s:property value="#p.student.courseName" />
-			</div>
-			<div>
-
-				<span style="color: #76797c; font-size: 150%; float: right;">
-					<s:property value="#p.student.contactNumber" />
-				</span> <span style="color: #76797c; float: left;"><a href="ap">
-						<img src="images/mail.png" style="bottom: 1px;" height="30"
-						width="30" alt="Send Mail Remainder">
-				</a> </span>
-
-
-			</div>
-		</div>
 
 
 
