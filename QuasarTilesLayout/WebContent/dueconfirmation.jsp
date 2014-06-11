@@ -39,8 +39,7 @@
 							class="css_button"><</button></td>
 
 					<td align="center"><button
-							onclick="location.href='cancelregistration'"
-							value="cancelregistration" class="css_button">x</button></td>
+							onclick="location.href='cancelregistration'" class="css_button">x</button></td>
 				</tr>
 			</table>
 		</center>

@@ -102,17 +102,14 @@
 	function display() {
 
 		var ch = document.getElementsByName("paymenttype");
-		var check = -1;
-
 		if (ch[0].checked == true) {
-			//	alert("come to fullfee");
-			document.getElementsByName("totalinstallments").style.display = 'none';
+			document.getElementById('ins').disabled = true;
 
 		}
 
 		if (ch[1].checked == true) {
 			//	alert("come to installment");
-			document.getElementsByName("totalinstallments").style.display = 'none';
+			document.getElementById('ins').disabled = false;
 		}
 
 	}
@@ -298,7 +295,7 @@ td {
 					<tr>
 						<td><s:label value="Number of Installments" labelSeparator=""
 								labelposition="left" /></td>
-						<td><s:select name="totalinstallments" cssStyle=""
+						<td><s:select id="ins" name="totalinstallments" cssStyle=""
 								headerKey="-1" headerValue="Select"
 								list="#{'2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9','10':'10'}"
 								label="Number of Installments" labelSeparator="" /></td>

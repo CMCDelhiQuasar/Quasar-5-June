@@ -159,8 +159,7 @@
 								class="css_button"><</button></td>
 
 						<td align="center"><button
-								onclick="location.href='cancelregistration'"
-								value="cancelregistration" class="css_button">x</button></td>
+								onclick="location.href='cancelregistration'" class="css_button">x</button></td>
 
 						<td></td>
 					</tr>
@@ -307,7 +306,7 @@
 						<td style="font-weight: bold; font-size: medium;"><s:label
 								value="Total" /></td>
 						<td></td>
-						<td width="40"></td>
+						<td width="170"></td>
 						<td style="font-weight: bold; font-size: medium;"><div
 								id="total"></div></td>
 					</tr>
@@ -330,7 +329,7 @@
 					<td colspan="4"><h2>Installment Configuration For</h2></td>
 					<td width="130"></td>
 					<td width="110"></td>
-					</tr>
+				</tr>
 				<tr>
 					<td>Name:-</td>
 					<td><s:property value="#session.shagird.name" /></td>

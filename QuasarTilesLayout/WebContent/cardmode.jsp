@@ -92,8 +92,7 @@
 								class="css_button"><</button></td>
 
 						<td align="center"><button
-								onclick="location.href='cancelregistration'"
-								value="cancelregistration" class="css_button">x</button></td>
+								onclick="location.href='cancelregistration'" class="css_button">x</button></td>
 
 						<td></td>
 					</tr>
@@ -131,8 +130,9 @@
 					<tr>
 						<td><s:label value="Expiry Date" /></td>
 						<td><sj:datepicker label="Expiry Date" changeMonth="true"
-								changeYear="true" labelSeparator="" labelposition="left"
-								name="cardExpiryDate" displayFormat="dd/mm/yy" /></td>
+								minDate="d" changeYear="true" labelSeparator=""
+								labelposition="left" name="cardExpiryDate"
+								displayFormat="dd/mm/yy" /></td>
 						<td><s:fielderror fieldName="cardExpiryDate" /></td>
 					</tr>
 

@@ -74,8 +74,7 @@
 								class="css_button"><</button></td>
 
 						<td align="center"><button
-								onclick="location.href='cancelregistration'"
-								value="cancelregistration" class="css_button">x</button></td>
+								onclick="location.href='cancelregistration'" class="css_button">x</button></td>
 
 						<td></td>
 					</tr>
@@ -105,8 +104,8 @@
 					<tr>
 						<td><s:label value="Issue Date" /></td>
 						<td><sj:datepicker name="issueDate" changeYear="true"
-								changeMonth="true" label="Issue Date" labelSeparator=""
-								labelposition="left" /></td>
+								minDate="d" changeMonth="true" label="Issue Date"
+								labelSeparator="" labelposition="left" /></td>
 						<td><s:fielderror fieldName="issueDate" /></td>
 					</tr>
 
