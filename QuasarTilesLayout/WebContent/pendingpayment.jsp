@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page errorPage="error.jsp"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="sj" uri="/struts-jquery-tags"%>
 
@@ -13,9 +14,6 @@
 	background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px,
 		transparent 81px), linear-gradient(#eee .1em, transparent .1em);
 	background-size: 85% 1.2em;
-	
-	
-	
 	padding: 20px;
 	margin: 20px 0px;
 	-webkit-border-radius: 4px;

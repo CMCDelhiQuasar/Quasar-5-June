@@ -7,25 +7,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table border="0">
+	<div align="center">
+		<table border="0">
 
-		<tr>
-			<td colspan="4" height="120" width=""><h2>Welcome to Due Payment Success Page!!</h2></td>
-		</tr>
-		<tr>
-			<td height="60" width="200"></td>
-			<td><button onclick="location.href='registration'"
-					class="css_button">Do Another Registration</button></td>
-			<td align="center">
-				<button onclick="location.href='getPDF'" class="css_button">Print
-					Reciept</button>
-			</td>
-			<td>
-				<button onclick="location.href='mail'" class="css_button">Mail</button>
-			</td>
-		</tr>
+			<tr align="center">
+				<td colspan="4" height="120" width=""><h2>Welcome to Due
+						Payment Success Page!!</h2></td>
+			</tr>
+			<tr>
 
+				<td align="center" width="33%"><button
+						onclick="location.href='registration.jsp'" class="css_button">
+						Another Registration</button></td>
+				<td align="center" width="33%">
+					<button onclick="location.href='getPDF'" class="css_button">Print
+						Reciept</button>
+				</td>
+				<td align="left" width="33%">
+					<button onclick="location.href='mail'" class="css_button">&nbsp
+						&nbsp Mail Reciept &nbsp &nbsp</button>
+				</td>
+			</tr>
 
-	</table>
+		</table>
+	</div>
 </body>
 </html>

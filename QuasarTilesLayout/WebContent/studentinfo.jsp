@@ -287,35 +287,61 @@
 		%>
 	</div>
 	<hr>
-	
-	 <center>
-        
-        <div style="width: 600px;border: 1px #ff00ff solid">
-            <!-- Table for Student Basic  and546874561 Fee Details -->
-            <table width="100%"  border="1">
-                <tr><td  align="left" width="45%"><div>BasicDetails <br>
-                       Name: <br>
-                       EmailID :<br>
-                       Contact Number: <br>
-                       
-                        </div></td><td width="45%" align="left"><div>Fee Deatils</div></td><td width="10%" align="right">Icons</td></tr>
-            </table>
 
-            <!-- Table for Payment Details -->
-            <!--Every payment will have a specific table -->
-            Payment Details 
-            <hr>
-            <table width="100%" border="1">
-                <tr bgcolor="yellow"><td align="left">Registration Details</td><td align="right">PAID</td></tr>
-                <tr><td><div>Contains Payment Det</div></td><td><div>Contains Payment Mode DEt</div></td></tr>
-            </table>
+	<center>
 
-        </div>
-    </center>
-	
-	
-	
-	
-	
+		<div style="width: 600px; border: 1px #ff00ff solid">
+			<!-- Table for Student Basic  and546874561 Fee Details -->
+			<table width="100%" border="1">
+				<tr>
+					<td align="left" width="45%"><div>
+							BasicDetails <br> Name:
+							<s:property value="#x.name" />
+							<br> EmailID :
+							<s:property value="#x.emailId" />
+							<br> Contact Number:
+							<s:property value="#x.contactNumber" />
+							<br>
+
+						</div></td>
+					<td width="45%" align="left"><div>
+							Fee Deatils <br> Course Fee:
+							<s:property value="#x.feeDetails.courseFees" />
+							<br> Service Tax :
+							<s:property value="#x.feeDetails.serviceTax" />
+							<br> Fine:
+							<s:property value="#x.feeDetails.fine" />
+							<br> Discount Available:
+							<s:property value="#x.feeDetails.discountAvailable" />
+							<br> Total Fee:
+							<s:property value="#x.feeDetails.totalFee" />
+							<br>
+						</div></td>
+					<td width="10%" align="right">Icons</td>
+				</tr>
+			</table>
+
+			<!-- Table for Payment Details -->
+			<!--Every payment will have a specific table -->
+			Payment Details
+			<hr>
+			<table width="100%" border="1">
+				<tr bgcolor="yellow">
+					<td align="left">Registration Details</td>
+					<td align="right">PAID</td>
+				</tr>
+				<tr>
+					<td><div>Contains Payment Det</div></td>
+					<td><div>Contains Payment Mode DEt</div></td>
+				</tr>
+			</table>
+
+		</div>
+	</center>
+
+
+
+
+
 </body>
 </html>

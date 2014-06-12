@@ -9,15 +9,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Success!!!! Congrats you have successfully completed all the
-		registration work</h1>
+	<div align="center">
+		<table border="0">
 
-	Hey
-	<br/>
-	<h1>
-		<a href="getPDF?emailid=<s:property value="email"/>">Print
-			Reciept</a>
-	</h1>
+			<tr align="center">
+				<td colspan="4" height="120" width=""><h2>Congratulation!!!
+						You have registered successfully</h2></td>
+			</tr>
+			<tr>
 
+				<td align="center" width="33%"><button
+						onclick="location.href='registration.jsp'" class="css_button">
+						Another Registration</button></td>
+				<td align="center" width="33%">
+					<button onclick="location.href='getPDF'" class="css_button">Print
+						Reciept</button>
+				</td>
+				<td align="left" width="33%">
+					<button onclick="location.href='mail'" class="css_button">&nbsp
+						&nbsp Mail Reciept &nbsp &nbsp</button>
+				</td>
+			</tr>
+
+		</table>
+	</div>
 </body>
 </html>

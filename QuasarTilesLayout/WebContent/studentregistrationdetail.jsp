@@ -296,7 +296,7 @@ td {
 						<td><s:label value="Number of Installments" labelSeparator=""
 								labelposition="left" /></td>
 						<td><s:select id="ins" name="totalinstallments" cssStyle=""
-								headerKey="-1" headerValue="Select"
+								headerKey="-1" 
 								list="#{'2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9','10':'10'}"
 								label="Number of Installments" labelSeparator="" /></td>
 						<td><s:fielderror fieldName="totalinstallments" /></td>
