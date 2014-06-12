@@ -34,77 +34,87 @@ public class CashModeAction extends ActionSupport implements
 	// this is the same session maintained throughout the student registration.
 	Map registrationSessionMap;
 
+	// this is for maintaining the session throughout the admin session
+	Map adminSessionMap;
+
 	public String execute() {
 		System.out.println("Inside execute method  of CashModeAction"
 				+ Double.parseDouble(cashAmount));
 
-		// check for valid session
-		if (registrationSessionMap.get("REGISTERING_STUDENT_EMAIL") == null) {
-			// it means no session is associated with the request and return
-			// him
-			// back
-			return "nosession";
+		// admin session check
+		if (adminSessionMap.get("SECRET") == null) {
+			// it means no admin session
+			return "endsession";
 		} else {
-			try {
 
-				// searching for whether is this registration paymnent or due
-				// payment
-				String dueTag = (String) registrationSessionMap.get("DUE_TAG");
-				if (dueTag == null) {
-					System.out.println("This is regisatrion payment ");
-				} else {
-					System.out.println("This is Due Payment  " + dueTag);
+			// check for valid session
+			if (registrationSessionMap.get("REGISTERING_STUDENT_EMAIL") == null) {
+				// it means no session is associated with the request and return
+				// him
+				// back
+				return "nosession";
+			} else {
+				try {
+
+					// searching for whether is this registration paymnent or
+					// due
+					// payment
+					String dueTag = (String) registrationSessionMap
+							.get("DUE_TAG");
+					if (dueTag == null) {
+						System.out.println("This is regisatrion payment ");
+					} else {
+						System.out.println("This is Due Payment  " + dueTag);
+					}
+
+					// if available then fetch the student object
+					Student loadedStudent = (Student) registrationSessionMap
+							.get("shagird");
+
+					System.out.println("Size : "
+							+ loadedStudent.getPaymentsList().size());
+
+					CashMode cm = new CashMode();
+					cm.setCashAmount(Double.parseDouble(cashAmount));
+					cm.getCashDetail().put(Note.THOUSAND, thousandnotes);
+					cm.getCashDetail().put(Note.FIVEHUNDRED, fivehundred);
+					cm.getCashDetail().put(Note.HUNDRED, hundred);
+					cm.getCashDetail().put(Note.FIFTY, fifty);
+					cm.getCashDetail().put(Note.TWENTY, twenty);
+					cm.getCashDetail().put(Note.TEN, ten);
+					cm.getCashDetail().put(Note.FIVE, five);
+					cm.getCashDetail().put(Note.TWO, two);
+					cm.getCashDetail().put(Note.ONE, one);
+					cm.setPayment(loadedStudent.getPaymentsList().get(0));
+
+					loadedStudent.getPaymentsList().get(0).setPaymentMode(cm);
+
+					registrationSessionMap.put(
+							"shagirdregistrationpaymentpaymentmode", cm);
+
+					Enumeration enm = request.getParameterNames();
+
+					while (enm.hasMoreElements()) {
+						String paramName = (String) enm.nextElement();
+						String paramValue = request.getParameter(paramName);
+						System.out.println(paramName + "  :  " + paramValue);
+					}
+
+					// if regisatrion payment then go to Registartion Action
+					// else Go
+					// to Due Payment Action
+					if (dueTag == null) {
+						return SUCCESS + "_reg";
+					} else {
+						return SUCCESS + "_due";
+					}
+
+				} catch (Exception e) {
+					System.out.println("Exception " + e.getMessage());
 				}
 
-				// if available then fetch the student object
-				Student loadedStudent = (Student) registrationSessionMap
-						.get("shagird");
-
-				System.out.println("Size : "
-						+ loadedStudent.getPaymentsList().size());
-
-				CashMode cm = new CashMode();
-				cm.setCashAmount(Double.parseDouble(cashAmount));
-				cm.getCashDetail().put(Note.THOUSAND, thousandnotes);
-				cm.getCashDetail().put(Note.FIVEHUNDRED, fivehundred);
-				cm.getCashDetail().put(Note.HUNDRED, hundred);
-				cm.getCashDetail().put(Note.FIFTY, fifty);
-				cm.getCashDetail().put(Note.TWENTY, twenty);
-				cm.getCashDetail().put(Note.TEN, ten);
-				cm.getCashDetail().put(Note.FIVE, five);
-				cm.getCashDetail().put(Note.TWO, two);
-				cm.getCashDetail().put(Note.ONE, one);
-				cm.setPayment(loadedStudent.getPaymentsList().get(0));
-
-				loadedStudent.getPaymentsList().get(0).setPaymentMode(cm);
-
-				registrationSessionMap.put(
-						"shagirdregistrationpaymentpaymentmode", cm);
-
-				Enumeration enm = request.getParameterNames();
-
-				while (enm.hasMoreElements()) {
-					String paramName = (String) enm.nextElement();
-					String paramValue = request.getParameter(paramName);
-					System.out.println(paramName + "  :  " + paramValue);
-				}
-
-				// if regisatrion payment then go to Registartion Action else Go
-				// to Due Payment Action
-				if (dueTag == null) {
-					return SUCCESS + "_reg";
-				} else {
-					return SUCCESS + "_due";
-				}
-
-				
-				
-			} catch (Exception e) {
-				System.out.println("Exception " + e.getMessage());
 			}
-
 		}
-
 		return INPUT;
 
 	}
@@ -217,6 +227,8 @@ public class CashModeAction extends ActionSupport implements
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		registrationSessionMap = arg0;
+		adminSessionMap = arg0;
+
 	}
 
 }

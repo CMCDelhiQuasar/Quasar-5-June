@@ -14,152 +14,159 @@
 </head>
 <body>
 
-	<div id="localHeader">
-		<div id="localTitle">
-			<h2 align="center">Data Analysis</h2>
-		</div>
-		<div id="breadCrumbs">
-			<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
-				Analytics</h4>
-		</div>
-	</div>
 
-	<div align="right">
-		<h3>
-			Number of Registration
+	<s:if test="#session.SECRET==null">
+		You are not within the  admin session .Please Login
+		<jsp:forward page="home.jsp" />
+	</s:if>
+	<s:else>
 
-			<s:if test="dateFromMapAllCourse.size() != 0 ">
+		<div id="localHeader">
+			<div id="localTitle">
+				<h2 align="center">Data Analysis</h2>
+			</div>
+			<div id="breadCrumbs">
+				<h4 style="text-decoration: none; color: #1568b4; font-size: small;">
+					Analytics</h4>
+			</div>
+		</div>
+
+		<div align="right">
+			<h3>
+				Number of Registration
+
+				<s:if test="dateFromMapAllCourse.size() != 0 ">
  			- All Courses 
 	</s:if>
 
-			<s:if test="dateFromMapJava.size() != 0 ">
+				<s:if test="dateFromMapJava.size() != 0 ">
 		-  Java SE 
 	</s:if>
 
 
-			<s:if test="dateFromMapJ2EE.size() != 0 ">
+				<s:if test="dateFromMapJ2EE.size() != 0 ">
  			- Java EE 
 	</s:if>
 
-			<s:if test="dateFromMapAndroid.size() != 0 ">
+				<s:if test="dateFromMapAndroid.size() != 0 ">
  			- Android 
 	</s:if>
-			<s:if test="dateFromMapPhp.size() != 0 ">
+				<s:if test="dateFromMapPhp.size() != 0 ">
  			- Php
 	</s:if>
 
-			<s:if test="dateFromMapDotNet.size() != 0 ">
+				<s:if test="dateFromMapDotNet.size() != 0 ">
  			- .Net
 	</s:if>
 
-		</h3>
-	</div>
-	<sjc:chart id="chartDate" xaxisMode="time" xaxisTimeformat="%d"
-		xaxisMin="%{minTime}" xaxisMax="%{maxTime}" xaxisColor="#1568b4"
-		yaxisColor="#1568b4" xaxisTickSize="[1, 'day']" xaxisTickColor="#EEE"
-		yaxisTickColor="#EEF" yaxisTickSize="1"
-		cssStyle="width: 97%; height: 400px;" xaxisLabel="Dates"
-		yaxisLabel="No. of Regisatrations">
+			</h3>
+		</div>
+		<sjc:chart id="chartDate" xaxisMode="time" xaxisTimeformat="%d"
+			xaxisMin="%{minTime}" xaxisMax="%{maxTime}" xaxisColor="#1568b4"
+			yaxisColor="#1568b4" xaxisTickSize="[1, 'day']" xaxisTickColor="#EEE"
+			yaxisTickColor="#EEF" yaxisTickSize="1"
+			cssStyle="width: 97%; height: 400px;" xaxisLabel="Dates"
+			yaxisLabel="No. of Regisatrations">
 
-		<s:if test="dateFromMapAllCourse.size() != 0 ">
-			<sjc:chartData id="chartDateAll" label="All Courses"
-				list="dateFromMapAllCourse" color="#1568b4" lines="{ show: true }"
-				curvedLines="true" curvedLinesFit="true" />
-		</s:if>
+			<s:if test="dateFromMapAllCourse.size() != 0 ">
+				<sjc:chartData id="chartDateAll" label="All Courses"
+					list="dateFromMapAllCourse" color="#1568b4" lines="{ show: true }"
+					curvedLines="true" curvedLinesFit="true" />
+			</s:if>
 
-		<s:if test="dateFromMapJava.size() != 0 ">
-			<sjc:chartData id="chartDateJavaSE" label="Java SE"
-				list="dateFromMapJava" color="#faa31b" lines="{ show: true }"
-				curvedLines="true" curvedLinesFit="true" />
-		</s:if>
-
-
-		<s:if test="dateFromMapJ2EE.size() != 0 ">
-			<sjc:chartData id="chartDateJavaEE" label="Java EE"
-				list="dateFromMapJ2EE" color="#ef4444" lines="{ show: true }"
-				curvedLines="true" curvedLinesFit="true" />
-		</s:if>
+			<s:if test="dateFromMapJava.size() != 0 ">
+				<sjc:chartData id="chartDateJavaSE" label="Java SE"
+					list="dateFromMapJava" color="#faa31b" lines="{ show: true }"
+					curvedLines="true" curvedLinesFit="true" />
+			</s:if>
 
 
-		<s:if test="dateFromMapAndroid.size() != 0 ">
-			<sjc:chartData id="chartDateAndroid" label="Android"
-				list="dateFromMapAndroid" color="#82c341" lines="{ show: true }"
-				curvedLines="true" curvedLinesFit="true" />
-		</s:if>
+			<s:if test="dateFromMapJ2EE.size() != 0 ">
+				<sjc:chartData id="chartDateJavaEE" label="Java EE"
+					list="dateFromMapJ2EE" color="#ef4444" lines="{ show: true }"
+					curvedLines="true" curvedLinesFit="true" />
+			</s:if>
 
 
-		<s:if test="dateFromMapPhp.size() != 0 ">
-			<sjc:chartData id="chartDatePhp" label="Php" list="dateFromMapPhp"
-				color="#fff000" lines="{ show: true }" curvedLines="true"
-				curvedLinesFit="true" />
-		</s:if>
+			<s:if test="dateFromMapAndroid.size() != 0 ">
+				<sjc:chartData id="chartDateAndroid" label="Android"
+					list="dateFromMapAndroid" color="#82c341" lines="{ show: true }"
+					curvedLines="true" curvedLinesFit="true" />
+			</s:if>
 
 
-		<s:if test="dateFromMapDotNet.size() != 0 ">
-			<sjc:chartData id="chartDateDotNet" label=".Net"
-				list="dateFromMapDotNet" color="#d54799" lines="{ show: true }"
-				curvedLines="true" curvedLinesFit="true" />
-		</s:if>
+			<s:if test="dateFromMapPhp.size() != 0 ">
+				<sjc:chartData id="chartDatePhp" label="Php" list="dateFromMapPhp"
+					color="#fff000" lines="{ show: true }" curvedLines="true"
+					curvedLinesFit="true" />
+			</s:if>
+
+
+			<s:if test="dateFromMapDotNet.size() != 0 ">
+				<sjc:chartData id="chartDateDotNet" label=".Net"
+					list="dateFromMapDotNet" color="#d54799" lines="{ show: true }"
+					curvedLines="true" curvedLinesFit="true" />
+			</s:if>
 
 
 
 
-	</sjc:chart>
+		</sjc:chart>
 
-	<br>
-	<br>
+		<br>
+		<br>
 
-	<table border="0">
-		<s:form action="analytics" theme="simple">
-			<tr>
-				<td><s:label value="Start Date" /></td>
-				<td><sj:datepicker name="startdate" displayFormat="dd/mm/yy" /></td>
-				<td><s:label value="End Date" /></td>
-				<td><sj:datepicker name="enddate" displayFormat="dd/mm/yy" /></td>
-			</tr>
-			<tr>
-				<td><s:checkbox name="checkall" /></td>
-				<td>All</td>
+		<table border="0">
+			<s:form action="analytics" theme="simple">
+				<tr>
+					<td><s:label value="Start Date" /></td>
+					<td><sj:datepicker name="startdate" displayFormat="dd/mm/yy" /></td>
+					<td><s:label value="End Date" /></td>
+					<td><sj:datepicker name="enddate" displayFormat="dd/mm/yy" /></td>
+				</tr>
+				<tr>
+					<td><s:checkbox name="checkall" /></td>
+					<td>All</td>
 
-			</tr>
-			<tr>
-				<td><s:checkbox name="checkj2se" /></td>
-				<td><s:label value="J2SE" /></td>
+				</tr>
+				<tr>
+					<td><s:checkbox name="checkj2se" /></td>
+					<td><s:label value="J2SE" /></td>
 
-			</tr>
+				</tr>
 
-			<tr>
-				<td><s:checkbox name="checkj2ee" /></td>
-				<td><s:label value="J2EE" /></td>
+				<tr>
+					<td><s:checkbox name="checkj2ee" /></td>
+					<td><s:label value="J2EE" /></td>
 
-			</tr>
-			<tr>
-				<td><s:checkbox name="checkandriod" /></td>
-				<td><s:label value="Anriod" /></td>
+				</tr>
+				<tr>
+					<td><s:checkbox name="checkandriod" /></td>
+					<td><s:label value="Anriod" /></td>
 
-			</tr>
-			<tr>
-				<td><s:checkbox name="checkdotnet" /></td>
-				<td><s:label value=">Net" /></td>
+				</tr>
+				<tr>
+					<td><s:checkbox name="checkdotnet" /></td>
+					<td><s:label value=">Net" /></td>
 
-			</tr>
-			<tr>
-				<td><s:checkbox name="checkphp" /></td>
-				<td><s:label value="PHP" /></td>
+				</tr>
+				<tr>
+					<td><s:checkbox name="checkphp" /></td>
+					<td><s:label value="PHP" /></td>
 
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><s:submit cssClass="css_button" value="Analyse" /></td>
-			</tr>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><s:submit cssClass="css_button" value="Analyse" /></td>
+				</tr>
 
-		</s:form>
-	</table>
+			</s:form>
+		</table>
 
 
-	<!--  <sjg:grid id="gridtable" caption="Customer Examples" dataType="json"
+		<!--  <sjg:grid id="gridtable" caption="Customer Examples" dataType="json"
 		href="grid-data-provider" pager="true" gridModel="gridModel"
 		rowList="2,5,10" rowNum="5" rownumbers="true" navigator="true"
 		navigatorEdit="false" navigatorView="true" navigatorDelete="false"
@@ -190,5 +197,6 @@
 
 	</sjg:grid>
 -->
+	</s:else>
 </body>
 </html>

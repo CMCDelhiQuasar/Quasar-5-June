@@ -11,12 +11,19 @@
 			<result name="success">/success.jsp</result>
 			<result name="failure">/failure.jsp</result>
 			<result name="input">/index.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<action name="grid-data-provider" class="com.cmcdelhi.quasar.exp.GridDataProvider">
 			<result name="success" type="json">/welcome.jsp</result>
 			<result name="error">/error.jsp</result>
-
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<action name="registration"
@@ -25,6 +32,10 @@
 			<result name="gotoinstallmentconfigpage">/installment.jsp</result>
 			<result name="gotofullfeeconfigpage">/fullfee.jsp</result>
 			<result name="input">/registration.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 
@@ -33,6 +44,10 @@
 			method="cancelRegistrationSession">
 			<result name="success">/registrationcancellationwrapper.jsp</result>
 			<result name="failure">/index.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<action name="installmentconfiguration"
@@ -40,6 +55,10 @@
 			<result name="success">/paymentwrapper.jsp</result>
 			<result name="failure">/registrationcancellationwrapper.jsp</result>
 			<result name="nosession">/registration.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<action name="fullfeeconfiguration"
@@ -47,12 +66,20 @@
 			<result name="success">/paymentwrapper.jsp</result>
 			<result name="failure">/registrationcancellationwrapper.jsp</result>
 			<result name="nosession">/registration.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 
 		<action name="pendingpayment" class="com.cmcdelhi.quasar.action.PendingPaymentAction">
 			<!-- <result type="redirect">/globalsearch?queryString=${todaysDate}</result> -->
 			<result>/index.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<action name="payment" class="com.cmcdelhi.quasar.action.PaymentAction">
@@ -63,11 +90,19 @@
 			<result name="sunishchitkaro">/chequemodewrapper.jsp</result>
 			<result name="ddyadavjiphysicswaale">/ddmodewrapper.jsp</result>
 			<result name="taashkepatte">/cardmodewrapper.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<action name="confirmregistration" class="com.cmcdelhi.quasar.action.RegistrationAction">
 			<result name="success">/registrationsuccesswrapper.jsp</result>
 			<result name="error">/failure.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 
@@ -75,37 +110,66 @@
 			<result name="success">/registrationconfirmationwrapper.jsp</result>
 			<result name="success_due">/dueconfirmationwrapper.jsp</result>
 			<result name="input">/chequemodewrapper.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 		<action name="ddmode" class="com.cmcdelhi.quasar.action.DDModeAction">
 			<result name="success">/registrationconfirmationwrapper.jsp</result>
 			<result name="success_due">/dueconfirmationwrapper.jsp</result>
 			<result name="input">/ddmodewrapper.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 		<action name="cardmode" class="com.cmcdelhi.quasar.action.CardModeAction">
 			<result name="success_reg">/registrationconfirmationwrapper.jsp</result>
 			<result name="success_due">/dueconfirmationwrapper.jsp</result>
 			<result name="input">/cardmodewrapper.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 		<action name="onlinemode" class="com.cmcdelhi.quasar.action.OnlineModeAction">
 			<result name="success">/registrationconfirmationwrapper.jsp</result>
 			<result name="success_due">/dueconfirmationwrapper.jsp</result>
 			<result name="input">/onlinemodewrapper.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 		<action name="cashmode" class="com.cmcdelhi.quasar.action.CashModeAction">
 			<result name="success">/registrationconfirmationwrapper.jsp</result>
 			<result name="success_due">/dueconfirmationwrapper.jsp</result>
 			<result name="input">/cashmodewrapper.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
+
 		</action>
 
 		<action name="searchstudent" class="com.cmcdelhi.quasar.action.StudentInfoAction">
 			<result name="success">/studentinfowrapper.jsp</result>
 			<result name="input">/registration.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 
 		<action name="qrAction" class="com.cmcdelhi.quasar.action.QRStudentAction">
 			<result name="success">/qrglobalstudentinfo.jsp</result>
 			<result name="input">/index.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<action name="getPDF" class="com.cmcdelhi.quasar.action.ReceiptAction">
@@ -115,10 +179,19 @@
 				<param name="contentDisposition">filename="mypdf.pdf"</param>
 				<param name="bufferSize">2048</param>
 			</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
+
 		</action>
 
 		<action name="xxx" class="com.cmcdelhi.quasar.action.TextResult">
 			<result name="success" type="stream" />
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 
@@ -126,17 +199,29 @@
 		<action name="verifyEmailId"
 			class="com.cmcdelhi.quasar.action.EmailVerificationAction">
 			<result name="success" type="stream" />
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<action name="analytics" class="com.cmcdelhi.quasar.action.GraphingAction">
 			<result name="success">/analyticswrapper.jsp</result>
 			<result name="failure">/failure.jsp</result>
 			<result name="input">/index.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<action name="globalsearch" class="com.cmcdelhi.quasar.action.GlobalSearchAction">
 			<result name="success">/searchresultwrapper.jsp</result>
 			<result name="failure">/failure.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 
 		</action>
 
@@ -144,6 +229,10 @@
 			<result name="success">/deletestudentwrapper.jsp</result>
 			<result name="failure">/failure.jsp</result>
 			<result name="input">/deletestudentwrapper.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 
@@ -151,14 +240,43 @@
 			class="com.cmcdelhi.quasar.action.PrepareDuePaymentAction">
 			<result name="success">/paymentwrapper.jsp</result>
 			<result name="failure">/failure.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<action name="payDuePayment" class="com.cmcdelhi.quasar.action.DuePaymentAction">
 			<result name="success">/duepaymentsuccesswrapper.jsp</result>
 			<result name="failure">/failure.jsp</result>
 			<result name="nosession">/registration.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
 		</action>
 
+
+		<!-- For Admin Login -->
+		<action name="adminlogin" class="com.cmcdelhi.quasar.action.MotherSessionAction"
+			method="startSession">
+			<result name="startsession">/index.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<result name="input">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- For Admin Logout -->
+		<action name="adminlogout" class="com.cmcdelhi.quasar.action.MotherSessionAction"
+			method="endSession">
+			<result name="endsession">/home.jsp</result>
+			<result name="input">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
+		</action>
 
 
 

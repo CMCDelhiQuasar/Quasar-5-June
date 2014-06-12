@@ -21,27 +21,34 @@
 </script>
 </head>
 
-<table width="400" align="center" cellpadding="10">
-	<tr>
-		<td>
-			<p>
-				Quasar is you for creating this tutorial. It's very clearly written.
-				I'm having a problem adding a page to "Part 4: Struts 2 Tiles Plugin
-				Tutorial with Example". I added the necessary code to struts.xml,
-				tiles.xml, menu.jsp and linkAction.java but it's not working, the
-				feedback in the Console section of Eclipse rolls on and on and the
-				page does not render. Could you tell me what I missed or what files
-				have to be changed to add a page. Thank you
 
-				<s:iterator begin="1" end="10" step="1" status="i">
+<s:if test="#session.SECRET==null">
+		You are not within the  admin session .Please Login
+		<jsp:forward page="home.jsp" />
+</s:if>
+<s:else>
+	<table width="400" align="center" cellpadding="10">
+		<tr>
+			<td>
+				<p>
+					Quasar is you for creating this tutorial. It's very clearly
+					written. I'm having a problem adding a page to "Part 4: Struts 2
+					Tiles Plugin Tutorial with Example". I added the necessary code to
+					struts.xml, tiles.xml, menu.jsp and linkAction.java but it's not
+					working, the feedback in the Console section of Eclipse rolls on
+					and on and the page does not render. Could you tell me what I
+					missed or what files have to be changed to add a page. Thank you
+
+					<s:iterator begin="1" end="10" step="1" status="i">
 					Value <s:property value="#i.index" />
-					<br>
-				</s:iterator>
+						<br>
+					</s:iterator>
 
 
-			</p>
+				</p>
 
-			<div id="myDiv">This is basic text</div> <br>
-			<button onclick="doWork()">Click Here</button>
-		</td>
-</table>
+				<div id="myDiv">This is basic text</div> <br>
+				<button onclick="doWork()">Click Here</button>
+			</td>
+	</table>
+</s:else>

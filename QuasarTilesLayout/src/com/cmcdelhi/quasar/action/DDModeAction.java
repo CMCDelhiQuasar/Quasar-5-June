@@ -32,66 +32,79 @@ public class DDModeAction extends ActionSupport implements ServletRequestAware,
 	// this is the same session maintained throughout the student registration.
 	Map registrationSessionMap;
 
+	// this is for maintaining the session throughout the admin session
+	Map adminSessionMap;
+
 	public String execute() {
 		System.out.println("Inside execute method  of DDModeAction");
 
-		// check for valid session
-		if (registrationSessionMap.get("REGISTERING_STUDENT_EMAIL") == null) {
-			// it means no session is associated with the request and return
-			// him
-			// back
-			return "nosession";
+		// admin session check
+		if (adminSessionMap.get("SECRET") == null) {
+			// it means no admin session
+			return "endsession";
 		} else {
-			try {
 
-				// searching for whether is this registration paymnent or due
-				// payment
-				String dueTag = (String) registrationSessionMap.get("DUE_TAG");
-				if (dueTag == null) {
-					System.out.println("This is regisatrion payment ");
-				} else {
-					System.out.println("This is Due Payment  " + dueTag);
+			// check for valid session
+			if (registrationSessionMap.get("REGISTERING_STUDENT_EMAIL") == null) {
+				// it means no session is associated with the request and return
+				// him
+				// back
+				return "nosession";
+			} else {
+				try {
+
+					// searching for whether is this registration paymnent or
+					// due
+					// payment
+					String dueTag = (String) registrationSessionMap
+							.get("DUE_TAG");
+					if (dueTag == null) {
+						System.out.println("This is regisatrion payment ");
+					} else {
+						System.out.println("This is Due Payment  " + dueTag);
+					}
+
+					// if available then fetch the student object
+					Student loadedStudent = (Student) registrationSessionMap
+							.get("shagird");
+
+					System.out.println("Size : "
+							+ loadedStudent.getPaymentsList().size());
+
+					DDMode ddm = new DDMode();
+					ddm.setBankName(bankName);
+					ddm.setDDNumber(DDNumber);
+					ddm.setIssueDate(issueDate);
+					ddm.setDdExpiryDate(null);
+					ddm.setPayment(loadedStudent.getPaymentsList().get(0));
+
+					loadedStudent.getPaymentsList().get(0).setPaymentMode(ddm);
+
+					registrationSessionMap.put(
+							"shagirdregistrationpaymentpaymentmode", ddm);
+
+					Enumeration enm = request.getParameterNames();
+
+					while (enm.hasMoreElements()) {
+						String paramName = (String) enm.nextElement();
+						String paramValue = request.getParameter(paramName);
+						System.out.println(paramName + "  :  " + paramValue);
+					}
+
+					// if regisatrion payment then go to Registartion Action
+					// else Go
+					// to Due Payment Action
+					if (dueTag == null) {
+						return SUCCESS + "_reg";
+					} else {
+						return SUCCESS + "_due";
+					}
+
+				} catch (Exception e) {
+					System.out.println("Exception " + e.getMessage());
 				}
 
-				// if available then fetch the student object
-				Student loadedStudent = (Student) registrationSessionMap
-						.get("shagird");
-
-				System.out.println("Size : "
-						+ loadedStudent.getPaymentsList().size());
-
-				DDMode ddm = new DDMode();
-				ddm.setBankName(bankName);
-				ddm.setDDNumber(DDNumber);
-				ddm.setIssueDate(issueDate);
-				ddm.setDdExpiryDate(null);
-				ddm.setPayment(loadedStudent.getPaymentsList().get(0));
-
-				loadedStudent.getPaymentsList().get(0).setPaymentMode(ddm);
-
-				registrationSessionMap.put(
-						"shagirdregistrationpaymentpaymentmode", ddm);
-
-				Enumeration enm = request.getParameterNames();
-
-				while (enm.hasMoreElements()) {
-					String paramName = (String) enm.nextElement();
-					String paramValue = request.getParameter(paramName);
-					System.out.println(paramName + "  :  " + paramValue);
-				}
-
-				// if regisatrion payment then go to Registartion Action else Go
-				// to Due Payment Action
-				if (dueTag == null) {
-					return SUCCESS + "_reg";
-				} else {
-					return SUCCESS + "_due";
-				}
-
-			} catch (Exception e) {
-				System.out.println("Exception " + e.getMessage());
 			}
-
 		}
 
 		return INPUT;
@@ -151,6 +164,7 @@ public class DDModeAction extends ActionSupport implements ServletRequestAware,
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		registrationSessionMap = arg0;
+		adminSessionMap = arg0;
 	}
 
 }

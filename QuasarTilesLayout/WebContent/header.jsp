@@ -133,6 +133,7 @@ input[type=search]:focus {
 
 			</div>
 		</td>
+		<td><a href="adminlogout">Logout</td>
 	</tr>
 
 

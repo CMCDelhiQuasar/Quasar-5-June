@@ -20,6 +20,9 @@ public class DuePaymentAction extends ActionSupport implements
 	// this is for maintaining the sesson throughout the student payment.
 	Map duePaymentSessionMap;
 
+	// this is for maintaining the session throughout the admin session
+	Map adminSessionMap;
+
 	@Override
 	public String execute() throws Exception {
 		System.out.println("------------------------------------>>>>>>");
@@ -31,73 +34,82 @@ public class DuePaymentAction extends ActionSupport implements
 						+ " bhuk bhi lagi hai . . . "
 						+ "kahana to kisi tarah bana liya hai. . . . khana kahana bhi padega na !. .. . .. "
 						+ "but  kuch bhi ho .  .. .  this feeling is unparallel ! ");
-		// check for valid session
-		if (duePaymentSessionMap.get("REGISTERING_STUDENT_EMAIL") == null) {
-			// it means no session is associated with the request and return
-			// him
-			// back
-			return "nosession";
+
+		// admin session check
+		if (adminSessionMap.get("SECRET") == null) {
+			// it means no admin session
+			return "endsession";
 		} else {
 
-			Payment p = null;
-			// searching for whether is this registration paymnent or due
-			// payment
-			String dueTag = (String) duePaymentSessionMap.get("DUE_TAG");
-			if (dueTag == null) {
+			// check for valid session
+			if (duePaymentSessionMap.get("REGISTERING_STUDENT_EMAIL") == null) {
 				// it means no session is associated with the request and return
 				// him
 				// back
 				return "nosession";
 			} else {
-				p = (Payment) duePaymentSessionMap.get("payment");
-				System.out.println("This is Due Payment  " + dueTag);
 
-				System.out
-						.println("Trying to insert the updated  Payment Object ");
+				Payment p = null;
+				// searching for whether is this registration paymnent or due
+				// payment
+				String dueTag = (String) duePaymentSessionMap.get("DUE_TAG");
+				if (dueTag == null) {
+					// it means no session is associated with the request and
+					// return
+					// him
+					// back
+					return "nosession";
+				} else {
+					p = (Payment) duePaymentSessionMap.get("payment");
+					System.out.println("This is Due Payment  " + dueTag);
 
-				Session session = QuasarConnectionManager.getInstance()
-						.getSession();
-				session.beginTransaction();
+					System.out
+							.println("Trying to insert the updated  Payment Object ");
 
-				Query q = session
-						.createQuery("from Payment where paymentId = :paymentId ");
-				q.setParameter("paymentId", p.getPaymentID());
+					Session session = QuasarConnectionManager.getInstance()
+							.getSession();
+					session.beginTransaction();
 
-				Payment p2 = (Payment) q.list().get(0);
+					Query q = session
+							.createQuery("from Payment where paymentId = :paymentId ");
+					q.setParameter("paymentId", p.getPaymentID());
 
-				p2.setPaymentComment(p.getPaymentComment());
-				p2.setPaymentDetails(p.getPaymentDetails());
+					Payment p2 = (Payment) q.list().get(0);
 
-				session.update(p2);
-				session.getTransaction().commit();
+					p2.setPaymentComment(p.getPaymentComment());
+					p2.setPaymentDetails(p.getPaymentDetails());
 
-				// removing the session objects
-				duePaymentSessionMap.remove("NUMBER_OF_INSTALLMENTS");
-				duePaymentSessionMap.remove("shagird");
-				duePaymentSessionMap
-						.remove("shagirdregistrationpaymentpaymentmode");
-				duePaymentSessionMap.remove("shagirdregistrationpayment");
-				duePaymentSessionMap
-						.remove("shagirdregistrationfullfeepayment");
-				duePaymentSessionMap.remove("allInstallmentsList");
-				duePaymentSessionMap.remove("REGISTERING_STUDENT_EMAIL");
-				duePaymentSessionMap.remove("DUE_TAG");
+					session.update(p2);
+					session.getTransaction().commit();
 
-				return SUCCESS;
+					// removing the session objects
+					duePaymentSessionMap.remove("NUMBER_OF_INSTALLMENTS");
+					duePaymentSessionMap.remove("shagird");
+					duePaymentSessionMap
+							.remove("shagirdregistrationpaymentpaymentmode");
+					duePaymentSessionMap.remove("shagirdregistrationpayment");
+					duePaymentSessionMap
+							.remove("shagirdregistrationfullfeepayment");
+					duePaymentSessionMap.remove("allInstallmentsList");
+					duePaymentSessionMap.remove("REGISTERING_STUDENT_EMAIL");
+					duePaymentSessionMap.remove("DUE_TAG");
+
+					return SUCCESS;
+				}
+
 			}
 
+			// setting the student object in session
+			// registrationSessionMap.put("REGISTERING_STUDENT_EMAIL",
+			// getStudentemail());
+			// registrationSessionMap.put("shagird", s);
+			// registrationSessionMap
+			// .put("shagirdregistrationpayment", rp);
+			//
+			// registrationSessionMap.put(
+			// "shagirdregistrationfullfeepayment", ffp);
+
 		}
-
-		// setting the student object in session
-		// registrationSessionMap.put("REGISTERING_STUDENT_EMAIL",
-		// getStudentemail());
-		// registrationSessionMap.put("shagird", s);
-		// registrationSessionMap
-		// .put("shagirdregistrationpayment", rp);
-		//
-		// registrationSessionMap.put(
-		// "shagirdregistrationfullfeepayment", ffp);
-
 	}
 
 	@Override
@@ -108,6 +120,7 @@ public class DuePaymentAction extends ActionSupport implements
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		duePaymentSessionMap = arg0;
+		adminSessionMap = arg0;
 	}
 
 }

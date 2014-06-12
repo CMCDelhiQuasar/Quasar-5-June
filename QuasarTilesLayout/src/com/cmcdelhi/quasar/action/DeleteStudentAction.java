@@ -17,51 +17,63 @@ import com.cmcdelhi.quasar.student.QuasarConnectionManager;
 import com.cmcdelhi.quasar.student.Student;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class DeleteStudentAction extends ActionSupport {
+public class DeleteStudentAction extends ActionSupport implements SessionAware {
 
 	String emailId;
 	String email;
 	String demail;
 	List<Student> deletestudent = new ArrayList<Student>();
 
+	// this is for maintaining the session throughout the admin session
+	Map adminSessionMap;
+
 	public String execute() {
-		System.out.println("come to student deletion action" + emailId);
 
-		try {
+		// admin session check
+		if (adminSessionMap.get("SECRET") == null) {
+			// it means no admin session
+			return "endsession";
+		} else {
 
-			Session s = QuasarConnectionManager.getInstance().getSession();
-			Transaction trans = s.beginTransaction();
-			if (demail == null) {
-				Query query = s
-						.createQuery("from Student where emailId=:email");
-				query.setParameter("email", emailId);
-				List<Student> studentlist = query.list();
-				System.out.println("size is " + studentlist.size());
-				// session.put("deletestudent", studentlist);
+			System.out.println("come to student deletion action" + emailId);
 
-				for (Iterator iterator = studentlist.iterator(); iterator
-						.hasNext();) {
-					Student student = (Student) iterator.next();
-					deletestudent.add(student);
-					System.out.println("come to "
-							+ student.getPaymentsList().get(0)
-									.getPaymentComment());
+			try {
+
+				Session s = QuasarConnectionManager.getInstance().getSession();
+				Transaction trans = s.beginTransaction();
+				if (demail == null) {
+					Query query = s
+							.createQuery("from Student where emailId=:email");
+					query.setParameter("email", emailId);
+					List<Student> studentlist = query.list();
+					System.out.println("size is " + studentlist.size());
+					// session.put("deletestudent", studentlist);
+
+					for (Iterator iterator = studentlist.iterator(); iterator
+							.hasNext();) {
+						Student student = (Student) iterator.next();
+						deletestudent.add(student);
+						System.out.println("come to "
+								+ student.getPaymentsList().get(0)
+										.getPaymentComment());
+					}
+				} else {
+					// Query query = s
+					// .createQuery("ALTER TABLE Student DROP FOREIGN KEY emailId");
+					Query query = s
+							.createQuery("delete from Student where emailId=:email");
+					query.setParameter("email", demail);
+
+					// System.out.println("come to else part" + demail
+					// + query.executeUpdate());
+					trans.commit();
 				}
-			} else {
-				// Query query = s
-				// .createQuery("ALTER TABLE Student DROP FOREIGN KEY emailId");
-				Query query = s
-						.createQuery("delete from Student where emailId=:email");
-				query.setParameter("email", demail);
 
-				// System.out.println("come to else part" + demail
-				// + query.executeUpdate());
-				trans.commit();
+				s.close();
+			} catch (HibernateException hne) {
+				hne.printStackTrace();
 			}
 
-			s.close();
-		} catch (HibernateException hne) {
-			hne.printStackTrace();
 		}
 		return "success";
 	}
@@ -88,6 +100,12 @@ public class DeleteStudentAction extends ActionSupport {
 
 	public void setDemail(String demail) {
 		this.demail = demail;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		adminSessionMap = arg0;
+
 	}
 
 }

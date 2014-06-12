@@ -7,22 +7,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div align="center">
-		<table border="0">
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
-			<tr align="center">
-				<td colspan="4" height="120" width=""><h2>Current
-						Registration Cancelled</h2></td>
-			</tr>
-			<tr>
+	<s:if test="#session.SECRET==null">
+		You are not within the  admin session .Please Login
+		<jsp:forward page="home.jsp" />
+	</s:if>
+	<s:else>
+		<div align="center">
+			<table border="0">
 
-				<td align="center" width="33%"><button
-						onclick="location.href='registration.jsp'" class="css_button">
-						Another Registration</button></td>
+				<tr align="center">
+					<td colspan="4" height="120" width=""><h2>Current
+							Registration Cancelled</h2></td>
+				</tr>
+				<tr>
 
-			</tr>
+					<td align="center" width="33%"><button
+							onclick="location.href='registration.jsp'" class="css_button">
+							Another Registration</button></td>
 
-		</table>
-	</div>
+				</tr>
+
+			</table>
+		</div>
+	</s:else>
 </body>
 </html>

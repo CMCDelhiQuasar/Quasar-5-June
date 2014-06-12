@@ -66,6 +66,7 @@
 <body>
 
 
+
 	<s:if test="#session.REGISTERING_STUDENT_EMAIL==null">
 		You are not within the session .Please Login
 		<jsp:forward page="registration.jsp" />

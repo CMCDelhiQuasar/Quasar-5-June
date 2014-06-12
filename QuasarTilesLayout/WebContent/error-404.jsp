@@ -5,11 +5,49 @@
 <html>
 <head>
 <style type="text/css">
+html {
+	font-size: 15px;
+}
+
+body {
+	font-family: 'open-sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 1.4;
+}
+
+html {
+	color: #333;
+}
+
+html {
+	font-size: 13px;
+}
+
+h2 {
+	font-family: 'open-sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 1.4;
+}
+h1 {
+	font-family: 'open-sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 25px;
+	line-height: 1.4;
+}
+
 body {
 	background-color: #1568b4;
 }
 
+hr {
+	background-color: #EEE;
+	border: 0;
+	height: 1px;
+}
+
 #buggyImageArea {
+	background-color: rgb(255, 255, 255);
 	background-image: url("animals/zebra.png");
 	background-repeat: no-repeat;
 	background-position: right;
@@ -20,24 +58,31 @@ body {
 	margin: auto;
 	right: 50%;
 	left: 50%;
+	background-image: url("animals/zebra.png");
 }
 
-#shadowbox {
-	background-image: url("images/dots.png");
-	border: 1px solid #DDD;
-	width: 500px;
+#container {
 	padding: 20px;
-	margin-top: 150px;
+	background-color: white;
+	margin-top: 20px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	border: 1px solid #E9E9E9;
 	-webkit-border-radius: 4px;
 	box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
 	-moz-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
 	-webkit-box-shadow: 0 4px 6px -5px rgba(0, 0, 0, 0.8);
 	border: 1px solid #DDD;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+	margin-top: 20px;
+}
+
+#logoArea {
+	background-image: url("images/logo.png");
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 100px;
+	height: 70px;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -48,23 +93,39 @@ body {
 	<table align="center" id="shadowbox">
 		<tr>
 			<td>
-				<div id="buggyImageArea">
-					<h1>404 File Not Found</h1>
+				<div id="container">
+					<div id="logoArea">
+						<font color="#1568b4"><br> <span
+							style="font-size: 130%;">Quasar Payment System </span><br> <span
+							style="font-size: 100%">CMC Ltd,New Delhi</span> </font>
+					</div>
 
 
-					I have eaten up what u are searching ! <br> <br> <br>
-					<br>
-				</div> <img src="images/logo.png" alt="cmc" />
 
-				<div id="errorFooterArea">
-					<center>
+
+					<div align="center" id="buggyImageArea" height="300px">
+
+						<h1>404 File Not Found</h1>
+
+
+						<h2>I Have eaten what you are searching !</h2>
+
+					</div>
+
+<br>
+
+					<div align="center">
 						<h2>
-							<a href="index.jsp">Back to the Home Page</a>
+							<a style="text-decoration: none;" href="index.jsp"> Take Me
+								Back</a>
 						</h2>
-					</center>
-				</div>
+					</div>
 
-			</td>
+
+
+
+					<br> <br>
+				</div>
 		</tr>
 	</table>
 

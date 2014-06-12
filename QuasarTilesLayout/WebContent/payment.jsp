@@ -123,7 +123,7 @@
 				<h1>Registration Payment</h1>
 
 				<s:set var="pa"
-					value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" />
+					value="#session.shagird.paymentsList.get(0)" />
 			</div>
 
 		</s:if>
