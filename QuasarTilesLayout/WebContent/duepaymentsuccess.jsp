@@ -24,8 +24,9 @@
 						Reciept</button>
 				</td>
 				<td align="left" width="33%">
-					<button onclick="location.href='mail'" class="css_button">&nbsp
-						&nbsp Mail Reciept &nbsp &nbsp</button>
+					<button
+						onclick="location.href='getPDF?emailid=<s:property value="email"/>'"
+						class="css_button">&nbsp &nbsp Mail Reciept &nbsp &nbsp</button>
 				</td>
 			</tr>
 

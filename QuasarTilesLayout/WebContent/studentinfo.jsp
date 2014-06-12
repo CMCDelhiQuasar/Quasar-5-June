@@ -61,9 +61,8 @@
 					<h3>Basic Details Of Student</h3>
 				</td>
 
-				<td align="right" width="100"><a
-					href="getPDF?emailid=<s:property value="#x.emailId" />"><img
-						src="images/print.jpg" alt="print"></a></td>
+				<td align="right" width="100"><a style="text-decoration: none;"
+					href="getPDF?emailid=<s:property value="#x.emailId" />">Print</a></td>
 			</tr>
 		</table>
 		<hr style="padding: 0px; margin: 4px;">

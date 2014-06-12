@@ -7,6 +7,7 @@ import com.cmcdelhi.quasar.paymentDetails.Payment;
 import com.cmcdelhi.quasar.service.PaymentService;
 import com.cmcdelhi.quasar.service.StudentService;
 import com.cmcdelhi.quasar.student.Student;
+import com.cmcdelhi.quasar.util.log.Log;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GlobalSearchAction extends ActionSupport {
@@ -17,6 +18,8 @@ public class GlobalSearchAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
+
+		Log.i("Inside Global Search Action");
 
 		queryResultStudentList = new ArrayList<Student>();
 		queryResultPaymentList = new ArrayList<Payment>();
@@ -88,6 +91,7 @@ public class GlobalSearchAction extends ActionSupport {
 						null, null, 0, 0, null, 0, qvalue, 0, 0, null));
 
 			} catch (NumberFormatException e) {
+				Log.e("NumberFormat Exception Occured " + e.getMessage());
 			}
 
 			try {

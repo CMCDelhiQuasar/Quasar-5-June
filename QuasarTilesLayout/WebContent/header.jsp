@@ -94,7 +94,8 @@ input[type=search]:focus {
 
 								<li><a href="registration.jsp"><span>Register
 											Student </span></a></li>
-								<li><a href="#"><span>Student Deletion</span></a></li>
+								<li><a href="deletestudentwrapper.jsp"><span>Student
+											Deletion</span></a></li>
 								<li><a href="#" class="parent"><span>Hakunamamata</span></a>
 									<div>
 										<ul>

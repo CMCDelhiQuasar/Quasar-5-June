@@ -22,7 +22,7 @@
 						onclick="location.href='registration.jsp'" class="css_button">
 						Another Registration</button></td>
 				<td align="center" width="33%">
-					<button onclick="location.href='getPDF'" class="css_button">Print
+					<button onclick="location.href='getPDF?emailid=<s:property value="email"/>'" class="css_button">Print
 						Reciept</button>
 				</td>
 				<td align="left" width="33%">

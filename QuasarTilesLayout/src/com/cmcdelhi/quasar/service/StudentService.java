@@ -42,7 +42,9 @@ public class StudentService {
 
 		if (name != null && !name.equals("")) {
 			name = name.trim();
-			c.add(Restrictions.eq("student.name", name));
+			// c.add(Restrictions.eq("student.name", name));
+			c.add(Restrictions.like("student.name", name));
+
 		}
 
 		if (id != 0) {

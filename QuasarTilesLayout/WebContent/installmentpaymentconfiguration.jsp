@@ -19,6 +19,7 @@
 	-moz-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
 	-webkit-box-shadow: 0 4px 6px -5px rgba(0, 0, 0, 0.8);
 	padding: 10px;
+	
 }
 </style>
 <sj:head jqueryui="true" />

@@ -45,7 +45,7 @@
 			return false;
 		}
 
-		if (depositedAmount<0  ||strdepositedAmount=="" || depositedAmount>proposedAmount
+		if (depositedAmount < 0 || strdepositedAmount == ""
 				|| isNaN(depositedAmount)) {
 			alert("Please check deposited amount");
 			return false;
