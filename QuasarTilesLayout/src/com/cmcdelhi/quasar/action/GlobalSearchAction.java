@@ -61,11 +61,15 @@ public class GlobalSearchAction extends ActionSupport {
 					queryString, 0, null, 0));
 
 			PaymentService ps = new PaymentService();
-			// Date of Registration/ Payment Date
+			// Date of Registration/ Payment Date or Proposed Date
 			if (queryString.contains("/")) {
 				queryResultPaymentList.addAll(ps.getPayment(0, 0, null, 0, 0,
 						queryString, null, 0, 0, null, 0, 0, 0, 0, null));
+				queryResultPaymentList.addAll(ps.getPayment(0, 0, null, 0, 0,
+						null, queryString, 0, 0, null, 0, 0, 0, 0, null));
+
 			}
+
 			// Payment ID
 			try {
 				// can be payment Id
