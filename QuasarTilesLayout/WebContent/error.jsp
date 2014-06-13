@@ -82,7 +82,7 @@ hr {
 
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Error</title>
 </head>
 <body>
 	<div id="container">

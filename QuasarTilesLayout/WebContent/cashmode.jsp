@@ -21,7 +21,7 @@
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
+<title>Quasar Cash Payment Configuration</title>
 <script type="text/javascript">
 	function thousand(z) {
 		var x = document.getElementById("1000");

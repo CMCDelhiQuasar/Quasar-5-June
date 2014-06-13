@@ -51,7 +51,7 @@
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Quasar Search Result</title>
 </head>
 <body>
 

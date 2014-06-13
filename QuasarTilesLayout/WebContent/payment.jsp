@@ -77,7 +77,7 @@
 	margin-left: 300px;
 }
 </style>
-<title>Insert title here</title>
+<title>Quasar Payment Configuration</title>
 </head>
 <body>
 

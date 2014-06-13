@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Quasar Payment System,CMC Ltd</title>
 <sj:head jqueryui="true" />
 <link type="text/css" href="menu.css" rel="stylesheet" />
 <script type="text/javascript" src="jquery.js"></script>

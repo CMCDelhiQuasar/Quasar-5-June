@@ -24,7 +24,7 @@
 <sj:head jqueryui="true" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
+<title>Quasar Installment Payment Configuration</title>
 <script type="text/javascript">
 	function validateinstallment() {
 

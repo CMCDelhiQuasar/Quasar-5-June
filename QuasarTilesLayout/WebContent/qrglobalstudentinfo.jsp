@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>CMC Ltd Quasar Student Payment Information</title>
 </head>
 <body>
 	QR GLOBAL Student Info Page

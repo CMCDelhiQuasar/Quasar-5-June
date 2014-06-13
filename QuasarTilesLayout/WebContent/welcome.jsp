@@ -6,6 +6,7 @@
 
 
 <head>
+<title>Quasar Home</title>
 <script>
 	function doWork() {
 		var xmlhttp = new XMLHttpRequest();

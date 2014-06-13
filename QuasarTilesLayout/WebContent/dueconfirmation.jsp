@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Quasar Due Payment Confirmation</title>
 <style>
 #duelayout {
 	margin-left: 300px;

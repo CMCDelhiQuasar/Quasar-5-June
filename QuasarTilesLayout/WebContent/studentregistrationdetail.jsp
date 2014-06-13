@@ -143,7 +143,7 @@
 
 <sj:head jqueryui="true" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Student Registration Page...</title>
+<title>Quasar Student Registration</title>
 
 <style>
 #regForm {
