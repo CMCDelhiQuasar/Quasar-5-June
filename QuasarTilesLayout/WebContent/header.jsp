@@ -62,7 +62,7 @@ input[type=search]:focus {
 	function datevalue() {
 		var x = document.getElementById("dat");
 		var d = new Date();
-		x.href = x + (d.getDay() + 1) + "/" + (d.getMonth() + 1) + "/"
+		x.href = x + (d.getDate()) + "/" + (d.getMonth()+1) + "/"
 				+ d.getFullYear();
 		//alert(x);
 	}

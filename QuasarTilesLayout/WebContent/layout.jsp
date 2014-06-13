@@ -7,7 +7,7 @@
 <head>
 <style type="text/css">
 html {
-	font-size: 15px;
+	font-size: 12px;
 }
 
 body {
@@ -21,9 +21,7 @@ html {
 	color: #333;
 }
 
-html {
-	font-size: 13px;
-}
+
 
 body {
 	background-color: #1568b4;
