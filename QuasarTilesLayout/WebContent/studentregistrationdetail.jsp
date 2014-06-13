@@ -53,32 +53,35 @@
 			return true;
 		}
 
-		if (contact<=0 || contact>9999999999 || strcont == "") {
+		if (contact<=0 || contact>9999999999 || strcont == "" || isNaN(contact)) {
 			alert("Contact should be 10 digit long!!!");
 			return false;
 		}
 
-		if (coursefee<0||coursefee>9999999 || strcoursefee == "") {
+		if (coursefee<0||coursefee>9999999 || strcoursefee == ""
+				|| isNaN(coursefee)) {
 			alert("Course fee can not be less then 0");
 			return false;
 		}
 
-		if (servicetax<0.0||servicetax>100 || strstax == "") {
+		if (servicetax<0.0||servicetax>100 || strstax == ""
+				|| isNaN(servicetax)) {
 			alert("Enter valid service tax!!");
 			return false;
 		}
 
-		if (discount<0.0||discount>100 || strdiscount == "") {
+		if (discount<0.0||discount>100 || strdiscount == "" || isNaN(discount)) {
 			alert("Enter valid discount!!");
 			return false;
 		}
 
-		if (fine < 0 || strfine == "") {
+		if (fine < 0 || strfine == "" || isNaN(fine)) {
 			alert("Fine can not less then 0!!");
 			return false;
 		}
 
-		if (registrationamount < 0 || strregistrationamount == "") {
+		if (registrationamount < 0 || strregistrationamount == ""
+				|| isNaN(registrationamount)) {
 			alert("Enter valid registration amount!!");
 			return false;
 		}

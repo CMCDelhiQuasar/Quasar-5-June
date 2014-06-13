@@ -50,6 +50,18 @@
 			<result name="error">/error.jsp</result>
 		</action>
 
+
+
+		<action name="cancelduepayment"
+			class="com.cmcdelhi.quasar.action.DuePaymentCancellation" method="cancelDuePaymentSession">
+			<result name="success">/duepaymentcancellationwrapper.jsp</result>
+			<result name="failure">/index.jsp</result>
+			<result name="endsession">/home.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<result name="error">/error.jsp</result>
+		</action>
+
 		<action name="installmentconfiguration"
 			class="com.cmcdelhi.quasar.action.InstallmentConfigurationAction">
 			<result name="success">/paymentwrapper.jsp</result>

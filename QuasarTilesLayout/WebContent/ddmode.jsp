@@ -7,6 +7,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<style type="text/css">
+#studentdetail {
+	background-color: white;
+	font-family: sans-serif;
+	padding: 10px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
+	-moz-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
+	-webkit-box-shadow: 0 4px 6px -5px rgba(0, 0, 0, 0.8);
+	padding: 10px;
+}
+</style>
 <sj:head jqueryui="true" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Insert title here</title>
@@ -125,8 +139,7 @@
 			<table border="0" id="studentdetail">
 				<tr>
 					<td colspan="4"><h2>Installment Configuration For</h2></td>
-					<td width="130"></td>
-					<td width="110"></td>
+					<td width="100"></td>
 				</tr>
 				<tr>
 					<td>Name:-</td>
@@ -162,27 +175,38 @@
 						<td><s:property value="#p.paymentComment" /></td>
 					</tr>
 				</s:iterator>
-			</table>
+				<tr>
+					<td colspan="4"><h2>Registration Object Details</h2></td>
+					<td width="100"></td>
+				</tr>
+				<tr>
+					<td>Registration Proposed Amount:-</td>
+					<td><s:property
+							value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" /></td>
+				</tr>
 
-			<hr />
-			<h1>Registration Object Details</h1>
-			Registration Proposed Amount:-
-			<s:property
-				value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" />
-			<br />Registration Deposited Amount:-
-			<s:property
-				value="#session.shagird.paymentsList.get(0).paymentDetails.depositedAmount" />
-			<br /> Registration Proposed Date :
-			<s:property
-				value="#session.shagird.paymentsList.get(0).paymentDetails.proposedDate" />
-			<br />Registration Payment Date:-
-			<s:property
-				value="#session.shagird.paymentsList.get(0).paymentDetails.paymentDate" />
-			<br />Registration Payment Comment:-
-			<s:property
-				value="#session.shagird.paymentsList.get(0).paymentComment" />
-			<br />
-			<hr />
+				<tr>
+					<td>Registration Deposited Amount:-</td>
+					<td><s:property
+							value="#session.shagird.paymentsList.get(0).paymentDetails.depositedAmount" /></td>
+				</tr>
+
+				<tr>
+					<td>Registration Proposed Date:-</td>
+					<td><s:property
+							value="#session.shagird.paymentsList.get(0).paymentDetails.proposedDate" /></td>
+				</tr>
+				<tr>
+					<td>Registration Payment Date:-</td>
+					<td><s:property
+							value="#session.shagird.paymentsList.get(0).paymentDetails.paymentDate" /></td>
+				</tr>
+				<tr>
+					<td>Registration Payment Comment:-</td>
+					<td><s:property
+							value="#session.shagird.paymentsList.get(0).paymentComment" /></td>
+				</tr>
+			</table>
 		</div>
 	</s:else>
 

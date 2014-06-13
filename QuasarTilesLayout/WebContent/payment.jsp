@@ -18,7 +18,6 @@
 	box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
 	-moz-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
 	-webkit-box-shadow: 0 4px 6px -5px rgba(0, 0, 0, 0.8);
-	padding: 10px;
 }
 </style>
 <sj:head jqueryui="true" />
@@ -107,23 +106,36 @@
 						<td align="left"><button onclick="gotoregistration()"
 								class="css_button"><</button></td>
 
-						<td align="center"><button
-								onclick="location.href='cancelregistration'"
-								value="cancelregistration" class="css_button">x</button></td>
+						<!-- if due payment session on then direct  to duepayment action -->
+						<s:if test="#session.DUE_TAG==null">
+							<td align="center"><button
+									onclick="location.href='cancelregistration'"
+									value="cancelregistration" class="css_button">x</button></td>
+
+
+
+						</s:if>
+						<!-- else direct him to registration  action -->
+						<s:else>
+							<td align="center"><button
+									onclick="location.href='cancelduepayment'"
+									value="cancelregistration" class="css_button">x</button></td>
+
+						</s:else>
+
 
 						<td></td>
 					</tr>
 				</table>
 			</center>
 		</div>
-		<!-- Check if Payment is of Due Payment of Registration Payment -->
+		<!-- Check if Payment is of Due Payment or Registration Payment -->
 
 		<s:if test="#session.DUE_TAG==null">
 			<div align="right">
 				<h1>Registration Payment</h1>
 
-				<s:set var="pa"
-					value="#session.shagird.paymentsList.get(0)" />
+				<s:set var="pa" value="#session.shagird.paymentsList.get(0)" />
 			</div>
 
 		</s:if>
@@ -205,8 +217,7 @@
 		<table border="0" id="studentdetail">
 			<tr>
 				<td colspan="4"><h2>Payment Configuration For</h2></td>
-				<td width="130"></td>
-				<td width="110"></td>
+				<td width="100"></td>
 			</tr>
 			<tr>
 				<td>Name:-</td>

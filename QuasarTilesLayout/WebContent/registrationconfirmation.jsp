@@ -13,7 +13,21 @@
 		history.back();
 	}
 </script>
-<style>
+<style type="text/css">
+#studentdetail {
+	background-color:;
+	font-family: sans-serif;
+	padding: 10px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
+	-moz-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
+	-webkit-box-shadow: 0 4px 6px -5px rgba(0, 0, 0, 0.8);
+	padding: 10px;
+}
+
+/*HTML*/
 #reglayout {
 	margin-left: 300px;
 }
@@ -46,7 +60,7 @@
 			</div>
 
 			<div id="reglayout">
-				<table>
+				<table id="studentdetail">
 					<tr id="name">
 						<td width="40px"></td>
 						<td><h2>
@@ -67,105 +81,102 @@
 						</td>
 					</tr>
 				</table>
-				<table border="0" width="">
-					<tr>
-						<td colspan="2">
-							<h2>Basic Details Of Student</h2>
-						</td>
-					</tr>
-					<tr>
-						<td>Name:-</td>
-						<td><s:property value="#session.shagird.name" /></td>
-					</tr>
-
-					<tr>
-						<td>Email:-</td>
-						<td><s:property value="#session.shagird.emailId" /></td>
-					</tr>
-
-					<tr>
-						<td>Contact:-</td>
-						<td><s:property value="#session.shagird.contactNumber" /></td>
-					</tr>
-				</table>
-				<table>
-					<tr>
-						<td colspan="2">
-							<h2>Fee Details Of Student</h2>
-						</td>
-					</tr>
-					<tr>
-						<td>Course Fee:-</td>
-						<td><s:property
-								value="#session.shagird.feeDetails.courseFees" /></td>
-					</tr>
-
-					<tr>
-						<td>Service Tax:-</td>
-						<td><s:property
-								value="#session.shagird.feeDetails.serviceTax" /></td>
-					</tr>
-
-					<tr>
-						<td>Total Fee:-</td>
-						<td><s:property value="#session.shagird.feeDetails.totalFee" /></td>
-					</tr>
-
-					<s:iterator var="p" value="#session.shagird.paymentsList">
-
+				<div class="layered-paper">
+					<table id="studentdetail" border="0" width="">
 						<tr>
-							<td>Proposed Amount :-</td>
-							<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
+							<td colspan="2">
+								<h2>Basic Details Of Student</h2>
+							</td>
+						</tr>
+						<tr>
+							<td>Name:-</td>
+							<td><s:property value="#session.shagird.name" /></td>
 						</tr>
 
 						<tr>
-							<td>Proposed Date :-</td>
-							<td><s:property value="#p.paymentDetails.proposedDate" /></td>
+							<td>Email:-</td>
+							<td><s:property value="#session.shagird.emailId" /></td>
 						</tr>
 
 						<tr>
-							<td>Payment Comment :-</td>
-							<td><s:property value="#p.paymentComment" /></td>
+							<td>Contact:-</td>
+							<td><s:property value="#session.shagird.contactNumber" /></td>
 						</tr>
-					</s:iterator>
-				</table>
-				<table>
-					<tr>
-						<td colspan="2">
-							<h2>Registration Details Of Student</h2>
-						</td>
-					</tr>
-					<tr>
-						<td>Registration Proposed Amount:-</td>
-						<td><s:property
-								value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" /></td>
-					</tr>
+						<tr>
+							<td colspan="2">
+								<h2>Fee Details Of Student</h2>
+							</td>
+						</tr>
+						<tr>
+							<td>Course Fee:-</td>
+							<td><s:property
+									value="#session.shagird.feeDetails.courseFees" /></td>
+						</tr>
 
-					<tr>
-						<td>Registration Deposited Amount:-</td>
-						<td><s:property
-								value="#session.shagird.paymentsList.get(0).paymentDetails.depositedAmount" /></td>
-					</tr>
+						<tr>
+							<td>Service Tax:-</td>
+							<td><s:property
+									value="#session.shagird.feeDetails.serviceTax" /></td>
+						</tr>
 
-					<tr>
-						<td>Registration Proposed Date :</td>
-						<td><s:property
-								value="#session.shagird.paymentsList.get(0).paymentDetails.proposedDate" /></td>
-					</tr>
+						<tr>
+							<td>Total Fee:-</td>
+							<td><s:property value="#session.shagird.feeDetails.totalFee" /></td>
+						</tr>
 
-					<tr>
-						<td>Registration Payment Date :</td>
-						<td><s:property
-								value="#session.shagird.paymentsList.get(0).paymentDetails.paymentDate" /></td>
-					</tr>
-					<tr>
-						<td>Registration Payment Comment :</td>
-						<td><s:property
-								value="#session.shagird.paymentsList.get(0).paymentComment" /></td>
-					</tr>
+						<s:iterator var="p" value="#session.shagird.paymentsList">
 
-				</table>
+							<tr>
+								<td>Proposed Amount :-</td>
+								<td><s:property value="#p.paymentDetails.proposedAmount" /></td>
+							</tr>
 
+							<tr>
+								<td>Proposed Date :-</td>
+								<td><s:property value="#p.paymentDetails.proposedDate" /></td>
+							</tr>
+
+							<tr>
+								<td>Payment Comment :-</td>
+								<td><s:property value="#p.paymentComment" /></td>
+							</tr>
+						</s:iterator>
+						<tr>
+							<td colspan="2">
+								<h2>Registration Details Of Student</h2>
+							</td>
+						</tr>
+						<tr>
+							<td>Registration Proposed Amount:-</td>
+							<td><s:property
+									value="#session.shagird.paymentsList.get(0).paymentDetails.proposedAmount" /></td>
+						</tr>
+
+						<tr>
+							<td>Registration Deposited Amount:-</td>
+							<td><s:property
+									value="#session.shagird.paymentsList.get(0).paymentDetails.depositedAmount" /></td>
+						</tr>
+
+						<tr>
+							<td>Registration Proposed Date :</td>
+							<td><s:property
+									value="#session.shagird.paymentsList.get(0).paymentDetails.proposedDate" /></td>
+						</tr>
+
+						<tr>
+							<td>Registration Payment Date :</td>
+							<td><s:property
+									value="#session.shagird.paymentsList.get(0).paymentDetails.paymentDate" /></td>
+						</tr>
+						<tr>
+							<td>Registration Payment Comment :</td>
+							<td><s:property
+									value="#session.shagird.paymentsList.get(0).paymentComment" /></td>
+						</tr>
+
+					</table>
+				</div>
 				<s:form action="confirmregistration" theme="simple" method="post">
 					<s:label label="Press Submit to Confirm" />
 					<sj:submit value="Submit" cssClass="css_button" />
