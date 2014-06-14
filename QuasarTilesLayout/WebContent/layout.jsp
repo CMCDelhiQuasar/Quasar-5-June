@@ -21,8 +21,6 @@ html {
 	color: #333;
 }
 
-
-
 body {
 	background-color: #1568b4;
 }
@@ -125,7 +123,6 @@ background-position: 0 0, 30px 30px;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Insert title here</title>
 </head>
 <body topmargin="0">
 

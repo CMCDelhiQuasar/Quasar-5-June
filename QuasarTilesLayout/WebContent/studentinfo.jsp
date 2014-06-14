@@ -28,7 +28,7 @@
 	background: -o-linear-gradient(0deg, #FFFFFF 8%, #EBF3FA 75%);
 	padding: 20px;
 	margin: 20px 0px;
-	width: 500px;
+	width: 700px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -36,7 +36,10 @@
 	margin: 4px;
 	overflow: hidden;
 	margin: 4px;
-	border: 1.5px solid #ccc;
+	border: 1.5px solid #1568b4;;
+	font-family: sans-serif;
+	font-size: medium;
+	font-weight: bolder;
 }
 </style>
 <sj:head jqueryui="true" />
@@ -51,33 +54,64 @@
 	<center>
 		<s:set name="x" value="student" />
 
-		<div
-			style="width: 600px; border: 1px #ff00ff solid; background-color:white;">
+		<div id="box">
 			<!-- Table for Student Basic  and546874561 Fee Details -->
-			<table width="100%">
+			<table border="0" width="100%">
 				<tr>
-					<td align="left" width="45%"><div>
-							BasicDetails <br> Name:
-							<s:property value="#x.name" />
-							<br> EmailID :
-							<s:property value="#x.emailId" />
-							<br> Contact Number:
-							<s:property value="#x.contactNumber" />
-							<br>
+					<td width="45%"><div>
+							<table border="0" width="100%">
+								<tr bgcolor="#EBF3FA">
+									<td align="left">BasicDetails</td>
+								</tr>
+								<tr>
+									<td width="50%">Name</td>
+									<td style="font-weight: bold;"><s:property value="#x.name" /></td>
+								</tr>
+								<tr>
+									<td width="50%">EmailID</td>
+									<td style="font-weight: bold;"><s:property
+											value="#x.emailId" /></td>
+								</tr>
+								<tr>
+									<td width="50%">Contact Number</td>
+									<td style="font-weight: bold;"><s:property
+											value="#x.contactNumber" /></td>
+								</tr>
 
+							</table>
 						</div></td>
 					<td width="45%" align="left"><div>
-							Fee Deatils <br> Course Fee:
-							<s:property value="#x.feeDetails.courseFees" />
-							<br> Service Tax :
-							<s:property value="#x.feeDetails.serviceTax" />
-							<br> Fine:
-							<s:property value="#x.feeDetails.fine" />
-							<br> Discount Available:
-							<s:property value="#x.feeDetails.discountAvailable" />
-							<br> Total Fee:
-							<s:property value="#x.feeDetails.totalFee" />
-							<br>
+							<table border="0" width="100%">
+								<tr bgcolor="#EBF3FA">
+									<td>Fee Details</td>
+								</tr>
+								<tr>
+									<td>Course Fee</td>
+									<td style="font-weight: bold;"><s:property
+											value="#x.feeDetails.courseFees" /></td>
+								</tr>
+								<tr>
+									<td>Service Tax</td>
+									<td style="font-weight: bold;"><s:property
+											value="#x.feeDetails.serviceTax" /></td>
+								</tr>
+								<tr>
+									<td>Fine</td>
+									<td style="font-weight: bold;"><s:property
+											value="#x.feeDetails.fine" /></td>
+								</tr>
+								<tr>
+									<td>Discount Available</td>
+									<td style="font-weight: bold;"><s:property
+											value="#x.feeDetails.discountAvailable" /></td>
+								</tr>
+								<tr>
+									<td>Total Fee</td>
+									<td style="font-weight: bold;"><s:property
+											value="#x.feeDetails.totalFee" /></td>
+								</tr>
+
+							</table>
 						</div></td>
 					<td width="10%" align="right">Icons <a
 						style="text-decoration: none;"
@@ -86,9 +120,6 @@
 				</tr>
 			</table>
 
-
-
-
 			<%
 				Student stu = (Student) request.getAttribute("student");
 
@@ -96,7 +127,7 @@
 			%>
 			<!-- Table for Payment Details -->
 			<!--Every payment will have a specific table -->
-			<table width="100%">
+			<table width="100%" border="0">
 				<tr bgcolor="#EBF3FA">
 
 					<%
@@ -157,16 +188,24 @@
 										paymentDate = "N/A";
 									}
 							%>
-
-							<br>Proposed Amount
-							<%=proposedAmount%>
-							<br>Proposed Date
-							<%=depositedAmount%>
-							<br>Paid Amount
-							<%=proposedDate%>
-							<br>Payment Amount
-							<%=paymentDate%>
-
+							<table width="100%" border="0">
+								<tr>
+									<td width="50%">Proposed Amount</td>
+									<td style="font-weight: bold;"><%=proposedAmount%></td>
+								</tr>
+								<tr>
+									<td>Proposed Date</td>
+									<td style="font-weight: bold;"><%=depositedAmount%></td>
+								</tr>
+								<tr>
+									<td>Paid Amount</td>
+									<td style="font-weight: bold;"><%=proposedDate%></td>
+								</tr>
+								<tr>
+									<td>Payment Amount</td>
+									<td style="font-weight: bold;"><%=paymentDate%></td>
+								</tr>
+							</table>
 						</div></td>
 					<td><div>
 
@@ -176,54 +215,66 @@
 
 									if (pm instanceof CashMode) {
 
-										out.println("<b> Payment Mode : Cash Mode <b>");
+										out.println("<table border='0' width='100%' ><tr><td> Payment Mode </td> <td style='font-weight: bold;'> Cash Mode</td></tr>");
 
 										CashMode cm = (CashMode) pm;
-										out.println("<br> Cash Amount " + cm.getCashAmount());
-										out.println("<br> Cash Details ");
+										out.println("<tr><td> Cash Amount <td><td style='font-weight: bold;'> "
+												+ cm.getCashAmount() + "</td></tr>");
+										out.println("<tr><td> Cash Details </td><td></td></tr>");
 
 										for (Note n : cm.getCashDetail().keySet()) {
-											out.println("<br> " + n + "  : "
-													+ cm.getCashDetail().get(n));
+											out.println("<tr><td> " + n
+													+ " </td> : <td style='font-weight: bold;'>"
+													+ cm.getCashDetail().get(n) + "</td></tr>");
 										}
-
+										out.println("</table>");
 									} else if (pm instanceof DDMode) {
-										out.println("<b> Payment Mode : DD Mode<b>");
+										out.println("<table border='0' width='100%' ><tr><td> Payment Mode </td> <td style='font-weight: bold;'> DD Mode</td></tr>");
 
 										DDMode ddm = (DDMode) pm;
-										out.println("<br> Bank Name " + ddm.getBankName());
-										out.println("<br> DD Number " + ddm.getDDNumber());
-										out.println("<br> DD Expiry Date " + ddm.getDdExpiryDate());
-										out.println("<br> DD Issue Date " + ddm.getIssueDate());
+										out.println("<tr><td>Bank Name </td><td style='font-weight: bold;'>"
+												+ ddm.getBankName() + "</td></tr>");
+										out.println("<tr><td> DD Number </td><td style='font-weight: bold;'>"
+												+ ddm.getDDNumber() + "</td></tr>");
+										out.println("<tr><td> DD Expiry Date </td><td style='font-weight: bold;'>"
+												+ ddm.getDdExpiryDate() + "</td></tr>");
+										out.println("<tr><td> DD Issue Date </td><td style='font-weight: bold;'>"
+												+ ddm.getIssueDate() + "</td></tr></table>");
 
 									} else if (pm instanceof ChequeMode) {
-										out.println("<b> Payment Mode : Cheque Mode<b>");
+										out.println("<table border='0' width='100%' ><tr><td> Payment Mode </td> <td style='font-weight: bold;'> Cheque Mode</td></tr>");
 
 										ChequeMode chqm = (ChequeMode) pm;
-										out.println("<br> Bank Name " + chqm.getBankName());
-										out.println("<br> Cheque Number " + chqm.getChequeNumber());
-										out.println("<br> Cheque Status " + chqm.getChequeStatus());
-										out.println("<br> Cheque Expiry Date "
-												+ chqm.getExpriyDate());
-										out.println("<br>Cheque Issue Date " + chqm.getIssueDate());
+										out.println("<tr><td> Bank Name </td><td style='font-weight: bold;'>"
+												+ chqm.getBankName() + "</td></tr>");
+										out.println("<tr><td> Cheque Number </td><td style='font-weight: bold;'>"
+												+ chqm.getChequeNumber() + "</td></tr>");
+										out.println("<tr><td> Cheque Status </td><td style='font-weight: bold;'>"
+												+ chqm.getChequeStatus() + "</td></tr>");
+										out.println("<tr><td> Cheque Expiry Date </td><td style='font-weight: bold;'>"
+												+ chqm.getExpriyDate() + "</td></tr>");
+										out.println("<tr><td>Cheque Issue Date </td><td style='font-weight: bold;'>"
+												+ chqm.getIssueDate() + "</td></tr></table>");
 
 									} else if (pm instanceof CardMode) {
-										out.println("<b> Payment Mode : Card  Mode <b>");
+										out.println("<table border='0' width='100%' ><tr><td> Payment Mode </td> <td style='font-weight: bold;'> Card  Mode </td></tr>");
 
 										CardMode crdm = (CardMode) pm;
-										out.println("<br> Card Number  " + crdm.getCardNumber());
-										out.println("<br> Transaction ID "
-												+ crdm.getTransactionID());
-										out.println("<br> Card Expiry Date  "
-												+ crdm.getCardExpiryDate());
+										out.println("<tr><td> Card Number </td><td style='font-weight: bold;'>"
+												+ crdm.getCardNumber() + "</td></tr>");
+										out.println("<tr><td>Transaction ID </td><td style='font-weight: bold;'>"
+												+ crdm.getTransactionID() + "</td></tr>");
+										out.println("<tr><td> Card Expiry Date </td><td style='font-weight: bold;'> "
+												+ crdm.getCardExpiryDate() + "</td></tr></table>");
 
 									} else if (pm instanceof OnlineMode) {
-										out.println("<b> Payment Mode : Online Mode <b>");
+										out.println("<table border='0' width='100%' ><tr><td> Payment Mode </td> <td style='font-weight: bold;'>Online Mode </td></tr>");
 
 										OnlineMode om = (OnlineMode) pm;
-										out.println("<br> Reiciept Number  "
-												+ om.getRecieptNumber());
-										out.println("<br> Transaction ID " + om.getTrasactionID());
+										out.println("<tr><td> Reiciept Number </td><td style='font-weight: bold;'>"
+												+ om.getRecieptNumber() + "</td></tr>");
+										out.println("<tr><td> Transaction ID </td><td style='font-weight: bold;'>"
+												+ om.getTrasactionID() + "</td></tr></table>");
 
 									} else {
 
@@ -234,8 +285,7 @@
 						</div></td>
 				</tr>
 			</table>
-			<br>
-			<br>
+			<br> <br>
 
 
 			<%

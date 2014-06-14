@@ -1,5 +1,4 @@
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<title>Quasar Student Registration</title>
 <tiles:insertTemplate template="/layout.jsp">
 	<tiles:putAttribute name="title" value="www.bismillah.com -Home Page"
 		type="string" />
